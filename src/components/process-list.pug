@@ -1,0 +1,16 @@
+- var processes = [['Анлитическая работа', 'Корпоративные сайты, лендинги интернет магазины, промо сайты текст рыба, текста'], ['Составление технического задания', 'Корпоративные сайты, лендинги интернет магазины, промо сайты текст рыба, текста'], ['Разработка', 'Корпоративные сайты, лендинги интернет магазины, промо сайты текст рыба, текста'], ['Тестирование и доработка', 'Корпоративные сайты, лендинги интернет магазины, промо сайты текст рыба, текста']]
+.process-list#process-list
+	- var i = 0
+	each process in processes
+		- i++
+		- var title = process[0]
+		- var desc = process[1]
+		- var isActive = process[2]
+		div(class="process-item"+(isActive ? "  active" : ""))
+			.process-item__icon
+				include ./process-icon
+				+process-icon(i)
+			.process-item__content
+				.process-item__title= title
+				.process-item__desc= desc
+					

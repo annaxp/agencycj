@@ -1,0 +1,18 @@
+extends ../components/head
+
+block variables
+	- var title = "Home"
+	-	var description = "description"
+
+block content
+	body.body
+		include ../components/background
+		include ../components/header
+		include ../blocks/preview
+		include ../blocks/about
+		include ../blocks/services
+		include ../blocks/projects
+		include ../blocks/process
+		include ../blocks/team
+		include ../blocks/contacts
+		include ../components/footer

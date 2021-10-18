@@ -1,0 +1,34 @@
+=transition()
+	transition: .3s ease
+
+.arrow
+	position: relative
+	width: 173px
+	height: 8px
+	cursor: pointer
+	&::before,
+	&::after
+		content: ''
+		position: absolute
+		display: block
+		+transition()
+	&::before
+		width: 0
+		height: 0
+		border-top: 4px solid transparent
+		border-right: 7px solid $textDark
+		border-bottom: 4px solid transparent
+	&::after
+		top: 3px
+		left: 2px
+		width: 50%
+		height: 1px
+		background-color: $textDark
+	&--right
+		transform: rotate(180deg)
+	&:hover
+		&::before
+			border-right: 7px solid $mainColor
+		&::after
+			width: 100%
+			background-color: $mainColor

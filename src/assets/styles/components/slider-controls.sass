@@ -1,0 +1,26 @@
+.slider-controls
+	display: flex
+	align-items: center
+	justify-content: space-between
+	&__info
+		position: relative
+		display: flex
+		justify-content: space-between
+		height: 40px
+		width: 45px
+		font-weight: 900
+		color: $textDark
+		&::before
+			content: ''
+			position: absolute
+			top: 0
+			left: 50%
+			display: block
+			height: 100%
+			width: 1px
+			background-color: $textDark
+			transform: rotate(45deg)
+	&__current
+		align-self: flex-start
+	&__count
+		align-self: flex-end

@@ -1,0 +1,42 @@
+=transition()
+	transition: .4s ease
+
+$iconSize: 60px
+$iconPathSize: 40%
+$position: 20%
+
+.process-icon
+	position: relative
+	display: flex
+	justify-content: center
+	align-items: center
+	width: $iconSize
+	height: $iconSize
+	border-radius: 50%
+	background-color: $mainGrey
+	+transition()
+	&::before
+		content: ''
+		width: $iconPathSize
+		height: $iconPathSize
+		border: 1px solid #fff
+	&__path
+		position: absolute
+		width: 10px
+		height: 10px
+		border: 1px solid #fff
+		border-radius: 50%
+		background-color: $mainGrey
+		+transition()
+		&:nth-child(1)
+			top: $position
+			left: $position
+		&:nth-child(2)
+			top: $position
+			right: $position
+		&:nth-child(3)
+			bottom: $position
+			left: $position
+		&:nth-child(4)
+			bottom: $position
+			right: $position

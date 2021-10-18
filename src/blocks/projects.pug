@@ -1,0 +1,13 @@
+.main.main--light
+	.main__inside 
+		.projects-block
+			.container
+				include ../components/main-title
+				+main-title('Наши работы')
+			.container-wide
+				- var projects = [['buro', 'Бюро Дмитрия Якушева', 'Сайт калькулятор для строительного бюро', '/assets/images/projects/buro.png', '#056f90'], ['buro', 'Бюро Дмитрия Якушева', 'Сайт калькулятор для строительного бюро', '/assets/images/projects/buro.png', '#fc4400'], ['buro', 'Бюро Дмитрия Якушева', 'Сайт калькулятор для строительного бюро', '/assets/images/projects/buro.png', '#10823c']]
+				include ../components/projects-list
+				+projects-list(projects)
+			.container 
+					include ../components/slider-controls
+	include ../components/scroll-below

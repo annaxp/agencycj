@@ -1,0 +1,15 @@
+mixin projects-list(projects)
+	.projects-list 
+		each project in projects
+			- var id = project[0]
+			- var name = project[1]
+			- var desc = project[2]
+			- var bgStyles = 'background-color: '+project[4]
+			- var img = project[3]
+			.project-item-wrapper(style=bgStyles) 
+				.project-item
+					.project-item__img 
+						img(src=img)
+					.project-item__content
+						.project-item__desc= desc
+						.project-item__title= name 

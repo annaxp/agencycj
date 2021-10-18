@@ -1,0 +1,33 @@
+@import ../components/process-icon
+
+.process-list
+	display: grid
+	gap: 130px 130px
+	grid-template-columns: repeat(2, 1fr)
+
+.process-item
+	display: flex
+	&__icon
+		padding-right: 24px
+	&__content
+		max-width: 320px
+		color: #fff
+		opacity: 0.4
+		+transition()
+	&__title
+		margin-bottom: 18px
+		font-size: 18px
+		line-height: 1.22
+		font-weight: 700
+	&__desc
+		max-width: 220px
+		line-height: 1.29
+	&.active
+		.process-item__content
+			opacity: 1
+		.process-icon
+			background-color: $mainColor
+			&__path
+				background-color: $mainColor
+				&.active
+					background-color: #fff

@@ -1,0 +1,61 @@
+@import ../components/slider-controls
+@import ../components/arrow
+
+$hoverColor: rgba(5, 111, 144, 0)
+=transition()
+	transition: .3s ease
+
+.projects-list
+	display: flex
+.project-item-wrapper
+	width: 33.33%
+.project-item
+	position: relative
+	width: 100%
+	padding: (108 / $containerWideWidth * 3 * 100%) 34px (127 / $containerWideWidth * 3 * 100%)
+	color: $textLight
+	cursor: pointer
+	$width: 1600
+	@media screen and (max-width: #{$width}px)
+		padding: (108 / $width * 3 * 100%) 34px (127 / $width * 3 * 100%)
+	&__content
+		position: relative
+		max-width: 70%
+	&__title
+		line-height: 1.33
+		font-size: 24px
+		font-weight: 900
+		text-transform: uppercase
+	&__desc
+		margin-bottom: 26px
+	&__img
+		position: absolute
+		top: 0
+		right: 0
+		bottom: 0
+		left: 0
+		display: flex
+		justify-content: flex-end
+		align-items: flex-end
+		&::after
+			content: ''
+			position: absolute
+			top: 0
+			right: 0
+			bottom: 0
+			left: 0
+			background-image: linear-gradient(239deg, $hoverColor 0%, rgb(3, 56, 72) 100%)
+			opacity: 0
+			+transition()
+		img
+			display: block
+			width: 40%
+			transform-origin: 100% 100%
+			+transition()
+	&:hover
+		.project-item
+			&__img
+				img
+					transform: scale(1.3)
+				&::after
+					opacity: 1

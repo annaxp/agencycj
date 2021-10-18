@@ -1,0 +1,10 @@
+mixin process-icon(active)
+	.process-icon 
+		- var n = 0
+		while n < 4
+			if (n < active)
+				.process-icon__path.active
+			else 
+				.process-icon__path
+			- n++
+			

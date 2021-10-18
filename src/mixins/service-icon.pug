@@ -1,0 +1,16 @@
+mixin service-icon(serviceId)
+	case serviceId
+		when 'web'
+			include ../assets/images/services/web.svg
+		when 'ux'
+			include ../assets/images/services/ux.svg
+		when 'ad'
+			include ../assets/images/services/ad.svg
+		when 'design'
+			include ../assets/images/services/design.svg
+		when 'smm'
+			include ../assets/images/services/smm.svg
+		when 'auto'
+			include ../assets/images/services/auto.svg
+		default
+			include ../assets/images/services/web.svg

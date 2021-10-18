@@ -1,0 +1,56 @@
+.about-block
+	display: flex
+	height: 100%
+	width: 100%
+	padding-top: 73 / $containerWidth * 100%
+	.main-title
+		margin-bottom: 76px
+	&__info
+		width: 50%
+	&__founder
+		align-self: stretch
+		width: 50%
+		padding-left: 50px
+		margin-left: auto
+
+.about-founder
+	display: flex
+	height: 100%
+	&__img-wrapper
+		position: relative
+		height: 100%
+		width: 50%
+	&__img
+		position: absolute
+		bottom: 0
+		left: 0
+		width: 100%
+		padding-top: 600 / 284 * 100%
+		img
+			position: absolute
+			top: 0
+			left: 0
+			display: block
+			width: 100%
+			height: 100%
+	&__desc
+		align-self: flex-end
+		margin-bottom: 131px
+		margin-left: auto
+		&-name
+			margin-bottom: 6px
+			color: $mainColor
+			font-size: 22px
+			font-weight: 900
+
+.about-content
+	max-width: 490px
+	&__title
+		margin-bottom: 26px
+		font-size: 32px
+		font-weight: 900
+		color: $mainColor
+		text-transform: uppercase
+	&__content
+		line-height: 1.71
+		font-size: 14px

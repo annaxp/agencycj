@@ -1,0 +1,30 @@
+@import ../vars
+@import ../components/call-button
+
+.header-wrapper
+	position: fixed
+	z-index: 100
+	top: 0
+	right: 0
+	left: 0
+	padding-block: 40px 30px
+.header
+	display: flex
+	align-items: center
+	&__nav
+		margin-left: auto
+	&__call
+		margin-left: 46px
+
+.header-logo
+	display: block
+.header-nav
+	display: grid
+	grid-auto-flow: column
+	column-gap: 46px
+	&__item
+		color: $mainLight
+		text-decoration: none
+		&:active,
+		&:hover
+			color: $mainLight
