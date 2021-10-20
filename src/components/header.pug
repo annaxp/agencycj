@@ -1,14 +1,14 @@
-header.header-wrapper
-  .container
-    .header
-      .header__logo
-        a.header-logo(href="/")
-          include ../assets/images/logo.svg
-      .header__nav
-        .header-nav
-          - var list = [["about", "О компании"], ["services", "Услуги"], ["projects", "Проекты"], ["process", "Процесс"], ["team", "Команда"], ["contacts", "Контакты"]]
-          each item in list
-            a.header-nav__item(href=item[0])= item[1]
-      .header__call
-        include ./call-button
-        +call-button('Связаться с нами')
+mixin header(nav, button, theme = 'light')
+  header.header-wrapper
+    .container
+      .header
+        .header__logo
+          a.header-logo(href="/")
+            include ../assets/images/logo.svg
+        .header__nav
+          .header-nav
+            each item in nav
+              a.header-nav__item(href=item[0])= item[1]
+        .header__call
+          include ./call-button
+          +call-button(button)

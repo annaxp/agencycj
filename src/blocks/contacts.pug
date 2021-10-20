@@ -1,1 +1,10 @@
-.contacts
+- var pageTitle = 'assets/images/contacts/contacts.svg'
+
+.main.main--light.main--no-bg#contacts
+	.container 
+		.main__inside 
+			include ../components/main-title-bg
+			+main-title-bg(pageTitle)
+			.contacts-block 
+	.main-bottom-bg
+	include ../components/scroll-below

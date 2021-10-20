@@ -1,10 +1,12 @@
-.main.main--dark
+- var pageTitle = 'Очень крутой слоган о том что делает'
+- var tags = [['SMM'], ['ПРОДВИЖЕНИЕ САЙТОВ'], ['СОЗДАНИЕ САЙТОВ'], ['SMM'], ['ПРОДВИЖЕНИЕ САЙТОВ'],['ПРОДВИЖЕНИЕ САЙТОВ'], ['СОЗДАНИЕ САЙТОВ']];
+
+.main.main--dark#preview
 	.container 
 		.main__inside 
 			.preview-block
 				include ../components/main-title
-				+main-title('Очень крутой слоган о том что делает', 'h1')
+				+main-title(pageTitle, 'h1')
 				include ../components/tags
-				- var tags = [['SMM'], ['ПРОДВИЖЕНИЕ САЙТОВ'], ['СОЗДАНИЕ САЙТОВ'], ['SMM'], ['ПРОДВИЖЕНИЕ САЙТОВ'],['ПРОДВИЖЕНИЕ САЙТОВ'], ['СОЗДАНИЕ САЙТОВ']];
 				+tags(tags)
 	include ../components/scroll-below

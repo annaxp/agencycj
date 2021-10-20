@@ -1,0 +1,14 @@
+mixin team-list(team)
+	.team-list 
+		each person in team 
+			- var title = person[0]
+			- var desc = person[1]
+			- var img = person[2]
+			//- .team-item-wrapper 
+			.team-item 
+				.team-item__img-wrapper
+					img.team-item__img(src=img)
+				.team-item__content
+					.team-item__title= title 
+					.team-item__desc= desc
+	include ../components/slider-controls

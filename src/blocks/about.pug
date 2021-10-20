@@ -1,18 +1,22 @@
-.main.main--light
+- var pageTitle = 'О компании'
+
+- var title = 'AGENCY UX ЭТО'
+- var content = 'Прародителем текста-рыбы является известный «Lorem Ipsum» – латинский текст, ноги которого растут аж из 45 года до нашей эры. Сервисов по созданию случайного текста на основе Lorem Ipsum великое множество, однако все они имеют один существенный недостаток: их «рыба текст» подходит лишь для англоязычных ресурсов/проектов. Мы же, фактически, предлагаем Lorem Ipsum на русском языке – вы можете использовать полученный здесь контент абсолютно.'
+
+- var img = ['assets/images/founder.png', 'founder']
+- var name = ['Анна Николаева', 'founder']
+
+.main.main--light#about
 	.container 
 		.main__inside 
 			.about-block
 				.about-block__info
 					include ../components/main-title
-					+main-title('О компании')
+					+main-title(pageTitle)
 					.about-content
-						- var title = 'AGENCY UX ЭТО'
-						- var content = 'Прародителем текста-рыбы является известный «Lorem Ipsum» – латинский текст, ноги которого растут аж из 45 года до нашей эры. Сервисов по созданию случайного текста на основе Lorem Ipsum великое множество, однако все они имеют один существенный недостаток: их «рыба текст» подходит лишь для англоязычных ресурсов/проектов. Мы же, фактически, предлагаем Lorem Ipsum на русском языке – вы можете использовать полученный здесь контент абсолютно.'
 						.about-content__title #{title}
 						.about-content__content #{content}
 				.about-block__founder
-					- var img = ["assets/images/founder.png", "founder"]
-					- var name = ["Анна Николаева", "founder"]
 					.about-founder 
 						.about-founder__img-wrapper 
 							.about-founder__img
