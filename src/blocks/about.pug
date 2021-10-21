@@ -6,22 +6,21 @@
 - var img = ['assets/images/founder.png', 'founder']
 - var name = ['Анна Николаева', 'founder']
 
-.main.main--light#about
-	.container 
-		.main__inside 
-			.about-block
-				.about-block__info
-					include ../components/main-title
-					+main-title(pageTitle)
-					.about-content
-						.about-content__title #{title}
-						.about-content__content #{content}
-				.about-block__founder
-					.about-founder 
-						.about-founder__img-wrapper 
-							.about-founder__img
-								img(src=img[0], alt=img[1])
-						.about-founder__desc
-							.about-founder__desc-name #{name[0]}
-							.about-founder__desc-desc #{name[1]}
+.main.header-offset.main--light#about
+	.main__inside.container 
+		.about-block
+			.about-block__info
+				include ../components/main-title
+				+main-title(pageTitle)
+				.about-content
+					.about-content__title #{title}
+					.about-content__content #{content}
+			.about-block__founder
+				.about-founder 
+					.about-founder__img-wrapper 
+						.about-founder__img
+							img(src=img[0], alt=img[1])
+					.about-founder__desc
+						.about-founder__desc-name #{name[0]}
+						.about-founder__desc-desc #{name[1]}
 	include ../components/scroll-below

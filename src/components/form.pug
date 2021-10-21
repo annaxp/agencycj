@@ -1,0 +1,9 @@
+form.form
+	.form__wrapper
+		label.form-input 
+			input.form-input__input(placeholder="Имя")
+		label.form-input 
+			input.form-input__input(placeholder="Телефон")
+	.form__button
+		include ../components/call-button
+		+call-button('Оставить заявку', 'call-button--filled')

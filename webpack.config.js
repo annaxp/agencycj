@@ -38,12 +38,13 @@ module.exports = {
       patterns: [{ from: 'assets/images', to: 'assets/images' }],
     }),
   ],
+  devtool: 'source-map',
   module: {
     rules: [
       {
         test: /\.s?[ac]ss$/i,
         use: [
-          MiniCssExtractPlugin.loader,
+          'style-loader',
           {
             loader: 'css-loader',
             options: { sourceMap: true },

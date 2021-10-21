@@ -1,2 +1,3 @@
-mixin call-button(text)
-	.call-button #{text}
+mixin call-button(text, className='')
+	div(class="call-button "+className) 
+		span #{text}

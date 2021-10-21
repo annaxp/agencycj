@@ -1,12 +1,11 @@
 - var pageTitle = 'Очень крутой слоган о том что делает'
 - var tags = [['SMM'], ['ПРОДВИЖЕНИЕ САЙТОВ'], ['СОЗДАНИЕ САЙТОВ'], ['SMM'], ['ПРОДВИЖЕНИЕ САЙТОВ'],['ПРОДВИЖЕНИЕ САЙТОВ'], ['СОЗДАНИЕ САЙТОВ']];
 
-.main.main--dark#preview
-	.container 
-		.main__inside 
-			.preview-block
-				include ../components/main-title
-				+main-title(pageTitle, 'h1')
-				include ../components/tags
-				+tags(tags)
+.main.header-offset.main--dark#preview
+	.main__inside.container 
+		.preview-block
+			include ../components/main-title
+			+main-title(pageTitle, 'h1')
+			include ../components/tags
+			+tags(tags)
 	include ../components/scroll-below

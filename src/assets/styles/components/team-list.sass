@@ -1,27 +1,52 @@
+.team-list-wrapper
+	.slider-controls
+		padding-top: 27px
+
 .team-list
 	display: grid
 	grid-template-columns: repeat(4, 1fr)
 	gap: 94px
 
 .team-item
+	position: relative
 	width: 100%
 	color: #000
-	&__img-wrapper
+	&:hover
+		.team-item
+			&__hover
+				transform: translateY(-50px)
+			&__content
+				opacity: 1
+				pointer-events: all
+	&__inner
 		position: relative
 		width: 100%
 		padding-top: 121%
-		margin-bottom: 8px
-		overflow: hidden
+	&__hover
+		transition: .3s ease
+	&__img-wrapper
+		position: absolute
+		top: 0
+		right: 0
+		bottom: 0
+		left: 0
 	&__img
+		position: absolute
 		top: 50%
 		left: 50%
-		position: absolute
 		display: block
 		width: 100%
 		transform: translate(-50%, -50%)
 	&__content
-		display: none
+		position: absolute
+		top: 100%
+		left: 0
+		width: 100%
 		padding-top: 8px
+		color: $textDark
+		opacity: 0
+		pointer-events: none
 	&__title
+		margin-bottom: 11px
 		font-weight: 700
 		opacity: 0.3

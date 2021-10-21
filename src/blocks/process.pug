@@ -1,10 +1,9 @@
 - var pageTitle = 'КАК МЫ РАБОТАЕМ'
 
-.main.main--dark#process
-	.container 
-		.main__inside 
-			.process-block
-				include ../components/main-title
-				+main-title(pageTitle)
-				include ../components/process-list
+.main.header-offset.main--dark#process
+	.main__inside.container
+		.process-block
+			include ../components/main-title
+			+main-title(pageTitle)
+			include ../components/process-list
 	include ../components/scroll-below

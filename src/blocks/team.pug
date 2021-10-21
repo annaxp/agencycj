@@ -3,14 +3,15 @@
 - var text = '<b>agansy ux</b> - команда профессионалов, которая индивидуально подходит к каждому клиенту и решает его проблемы. Которая знает все о современных технологиях и помешана на автоматизации. Которая ценит ваше время, комфорт и безопасность. Которая имеет опыт и успешные проекты за спиной.'
 - var team = [['Василий Петров', 'Руководитель проектов', '/assets/images/team/person.jpg'], ['Василий Петров', 'Руководитель проектов', '/assets/images/team/person.jpg'], ['Василий Петров', 'Руководитель проектов', '/assets/images/team/person.jpg'], ['Василий Петров', 'Руководитель проектов', '/assets/images/team/person.jpg']]
 
-.main.main--dark#team
-	.container 
-		.main__inside 
-			include ../components/main-title-bg
-			+main-title-bg(pageTitle)
-			.team-block 
+.main#team
+	.team-block
+		.team-block__top.header-offset
+			.team-block__wrapper.container
+				include ../components/main-title-bg
+				+main-title-bg(pageTitle)
 				.team-block__content !{text}
+		.team-block__bottom
+			.container
 				include ../components/team-list
 				+team-list(team)
-	.main-bottom-bg
 	include ../components/scroll-below

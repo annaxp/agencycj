@@ -1,10 +1,18 @@
 - var pageTitle = 'assets/images/contacts/contacts.svg'
 
-.main.main--light.main--no-bg#contacts
-	.container 
-		.main__inside 
-			include ../components/main-title-bg
-			+main-title-bg(pageTitle)
-			.contacts-block 
-	.main-bottom-bg
-	include ../components/scroll-below
+- var adress = ['https://yandex.ru/maps/213/moscow/house/leninskiy_prospekt_2/Z04YcAZhSkwFQFtvfXtzeHlhbQ==/?ll=37.617515%2C55.727938&source=wizgeo&utm_medium=maps-desktop&utm_source=serp&z=15.84', 'г. Москва, Ленинский проспект д. 2 оф. 45']
+
+.main#contacts
+	.contacts-block
+		.contacts-block__top.header-offset
+			.contacts-block__wrapper.container 
+				include ../components/main-title-bg
+				+main-title-bg(pageTitle)
+				.contacts-block__content
+					include ../components/contacts-list
+					.contacts-adress
+						a.contacts-adress__link(href=adress[0])= adress[1]
+		.contacts-block__bottom
+			.container 
+				.contacts-form-wrapper 
+					include ../components/form

@@ -10,5 +10,5 @@ mixin header(nav, button, theme = 'light')
             each item in nav
               a.header-nav__item(href=item[0])= item[1]
         .header__call
-          include ./call-button
+          include ../components/call-button
           +call-button(button)

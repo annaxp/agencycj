@@ -1,11 +1,45 @@
 @import ../components/team-list
 
 .team-block
-	padding-top: 49 / $containerWidth * 100%
+	position: relative
+	display: flex
+	flex-direction: column
+	justify-content: space-between
+	width: 100%
+	&__top
+		position: relative
+		display: flex
+		flex-grow: 1
+		padding-bottom: 240px
+		&::before
+			z-index: -1
+			background-color: $mainDark
+	&__top::before,
+	&__bottom::before
+		content: ''
+		position: absolute
+		top: 0
+		right: 0
+		bottom: 0
+		left: 0
+	&__wrapper
+		position: relative
+		display: flex
+		flex-direction: column
+		padding-top: 48 / $containerWidth * 100%
 	&__content
+		position: relative
+		color: #fff
 		line-height: 1.57
 		max-width: 630px
 		margin: 0 auto 89px
 		text-align: center
-	& > .slider-controls
-		padding-top: 27px
+	&__bottom
+		position: relative
+		padding-bottom: 20px
+		&::before
+			background-color: #fff
+	.team-list-wrapper
+		transform: translateY(-220px)
+	.main-title-bg__img
+		margin-top: 28px

@@ -1,10 +1,9 @@
 - var pageTitle = 'Наши услуги'
 
-.main.main--dark#services
-	.container 
-		.main__inside 
-			.services-block 
-				include ../components/main-title
-				+main-title(pageTitle)
-				include ../components/services-list
+.main.header-offset.main--dark#services
+	.main__inside.container
+		.services-block 
+			include ../components/main-title
+			+main-title(pageTitle)
+			include ../components/services-list
 	include ../components/scroll-below
