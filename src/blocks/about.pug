@@ -1,3 +1,7 @@
+//- require mixins block
+include ../components/main-title
+include ../components/scroll-below
+
 - var pageTitle = 'О компании'
 
 - var title = 'AGENCY UX ЭТО'
@@ -6,11 +10,10 @@
 - var img = ['assets/images/founder.png', 'founder']
 - var name = ['Анна Николаева', 'founder']
 
-.main.header-offset.main--light#about
++main({dataHash:'about', className:'header-offset  main--light', scrollClassName:'theme-light'})
 	.main__inside.container 
 		.about-block
 			.about-block__info
-				include ../components/main-title
 				+main-title(pageTitle)
 				.about-content
 					.about-content__title #{title}
@@ -23,4 +26,3 @@
 					.about-founder__desc
 						.about-founder__desc-name #{name[0]}
 						.about-founder__desc-desc #{name[1]}
-	include ../components/scroll-below

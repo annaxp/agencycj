@@ -1,9 +1,11 @@
+//- require mixins block
+include ../components/main-title
+include ../components/scroll-below
+
 - var pageTitle = 'Наши услуги'
 
-.main.header-offset.main--dark#services
++main({dataHash:'services', className:'header-offset  main--dark', scrollClassName:'theme-dark'})
 	.main__inside.container
 		.services-block 
-			include ../components/main-title
 			+main-title(pageTitle)
 			include ../components/services-list
-	include ../components/scroll-below

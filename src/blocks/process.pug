@@ -1,9 +1,11 @@
+//- require mixins block
+include ../components/main-title
+include ../components/scroll-below
+
 - var pageTitle = 'КАК МЫ РАБОТАЕМ'
 
-.main.header-offset.main--dark#process
++main({dataHash:'process', className:'header-offset  main--dark', scrollClassName:'theme-dark'})
 	.main__inside.container
 		.process-block
-			include ../components/main-title
 			+main-title(pageTitle)
 			include ../components/process-list
-	include ../components/scroll-below

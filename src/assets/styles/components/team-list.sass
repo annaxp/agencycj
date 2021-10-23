@@ -1,12 +1,23 @@
+$translateY: 50
+
 .team-list-wrapper
+	display: flex
+	flex-direction: column
+	margin-left: auto
+	margin-right: auto
+	position: relative
+	overflow: hidden
+	list-style: none
+	padding-top: #{$translateY}px
+	z-index: 1
 	.slider-controls
 		padding-top: 27px
 
 .team-list
-	display: grid
-	grid-template-columns: repeat(4, 1fr)
-	gap: 94px
-
+	display: flex
+.team-slide
+	width: 25%
+	flex-shrink: 0
 .team-item
 	position: relative
 	width: 100%
@@ -14,7 +25,7 @@
 	&:hover
 		.team-item
 			&__hover
-				transform: translateY(-50px)
+				transform: translateY(-#{$translateY}px)
 			&__content
 				opacity: 1
 				pointer-events: all

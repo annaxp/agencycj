@@ -5,19 +5,30 @@ $hoverColor: rgba(5, 111, 144, 0)
 =transition()
 	transition: .3s ease
 
+.projects-list-wrapper
+	position: relative
+	display: flex
+	flex-direction: column
+	margin-left: auto
+	margin-right: auto
+	overflow-x: hidden
+	list-style: none
+	padding: 0
+
 .projects-list
 	display: flex
-.project-item-wrapper
+.project-slide
 	width: 33.33%
+	flex-shrink: 0
 .project-item
 	position: relative
 	width: 100%
-	padding: (108 / $containerWideWidth * 3 * 100%) 34px (127 / $containerWideWidth * 3 * 100%)
+	padding: (105 / $containerWideWidth * 3 * 100%) 34px (124 / $containerWideWidth * 3 * 100%)
 	color: $textLight
 	cursor: pointer
 	$width: 1600
 	@media screen and (max-width: #{$width}px)
-		padding: (108 / $width * 3 * 100%) 34px (127 / $width * 3 * 100%)
+		padding: (103 / $width * 3 * 100%) 34px (122 / $width * 3 * 100%)
 	&__content
 		position: relative
 		max-width: 70%

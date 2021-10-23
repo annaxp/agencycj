@@ -7,7 +7,8 @@ mixin projects-list(projects)
 				- var desc = project[2]
 				- var bgStyles = 'background-color: '+project[4]
 				- var img = project[3]
-				.project-item-wrapper.swiper-slide(style=bgStyles) 
+
+				.project-slide(style=bgStyles) 
 					.project-item
 						.project-item__img 
 							img(src=img)

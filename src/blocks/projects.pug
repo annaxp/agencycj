@@ -1,14 +1,16 @@
+//- require mixins block
+include ../components/main-title
+include ../components/projects-list
+include ../components/scroll-below
+
 - var pageTitle = 'Наши работы'
 
 - var projects = [['buro', 'Бюро Дмитрия Якушева', 'Сайт калькулятор для строительного бюро', 'assets/images/projects/buro.png', '#056f90'], ['buro', 'Бюро Дмитрия Якушева', 'Сайт калькулятор для строительного бюро', 'assets/images/projects/buro.png', '#fc4400'], ['buro', 'Бюро Дмитрия Якушева', 'Сайт калькулятор для строительного бюро', 'assets/images/projects/buro.png', '#10823c'], ['buro', 'Бюро Дмитрия Якушева', 'Сайт калькулятор для строительного бюро', 'assets/images/projects/buro.png', '#10823c'], ['buro', 'Бюро Дмитрия Якушева', 'Сайт калькулятор для строительного бюро', 'assets/images/projects/buro.png', '#10823c']]
 
-.main.header-offset.main--light#projects
++main({dataHash:'projects', className:'header-offset main--light', scrollClassName:'theme-light'})
 	.main__inside 
 		.projects-block
 			.container
-				include ../components/main-title
 				+main-title(pageTitle)
 			.container-wide
-				include ../components/projects-list
 				+projects-list(projects)
-	include ../components/scroll-below

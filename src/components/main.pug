@@ -1,0 +1,7 @@
+mixin main({className, dataHash, scrollClassName})
+	div(class='main '+className data-hash=data-hash)
+		.main__background 
+			include ../components/background
+		block
+		if scrollClassName
+				+scroll-below(scrollClassName)

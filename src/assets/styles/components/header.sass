@@ -8,6 +8,20 @@
 	right: 0
 	left: 0
 	padding-block: 40px 30px
+	&.theme-dark
+		.header-nav__item
+			color: $mainLight
+		.header-logo .theme-fill
+			fill: $mainLight
+	&.theme-light
+		.header-nav__item
+			color: $textDark
+		.header-logo .theme-fill
+			fill: $textDark
+	&.theme-dark,
+	&.theme-light
+		.header-nav__item:hover
+			color: $mainColor
 .header
 	display: flex
 	align-items: center
@@ -18,6 +32,8 @@
 
 .header-logo
 	display: block
+	.theme-fill
+		transition: fill .2s ease
 .header-nav
 	display: grid
 	grid-auto-flow: column
@@ -25,6 +41,8 @@
 	&__item
 		color: $mainLight
 		text-decoration: none
+		transition: color .2s ease
+		&.active.active,
 		&:active,
 		&:hover
-			color: $mainLight
+			color: $mainColor

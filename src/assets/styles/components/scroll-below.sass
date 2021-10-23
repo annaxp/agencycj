@@ -3,13 +3,38 @@
 	z-index: 50
 	bottom: 15px
 	left: 50%
-	width: 1px
-	height: 30px
-	background-color: #fff
+	display: flex
+	justify-content: center
+	align-items: center
+	width: 10px
+	height: 32px
 	cursor: pointer
+	transition: .2s ease
+	transform: translateX(-50%)
+	overflow: hidden
+	&.theme-light::after
+		background-color: $mainColor
+	&.theme-dark::after
+		background-color: $mainLight
 	&::after
 		content: ''
 		display: block
-		width: 10px
+		width: 1px
 		height: 100%
-		margin-left: -2px
+		animation: scroll 3s infinite
+
+@keyframes scroll
+	0%
+		transform: translateY(0)
+	25%
+		transform: translateY(0)
+		animation-timing-function: ease-in
+	40%
+		transform: translateY(-110%)
+		animation-timing-function: steps(1,end)
+	41%
+		transform: translateY(110%)
+		animation-timing-function: cubic-bezier(.18,.51,.38,.96)
+	100%
+		transform: translateY(0)
+		animation-timing-function: steps(1,end)

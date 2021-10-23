@@ -1,4 +1,5 @@
 @import ../components/team-list
+$offsetY: 240
 
 .team-block
 	position: relative
@@ -6,11 +7,17 @@
 	flex-direction: column
 	justify-content: space-between
 	width: 100%
+	.body--fp &
+		height: 100%
+	.team-list-wrapper
+		margin-top: -$offsetY / $containerWidth * 100%
+		padding-bottom: $offsetY / 2.8 / $containerWidth * 100%
+	.main-title-bg__img
+		margin-top: 28px
 	&__top
 		position: relative
 		display: flex
 		flex-grow: 1
-		padding-bottom: 240px
 		&::before
 			z-index: -1
 			background-color: $mainDark
@@ -27,19 +34,15 @@
 		display: flex
 		flex-direction: column
 		padding-top: 48 / $containerWidth * 100%
+		padding-bottom: 48 / $containerWidth * 100%
 	&__content
 		position: relative
-		color: #fff
+		color: $mainLight
 		line-height: 1.57
 		max-width: 630px
 		margin: 0 auto 89px
 		text-align: center
 	&__bottom
 		position: relative
-		padding-bottom: 20px
 		&::before
-			background-color: #fff
-	.team-list-wrapper
-		transform: translateY(-220px)
-	.main-title-bg__img
-		margin-top: 28px
+			background-color: $mainLight

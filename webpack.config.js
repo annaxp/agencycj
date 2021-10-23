@@ -29,14 +29,20 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: `${PAGES_DIR}/index.pug`,
       filename: './index.html',
+      inject: false,
+    }),
+    new HtmlWebpackPlugin({
+      template: `${PAGES_DIR}/services.pug`,
+      filename: './services/index.html',
+      inject: false,
     }),
     new MiniCssExtractPlugin({
       filename: `./assets/styles/${fileName('css')}`,
     }),
-    new CleanWebpackPlugin(),
     new CopyPlugin({
       patterns: [{ from: 'assets/images', to: 'assets/images' }],
     }),
+    new CleanWebpackPlugin(),
   ],
   devtool: 'source-map',
   module: {
@@ -57,10 +63,14 @@ module.exports = {
       },
       {
         test: /\.pug$/i,
-        loader: 'pug-loader',
-        options: {
-          pretty: true,
-        },
+        use: [
+          {
+            loader: 'pug-loader',
+            options: {
+              pretty: true,
+            },
+          },
+        ],
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,

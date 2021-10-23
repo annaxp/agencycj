@@ -9,6 +9,9 @@
 		font-weight: 700
 		color: $textDark
 		text-decoration: none
+		transition: color .2s ease
+		&:hover
+			color: $mainColor
 	&__socials
 		display: grid
 		grid-auto-flow: column
@@ -16,3 +19,9 @@
 		gap: 30px
 .social-icon
 	display: block
+	& > svg path
+		transition: fill .2s ease
+		fill: $textDark
+	&:hover
+		& > svg path
+			fill: $mainColor

@@ -1,11 +1,15 @@
-- var pageTitle = 'Очень крутой слоган о том что делает'
-- var tags = [['SMM'], ['ПРОДВИЖЕНИЕ САЙТОВ'], ['СОЗДАНИЕ САЙТОВ'], ['SMM'], ['ПРОДВИЖЕНИЕ САЙТОВ'],['ПРОДВИЖЕНИЕ САЙТОВ'], ['СОЗДАНИЕ САЙТОВ']];
+//- require mixins block
+include ../components/main
+include ../components/main-title
+include ../components/tags
+include ../components/scroll-below
 
-.main.header-offset.main--dark#preview
+- var pageTitle = 'Очень крутой слоган о том что делает'
+
+- var tags = [['SMM'], ['ПРОДВИЖЕНИЕ САЙТОВ'], ['СОЗДАНИЕ САЙТОВ'], ['SMM'], ['ПРОДВИЖЕНИЕ САЙТОВ'],['ПРОДВИЖЕНИЕ САЙТОВ'], ['СОЗДАНИЕ САЙТОВ']]
+
++main({dataHash:'preview', className:'header-offset  main--dark', scrollClassName:'theme-dark'})
 	.main__inside.container 
 		.preview-block
-			include ../components/main-title
 			+main-title(pageTitle, 'h1')
-			include ../components/tags
 			+tags(tags)
-	include ../components/scroll-below

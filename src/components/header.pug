@@ -1,14 +1,13 @@
-mixin header(nav, button, theme = 'light')
-  header.header-wrapper
-    .container
-      .header
-        .header__logo
-          a.header-logo(href="/")
-            include ../assets/images/logo.svg
-        .header__nav
-          .header-nav
-            each item in nav
-              a.header-nav__item(href=item[0])= item[1]
-        .header__call
-          include ../components/call-button
-          +call-button(button)
+mixin header(nav, button, theme = 'theme-light')
+  header(class='header-wrapper '+theme)
+    .header.container
+      .header__logo
+        a.header-logo(href="#")
+          include ../assets/images/logo.svg
+      .header__nav
+        .header-nav
+          each item in nav
+            a.header-nav__item(href=item[0])= item[1]
+      .header__call
+        include ../components/call-button
+        +call-button({tag:'a', href:'#contacts', text: button})

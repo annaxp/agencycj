@@ -1,0 +1,15 @@
+extends ../components/head
+
+block variables
+	- var title = 'Services'
+	-	var description = 'description'
+
+block content
+	- var nav = [['#about', 'О компании'], ['#services', 'Услуги'], ['#projects', 'Проекты'], ['#process', 'Процесс'], ['#team', 'Команда'], ['#contacts', 'Контакты']]
+
+	body.body
+		include ../components/background
+		include ../components/header
+		+header(nav, 'Связаться с нами')
+		include ../blocks/preview
+		include ../blocks/contacts
