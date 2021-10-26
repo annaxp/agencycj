@@ -21,14 +21,14 @@ $hoverColor: rgba(5, 111, 144, 0)
 	width: 33.33%
 	flex-shrink: 0
 .project-item
+	$width: 533
 	position: relative
 	width: 100%
-	padding: (105 / $containerWideWidth * 3 * 100%) 34px (124 / $containerWideWidth * 3 * 100%)
+	padding: (103 / $width * 100%) 34px (122 / $width * 100%)
 	color: $textLight
 	cursor: pointer
-	$width: 1600
-	@media screen and (max-width: #{$width}px)
-		padding: (103 / $width * 3 * 100%) 34px (122 / $width * 3 * 100%)
+	@media screen and (max-height: $media-height-m)
+		padding: (90 / $width * 100%) 34px (105 / $width * 100%)
 	&__content
 		position: relative
 		max-width: 70%

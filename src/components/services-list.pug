@@ -1,15 +1,13 @@
-- var imagesPath = 'assets/images/services/'
 - var services = [['web', 'WEB РАЗРАБОТКА', 'Короткий поясняющий текст в две стороки'], ['ux', 'UX АНАЛИТИКА', 'Короткий поясняющий текст в две стороки'], ['ad', 'ВСЕ ВИДЫ РЕКЛАМЫ', 'Короткий поясняющий текст в две стороки'], ['design', 'ДИЗАЙН', 'Короткий поясняющий текст в две стороки'], ['smm', 'SMM', 'Короткий поясняющий текст в две стороки'], ['auto', 'АВТОМАТИЗАЦИЯ', 'Короткий поясняющий текст в две стороки']]
 .services-list
 	each service in services
 		- var title = service[1]
 		- var desc = service[2]
 		.services-item
-			include ../mixins/service-icon
-			.services-item__icon
-				+service-icon(service[0])
-			.services-item__title= title
-			.services-item__desc= desc
-			.services-item__hover 
-				include ../assets/images/services/order.svg
+			.services-item__link
+				include ../mixins/service-icon
+				.services-item__icon
+					+service-icon(service[0])
+				.services-item__title= title
+				.services-item__desc= desc
 			

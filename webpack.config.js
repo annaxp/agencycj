@@ -3,15 +3,18 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
+const autoprefixer = require('autoprefixer')
 
 const PAGES_DIR = path.join(__dirname, './src/pages')
+
+const isDev = process.env.mode === 'development'
 
 const fileName = (ext) => `[name].[contenthash].${ext}`
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
   entry: './index.js',
-  mode: 'development',
+  mode: process.env.mode,
   resolve: {
     alias: {
       '@components': path.resolve(__dirname, './src/components'),
@@ -29,12 +32,16 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: `${PAGES_DIR}/index.pug`,
       filename: './index.html',
+      minify: false,
       inject: false,
+      // inject: true,
     }),
     new HtmlWebpackPlugin({
       template: `${PAGES_DIR}/services.pug`,
       filename: './services/index.html',
+      minify: false,
       inject: false,
+      // inject: true,
     }),
     new MiniCssExtractPlugin({
       filename: `./assets/styles/${fileName('css')}`,
@@ -53,7 +60,19 @@ module.exports = {
           'style-loader',
           {
             loader: 'css-loader',
-            options: { sourceMap: true },
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [
+                  autoprefixer({
+                    browsers: ['ie >= 11', 'last 4 version'],
+                  }),
+                ],
+                // sourceMap: true,
+              },
+            },
           },
           {
             loader: 'sass-loader',

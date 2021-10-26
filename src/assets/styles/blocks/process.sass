@@ -2,5 +2,9 @@
 
 .process-block
 	padding-top: 50 / $containerWidth * 100%
+	@media screen and ( max-height: $media-height-m)
+		padding-top: 40 / $containerWidth * 100%
 	.main-title
-		margin-bottom: 96px
+		margin-bottom: 96 / $containerWidth * 100%
+		@media screen and ( max-height: $media-height-m)
+			margin-bottom: 76px

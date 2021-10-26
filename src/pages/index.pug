@@ -14,10 +14,10 @@ block styles
 block content
 	- var nav = [['#about', 'О компании'], ['#services', 'Услуги'], ['#projects', 'Проекты'], ['#process', 'Процесс'], ['#team', 'Команда'], ['#contacts', 'Контакты']]
 
-	body.body.body--fp
+	body.body
 		+header(nav, 'Связаться с нами')
-		.screens.swiper
-			.screens-wrapper.swiper-wrapper
+		.screens
+			.screens-wrapper
 				include ../blocks/preview
 				include ../blocks/about
 				include ../blocks/services

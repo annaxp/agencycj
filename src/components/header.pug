@@ -3,7 +3,7 @@ mixin header(nav, button, theme = 'theme-light')
     .header.container
       .header__logo
         a.header-logo(href="#")
-          include ../assets/images/logo.svg
+          include ../assets/icons/logo.svg
       .header__nav
         .header-nav
           each item in nav
@@ -11,3 +11,8 @@ mixin header(nav, button, theme = 'theme-light')
       .header__call
         include ../components/call-button
         +call-button({tag:'a', href:'#contacts', text: button})
+      .header__mobile 
+        .header__message 
+          include ../assets/icons/call.svg
+        .header__burger
+          include ../assets/icons/menu.svg

@@ -12,9 +12,22 @@
 .screens
 	position: relative
 	width: 100%
-	height: 100vh
+	margin-left: auto
+	margin-right: auto
+	list-style: none
+	padding: 0
+	z-index: 1
+	.desktop-app &
+		height: 100vh
+		overflow: hidden
 
 .screens-wrapper
 	position: relative
+	display: flex
+	flex-direction: column
+	z-index: 1
 	width: 100%
-	height: unset
+	.desktop-app &
+		touch-action: pan-x
+		transform: translate3d(0px, 0px, 0px)
+		transition-property: transform

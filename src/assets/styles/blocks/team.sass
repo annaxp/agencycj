@@ -7,11 +7,13 @@ $offsetY: 240
 	flex-direction: column
 	justify-content: space-between
 	width: 100%
-	.body--fp &
+	.desktop-app &
 		height: 100%
 	.team-list-wrapper
 		margin-top: -$offsetY / $containerWidth * 100%
 		padding-bottom: $offsetY / 2.8 / $containerWidth * 100%
+		@media screen and ( max-height: $media-height-m)
+			padding-bottom: $offsetY / 3.8 / $containerWidth * 100%
 	.main-title-bg__img
 		margin-top: 28px
 	&__top
@@ -35,6 +37,8 @@ $offsetY: 240
 		flex-direction: column
 		padding-top: 48 / $containerWidth * 100%
 		padding-bottom: 48 / $containerWidth * 100%
+		@media screen and ( max-height: $media-height-m)
+			padding-top: 20 / $containerWidth * 100%
 	&__content
 		position: relative
 		color: $mainLight

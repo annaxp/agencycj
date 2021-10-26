@@ -1,0 +1,5 @@
+mixin menu(nav, button)
+	.menu-wrapper 
+		.menu
+			each item in nav
+				a.menu__item(href=item[0])= item[1]

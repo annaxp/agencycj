@@ -1,6 +1,8 @@
 @import ../vars
 @import ../components/call-button
 
+$isMobile: ':not(.desktop-app) &, .mobile-app &'
+
 .header-wrapper
 	position: fixed
 	z-index: 100
@@ -8,6 +10,11 @@
 	right: 0
 	left: 0
 	padding-block: 40px 30px
+	#{$isMobile}
+		padding-block: 22px
+		background: $mainDark
+		box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16)
+
 	&.theme-dark
 		.header-nav__item
 			color: $mainLight
@@ -27,8 +34,19 @@
 	align-items: center
 	&__nav
 		margin-left: auto
+		#{$isMobile}
+			display: none
 	&__call
 		margin-left: 46px
+		#{$isMobile}
+			display: none
+	&__mobile
+		display: grid
+		grid-auto-flow: column
+		gap: 24px
+		margin-left: auto
+		.desktop-app &
+			display: none
 
 .header-logo
 	display: block
