@@ -7,11 +7,15 @@ body
   font-size: 14px
   &.desktop-app
     height: 100vh
+  &.menu-opened
+    overflow: hidden
 .container
   width: 100%
   max-width: #{$containerWidth}px
   padding: 0 20px
   margin: 0 auto
+  @media screen and ( max-width: $media-width-xs ) and (min-width: $media-width-xss)
+    padding: 0 80px
 
 .container-wide
   width: 100%
@@ -20,6 +24,8 @@ body
 
 .header-offset
   padding-top: $headerHeight
+  #{$isMobile}
+    padding-top: $headerHeightMobile
 
 input
   padding: 0

@@ -3,10 +3,13 @@
 .projects-block
 	flex-grow: 1
 	padding-top: 45 / $containerWidth * 100%
+	padding-bottom: 20px
 	@media screen and (min-width: #{$containerWidth + 1}px)
 		padding-top: 63px
 	@media screen and (max-height: $media-height-m)
 		padding-top: 40px
+	@media screen and ( max-width: $media-width-xs )
+		padding-bottom: 75px
 	.main-title
 		margin-bottom: 74 / $containerWidth * 100%
 		@media screen and (max-height: $media-height-m)

@@ -3,15 +3,25 @@
 	height: 100%
 	width: 100%
 	padding-top: 63 / $containerWidth * 100%
+	#{$isMobile}
+		padding-top: 43 / $containerWidth * 100%
+	@media screen and ( max-width: $media-width-xs )
+		padding-top: 43 / $containerWidth * 100%
+
 	.main-title
 		margin-bottom: 70px
+		@media screen and ( max-width: $media-width-xs )
+			margin-bottom: 56px
 	&__info
-		width: 50%
+		flex-grow: 1
+		padding-bottom: 76px
 	&__founder
 		align-self: stretch
 		width: 50%
 		padding-left: 50px
 		margin-left: auto
+		@media screen and ( max-width: $media-width-xs )
+			width: 45%
 
 .about-founder
 	display: flex
@@ -40,11 +50,13 @@
 		align-self: flex-end
 		margin-bottom: 131px
 		margin-left: auto
-		&-name
-			margin-bottom: 6px
-			color: $mainColor
-			font-size: 22px
-			font-weight: 900
+	&__name
+		margin-bottom: 6px
+		color: $mainColor
+		font-size: 22px
+		font-weight: 900
+		@media screen and ( max-width: $media-width-xs )
+			font-size: 18px
 
 .about-content
 	max-width: 490px
@@ -54,6 +66,9 @@
 		font-weight: 900
 		color: $mainColor
 		text-transform: uppercase
+		@media screen and ( max-width: $media-width-xs )
+			font-size: 22px
+			margin-bottom: 16px
 	&__content
 		line-height: 1.71
 		font-size: 14px

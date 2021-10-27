@@ -47,7 +47,10 @@ module.exports = {
       filename: `./assets/styles/${fileName('css')}`,
     }),
     new CopyPlugin({
-      patterns: [{ from: 'assets/images', to: 'assets/images' }],
+      patterns: [
+        { from: 'assets/images', to: 'assets/images' },
+        { from: 'assets/videos', to: 'assets/videos' },
+      ],
     }),
     new CleanWebpackPlugin(),
   ],

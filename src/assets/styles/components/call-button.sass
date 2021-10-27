@@ -11,12 +11,13 @@
 	border: 1px solid $mainColor
 	border-radius: 4px
 	cursor: pointer
-	transition: .2s ease
+	transition: .4s ease
 	overflow: hidden
 	text-decoration: none
 	span
 		position: relative
 	&.call-button--filled
+		border: none
 		color: $textLight
 		background-color: $mainColor
 	&::before
@@ -28,10 +29,12 @@
 		height: 100%
 		display: block
 		background: linear-gradient(to bottom, $mainColor, $mainColorLight)
+		border-radius: 4px
 		opacity: 0
 		transition: .2s ease
 		pointer-events: none
 	&:hover
 		color: $textLight
+		border-color: transparent
 		&::before
 			opacity: 1

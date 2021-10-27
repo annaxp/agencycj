@@ -1,22 +1,85 @@
-$folder: '/assets/fonts'
+$folder: '/assets/fonts/'
 
 @font-face
-	$fontName: 'cera-pro-regular'
+	$fontName: 'CeraPro-Thin'
 	font-family: 'CeraPro'
-	src: local('Cera Pro Regular'), local('Cera-Pro-Regular'), url('#{$folder}/#{$fontName}/#{$fontName}.woff2') format('woff2'), url('#{$folder}/#{$fontName}/#{$fontName}.woff') format('woff'), url('#{$folder}/#{$fontName}/#{$fontName}.ttf') format('truetype')
+	src: url('#{$folder}#{$fontName}.ttf') format('truetype')
+	font-weight: 200
+	font-style: normal
+
+@font-face
+	$fontName: 'CeraPro-ThinItalic'
+	font-family: 'CeraPro'
+	src: url('#{$folder}#{$fontName}.ttf') format('truetype')
+	font-weight: 200
+	font-style: italic
+
+@font-face
+	$fontName: 'CeraPro-Light'
+	font-family: 'CeraPro'
+	src: url('#{$folder}#{$fontName}.ttf') format('truetype')
+	font-weight: 300
+	font-style: normal
+
+@font-face
+	$fontName: 'CeraPro-LightItalic'
+	font-family: 'CeraPro'
+	src: url('#{$folder}#{$fontName}.ttf') format('truetype')
+	font-weight: 300
+	font-style: italic
+
+@font-face
+	$fontName: 'CeraPro-Regular'
+	font-family: 'CeraPro'
+	src: url('#{$folder}#{$fontName}.ttf') format('truetype')
 	font-weight: 400
 	font-style: normal
 
 @font-face
-	$fontName: 'cera-pro-bold'
+	$fontName: 'CeraPro-Italic'
 	font-family: 'CeraPro'
-	src: local('Cera Pro Bold'), local('Cera-Pro-Bold'), url('#{$folder}/#{$fontName}/#{$fontName}.woff2') format('woff2'), url('#{$folder}/#{$fontName}/#{$fontName}.woff') format('woff'), url('#{$folder}/#{$fontName}/#{$fontName}.ttf') format('truetype')
+	src: url('#{$folder}#{$fontName}.ttf') format('truetype')
+	font-weight: 400
+	font-style: italic
+
+@font-face
+	$fontName: 'CeraPro-Medium'
+	font-family: 'CeraPro'
+	src: url('#{$folder}#{$fontName}.ttf') format('truetype')
+	font-weight: 500
+	font-style: normal
+
+@font-face
+	$fontName: 'CeraPro-MediumItalic'
+	font-family: 'CeraPro'
+	src: url('#{$folder}#{$fontName}.ttf') format('truetype')
+	font-weight: 500
+	font-style: italic
+
+@font-face
+	$fontName: 'CeraPro-Bold'
+	font-family: 'CeraPro'
+	src: url('#{$folder}#{$fontName}.ttf') format('truetype')
 	font-weight: 700
 	font-style: normal
 
 @font-face
-	$fontName: 'cera-pro-black'
+	$fontName: 'CeraPro-BoldItalic'
 	font-family: 'CeraPro'
-	src: local('Cera Pro Black'), local('Cera-Pro-Black'), url('#{$folder}/#{$fontName}/#{$fontName}.woff2') format('woff2'), url('#{$folder}/#{$fontName}/#{$fontName}.woff') format('woff'), url('#{$folder}/#{$fontName}/#{$fontName}.ttf') format('truetype')
+	src: url('#{$folder}#{$fontName}.ttf') format('truetype')
+	font-weight: 700
+	font-style: italic
+
+@font-face
+	$fontName: 'CeraPro-Black'
+	font-family: 'CeraPro'
+	src: url('#{$folder}#{$fontName}.ttf') format('truetype')
 	font-weight: 900
 	font-style: normal
+
+@font-face
+	$fontName: 'CeraPro-BlackItalic'
+	font-family: 'CeraPro'
+	src: url('#{$folder}#{$fontName}.ttf') format('truetype')
+	font-weight: 700
+	font-style: italic

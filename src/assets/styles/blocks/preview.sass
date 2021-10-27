@@ -1,7 +1,14 @@
 @import ../components/tags
 
 .preview-block
-	padding-bottom: 80 / $containerWidth * 100%
+	padding-top: 20px
+	padding-bottom: 100 / $containerWidth * 100%
 	margin: auto 0
+	#{$isMobile}
+		padding-top: 150 / $containerWidth * 100%
+		padding-bottom: 220 / $containerWidth * 100%
+	@media screen and ( max-width: $media-width-xs )
+		padding-top: 150 / $containerWidth * 100%
+		padding-bottom: 220 / $containerWidth * 100%
 	.main-title
 		margin-bottom: 32px

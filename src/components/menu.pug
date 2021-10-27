@@ -1,5 +1,7 @@
 mixin menu(nav, button)
 	.menu-wrapper 
-		.menu
-			each item in nav
-				a.menu__item(href=item[0])= item[1]
+		.menu.container
+			.menu__nav
+				each item in nav
+					a.menu__item(href=item[0])= item[1]
+			+call-button({tag:'a', href:'#contacts', text: button})

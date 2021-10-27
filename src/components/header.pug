@@ -1,4 +1,6 @@
-mixin header(nav, button, theme = 'theme-light')
+include ../components/menu
+
+mixin header(nav, button, theme = '')
   header(class='header-wrapper '+theme)
     .header.container
       .header__logo
@@ -15,4 +17,9 @@ mixin header(nav, button, theme = 'theme-light')
         .header__message 
           include ../assets/icons/call.svg
         .header__burger
-          include ../assets/icons/menu.svg
+          .menu-icon
+            .menu-icon__closed
+              include ../assets/icons/menu.svg
+            .menu-icon__opened
+              include ../assets/icons/menu-close.svg
+    +menu(nav, button)

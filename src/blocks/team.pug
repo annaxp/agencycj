@@ -4,15 +4,19 @@ include ../components/team-list
 include ../components/scroll-below
 
 - var pageTitle = 'assets/images/team/team.svg'
+- var pageTitleMobile = 'Команда'
 
+
+- var path = 'assets/images/team/'
 - var text = '<b>agansy ux</b> - команда профессионалов, которая индивидуально подходит к каждому клиенту и решает его проблемы. Которая знает все о современных технологиях и помешана на автоматизации. Которая ценит ваше время, комфорт и безопасность. Которая имеет опыт и успешные проекты за спиной.'
-- var team = [['Василий Петров', 'Руководитель проектов', '/assets/images/team/person.jpg'], ['Василий Петров', 'Руководитель проектов', '/assets/images/team/person.jpg'], ['Василий Петров', 'Руководитель проектов', '/assets/images/team/person.jpg'], ['Василий Петров', 'Руководитель проектов', '/assets/images/team/person.jpg'], ['Василий Петров', 'Руководитель проектов', '/assets/images/team/person.jpg'], ['Василий Петров', 'Руководитель проектов', '/assets/images/team/person.jpg']]
+- var team = [['Василий Петров', 'Руководитель проектов', path+'person.jpg'], ['Василий Петров', 'Руководитель проектов', path+'person.jpg'], ['Василий Петров', 'Руководитель проектов', path+'person.jpg'], ['Василий Петров', 'Руководитель проектов', path+'person.jpg'], ['Василий Петров', 'Руководитель проектов', path+'person.jpg'], ['Василий Петров', 'Руководитель проектов', path+'person.jpg']]
 
 +main({dataHash:'team', scrollClassName:'theme-light'})
 	.team-block
 		.team-block__top.header-offset
 			.team-block__wrapper.container
 				+main-title-bg(pageTitle)
+				.main-title= pageTitleMobile
 				.team-block__content !{text}
 		.team-block__bottom
 			.container

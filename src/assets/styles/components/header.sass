@@ -1,7 +1,6 @@
 @import ../vars
+@import ../components/menu
 @import ../components/call-button
-
-$isMobile: ':not(.desktop-app) &, .mobile-app &'
 
 .header-wrapper
 	position: fixed
@@ -14,6 +13,8 @@ $isMobile: ':not(.desktop-app) &, .mobile-app &'
 		padding-block: 22px
 		background: $mainDark
 		box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16)
+	#{$isMenu}
+		bottom: 0
 
 	&.theme-dark
 		.header-nav__item
@@ -64,3 +65,12 @@ $isMobile: ':not(.desktop-app) &, .mobile-app &'
 		&:active,
 		&:hover
 			color: $mainColor
+
+.menu-icon
+	&__opened
+		display: none
+		#{$isMenu}
+			display: block
+	&__closed
+		#{$isMenu}
+			display: none

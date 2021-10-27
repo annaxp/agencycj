@@ -1,8 +1,22 @@
-import Grain from './vendors/grain.js'
 import Swiper from 'swiper'
-import { processListAnimation } from './process'
-import { deviceType } from './deviceType.js'
-import WheelIndicator from 'wheel-indicator'
+import { deviceType as getDeviceType } from './deviceType.js'
+import { desktopApp } from './desktop'
+import { mobileApp } from './mobile'
+
+const setSliderButtons = (container, value) => {
+  const sliderButtons = `
+  <div class="slider-controls"> 
+    <div class="arrow arrow--left"></div>
+      <div class="slider-controls__info"> <span class="slider-controls__current">1</span><span class="slider-controls__count">4</span></div>
+    <div class="arrow arrow--right"></div>
+  </div>`
+
+  if (value) {
+    container.innerHTML = sliderButtons
+  } else {
+    container.innerHTML = ''
+  }
+}
 
 const blocks = (function () {
   const blocks = {
@@ -49,13 +63,16 @@ const blocks = (function () {
 })()
 
 window.addEventListener('load', () => {
-  const slidesBackground = document.querySelectorAll('.grain__canvas')
-  slidesBackground.forEach((element) => new Grain(element))
+  const deviceType = getDeviceType(document)
 
-  const { processListAnimationStart, processListAnimationEnd } =
-    processListAnimation(document.getElementById('process-list'))
+  if (deviceType === 'desktop') {
+    desktopApp(blocks)
+  } else {
+    mobileApp()
+  }
 
   const slideChange = (swiper) => {
+    if (deviceType !== 'desktop') return
     swiper.el.querySelector('.slider-controls__current').innerText =
       swiper.activeIndex + 1
   }
@@ -63,16 +80,21 @@ window.addEventListener('load', () => {
   const swiperDefaultProps = (element) => ({
     speed: 400,
     on: {
-      init: (swiper) => {
-        element.querySelector('.slider-controls__count').innerText =
-          swiper.slides.length - swiper.params.slidesPerView + 1
-        slideChange(swiper)
-      },
       slideChange,
       afterInit: (swiper) => {
-        element.querySelector('.arrow--left').onclick = () => swiper.slidePrev()
-        element.querySelector('.arrow--right').onclick = () =>
-          swiper.slideNext()
+        if (deviceType === 'desktop') {
+          const sliderControlsWrapper = element.querySelector(
+            '.slider-controls-wrapper',
+          )
+          setSliderButtons(sliderControlsWrapper, true)
+          element.querySelector('.slider-controls__count').innerText =
+            swiper.slides.length - swiper.params.slidesPerView + 1
+          slideChange(swiper)
+          element.querySelector('.arrow--left').onclick = () =>
+            swiper.slidePrev()
+          element.querySelector('.arrow--right').onclick = () =>
+            swiper.slideNext()
+        }
       },
     },
   })
@@ -83,148 +105,30 @@ window.addEventListener('load', () => {
       props: {
         slidesPerView: 3,
         slideClass: 'project-slide',
+        wrapperClass: 'projects-list',
         ...swiperDefaultProps(element),
       },
     }))(document.querySelector('.projects-list-wrapper')),
     team: ((element) => ({
       element,
       props: {
-        slidesPerView: 4,
-        spaceBetween: 94,
+        slidesPerView: 3,
+        spaceBetween: 84,
         slideClass: 'team-slide',
+        wrapperClass: 'team-list',
         ...swiperDefaultProps(element),
+        breakpoints: {
+          1200: {
+            slidesPerView: 4,
+            spaceBetween: 94,
+          },
+        },
       },
     }))(document.querySelector('.team-list-wrapper')),
   }
 
-  switch (deviceType(document)) {
-    case 'desktop': {
-      document.body.classList.add('desktop-app')
-
-      const headerNavLinks = document.querySelectorAll('a.header-nav__item')
-
-      const themeStore = {
-        slide: blocks.preview,
-        changeSlide(slide = blocks.preview) {
-          themeStore.slide = slide
-          switch (themeStore.slide.theme) {
-            case 'light': {
-              const header = document.querySelector('.header-wrapper')
-              header.classList.add('theme-light')
-              header.classList.remove('theme-dark')
-              break
-            }
-            case 'dark':
-            default: {
-              const header = document.querySelector('.header-wrapper')
-              header.classList.add('theme-dark')
-              header.classList.remove('theme-light')
-              break
-            }
-          }
-        },
-      }
-
-      swipers.screens = {
-        element: document.querySelector('.screens'),
-        props: {
-          direction: 'vertical',
-          slidesPerView: 1,
-          speed: 800,
-          slideClass: 'main',
-          wrapperClass: 'screens-wrapper',
-          allowTouchMove: false,
-          mousewheel: false,
-          initialSlide: getSlide(),
-          on: {
-            slideChange: (swiper) => {
-              if (blocks[swiper.activeIndex].name === 'process') {
-                processListAnimationStart()
-              } else {
-                processListAnimationEnd()
-              }
-              themeStore.changeSlide(blocks[swiper.activeIndex])
-            },
-            afterInit: (swiper) => {
-              themeStore.changeSlide(blocks[swiper.activeIndex])
-            },
-          },
-        },
-      }
-
-      Object.keys(swipers).forEach((key) => {
-        const { element, props } = swipers[key]
-        new Swiper(element, props)
-      })
-
-      const screensSwiper = swipers.screens.element.swiper
-
-      const scrollButtons = document.querySelectorAll('.scroll-below')
-      scrollButtons.forEach(
-        (element) =>
-          (element.onclick = () => setHash(screensSwiper.activeIndex + 1)),
-      )
-
-      new WheelIndicator({
-        elem: swipers.screens.element,
-        callback: (e) => {
-          switch (e.direction) {
-            case 'down':
-              setHash(screensSwiper.activeIndex + 1)
-              break
-            case 'up':
-              setHash(screensSwiper.activeIndex - 1)
-              break
-          }
-        },
-      })
-
-      window.onhashchange = () => {
-        screensSwiper.slideTo(getSlide())
-        setHeaderLinkActive()
-      }
-
-      function setHeaderLinkActive() {
-        headerNavLinks.forEach((element) => {
-          if (element.getAttribute('href') === location.hash) {
-            element.classList.add('active')
-          } else {
-            element.classList.remove('active')
-          }
-        })
-      }
-
-      function getSlide() {
-        const block = location.hash.replace('#', '') || 'preview'
-        return blocks[block].index
-      }
-
-      function setHash(number = 0) {
-        const nextSlide =
-          number < 0
-            ? 0
-            : number > screensSwiper.slides.length - 1
-            ? screensSwiper.slides.length - 1
-            : number
-        const slide =
-          blocks[nextSlide]?.name !== 'preview' ? blocks[nextSlide]?.name : ''
-        location.hash = '#' + slide
-      }
-
-      setHeaderLinkActive()
-
-      break
-    }
-    case 'mobile':
-    default: {
-      document.body.classList.add('mobile-app')
-
-      Object.keys(swipers).forEach((key) => {
-        const { element, props } = swipers[key]
-        new Swiper(element, props)
-      })
-
-      break
-    }
-  }
+  Object.keys(swipers).forEach((key) => {
+    const { element, props } = swipers[key]
+    new Swiper(element, props)
+  })
 })

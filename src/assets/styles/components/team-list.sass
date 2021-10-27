@@ -10,6 +10,8 @@ $translateY: 50
 	list-style: none
 	padding-top: #{$translateY}px
 	z-index: 1
+	#{$isMobile}
+		overflow: visible
 	.slider-controls
 		padding-top: 27px
 
@@ -22,7 +24,15 @@ $translateY: 50
 	position: relative
 	width: 100%
 	color: #000
-	&:hover
+	#{$isDesktop}
+		&:hover
+			.team-item
+				&__hover
+					transform: translateY(-#{$translateY}px)
+				&__content
+					opacity: 1
+					pointer-events: all
+	#{$isMobile}
 		.team-item
 			&__hover
 				transform: translateY(-#{$translateY}px)

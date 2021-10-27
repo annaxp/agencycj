@@ -1,6 +1,6 @@
 mixin projects-list(projects)
-	.projects-list-wrapper.swiper
-		.projects-list.swiper-wrapper
+	.projects-list-wrapper
+		.projects-list
 			each project in projects
 				- var id = project[0]
 				- var name = project[1]
@@ -12,6 +12,7 @@ mixin projects-list(projects)
 					.project-item
 						.project-item__img 
 							img(src=img)
+							.project-item__img-hover
 						.project-item__content
 							.project-item__desc= desc
 							.project-item__title= name 

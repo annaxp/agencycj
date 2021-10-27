@@ -1,3 +1,4 @@
+$isMobile: 'body:not(.desktop-app) &, .mobile-app &'
 .scroll-below
 	position: absolute
 	z-index: 50
@@ -12,6 +13,8 @@
 	transition: .2s ease
 	transform: translateX(-50%)
 	overflow: hidden
+	#{$isMobile}
+		display: none
 	&.theme-light::after
 		background-color: $mainColor
 	&.theme-dark::after
