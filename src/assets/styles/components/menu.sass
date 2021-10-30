@@ -1,9 +1,9 @@
 $isMenu: 'body.menu-opened &'
 
 .menu-wrapper
-	display: none
-	#{$isMenu}
-		display: block
+	height: 0
+	overflow: hidden
+	transition: height .8s cubic-bezier(.22,.55,.33,1.01)
 .menu
 	display: flex
 	flex-direction: column
@@ -17,9 +17,9 @@ $isMenu: 'body.menu-opened &'
 	&__nav
 		display: grid
 		gap: 46px
-		padding-inline: 30px
+		padding-inline: 60px
 		justify-items: center
-		overflow: auto
+		overflow: hidden
 	&__item
 		text-decoration: none
 		font-weight: 700

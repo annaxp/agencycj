@@ -18,3 +18,5 @@ mixin projects-list(projects)
 							.project-item__title= name 
 		.container 
 			include ../components/slider-controls
+		.projects-list-wrapper__preloader
+			+call-button({tag: 'div', text: 'Еще'} )

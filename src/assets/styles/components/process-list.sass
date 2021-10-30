@@ -1,13 +1,28 @@
 @import ../components/process-icon
 
+.process-list-wrapper
+	&.is-slider
+		width: 75%
 .process-list
 	display: grid
 	grid-template-areas: 'a tz' 't d'
 	gap: 130px 130px
 	grid-template-columns: repeat(2, 1fr)
+	.is-slider &
+		display: flex
+		gap: 0
+		grid-template-areas: initial
+		grid-template-columns: initial
+		.process-item
+			flex-shrink: 0
+			width: 33.33%
 
 .process-item
 	display: flex
+	$areas: (a, tz, t, d)
+	@for $i from 0 to length($areas)
+		&.grid-area-#{nth($areas, $i+1)}
+			grid-area: nth($areas, $i+1)
 	&__icon
 		padding-right: 24px
 	&__content

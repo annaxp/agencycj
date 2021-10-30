@@ -3,20 +3,18 @@ $offsetY: 240
 
 .team-block
 	position: relative
+	flex-grow: 1
 	display: flex
 	flex-direction: column
 	justify-content: space-between
 	width: 100%
-	#{$isDesktop}
-		height: 100%
 	.team-list-wrapper
 		margin-top: -$offsetY / $containerWidth * 100%
 		padding-bottom: $offsetY / 2.8 / $containerWidth * 100%
 		@media screen and ( max-height: $media-height-m)
 			padding-bottom: $offsetY / 3.8 / $containerWidth * 100%
-		@media screen and ( max-width: $media-width-xs )
-			margin-top: 0
-			padding-bottom: 0
+		#{$isMobile}
+			margin-top: -$offsetY / 3 / $containerWidth * 100%
 			
 	.main-title-bg__img
 		margin-top: 28px

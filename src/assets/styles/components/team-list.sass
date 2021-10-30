@@ -1,17 +1,17 @@
 $translateY: 50
 
 .team-list-wrapper
+	position: relative
 	display: flex
 	flex-direction: column
-	margin-left: auto
-	margin-right: auto
-	position: relative
 	overflow: hidden
 	list-style: none
 	padding-top: #{$translateY}px
 	z-index: 1
 	#{$isMobile}
-		overflow: visible
+		@media screen and ( max-width: $media-width-xs )	
+			width: 75%
+			overflow: visible
 	.slider-controls
 		padding-top: 27px
 

@@ -16,15 +16,30 @@ $hoverColor: #030303
 	list-style: none
 	padding: 0
 	overflow: hidden
+	&__preloader
+		display: flex
+		width: 100%
+		justify-content: center
 
 .projects-list
 	position: relative
 	z-index: 1
 	display: flex
-	transition-property: transform, -webkit-transform
+	flex-wrap: wrap
+	.is-slider &
+		flex-wrap: nowrap
+		transition-property: transform, -webkit-transform
+	
+.call-button
+	margin-top: 24px
+	.is-slider &
+		display: none
+
 .project-slide
-	width: 33.33%
-	flex-shrink: 0
+	width: 50%
+	.is-slider &
+		flex-shrink: 0
+		width: 33.33%
 .project-item
 	$width: 533
 	position: relative

@@ -18,57 +18,50 @@ const setSliderButtons = (container, value) => {
   }
 }
 
-const blocks = (function () {
-  const blocks = {
-    preview: {
-      index: 0,
-      name: 'preview',
-      theme: 'dark',
-    },
-    about: {
-      index: 1,
-      name: 'about',
-      theme: 'light',
-    },
-    services: {
-      index: 2,
-      name: 'services',
-      theme: 'dark',
-    },
-    projects: {
-      index: 3,
-      name: 'projects',
-      theme: 'light',
-    },
-    process: {
-      index: 4,
-      name: 'process',
-      theme: 'dark',
-    },
-    team: {
-      index: 5,
-      name: 'team',
-      theme: 'dark',
-    },
-    contacts: {
-      index: 6,
-      name: 'contacts',
-      theme: 'light',
-    },
-  }
-  Object.keys(blocks).forEach(
-    (key) => (blocks[blocks[key].index] = blocks[key]),
-  )
-  return blocks
-})()
+const blocks = {
+  preview: {
+    name: 'preview',
+    theme: 'dark',
+  },
+  about: {
+    name: 'about',
+    theme: 'light',
+  },
+  services: {
+    name: 'services',
+    theme: 'dark',
+  },
+  projects: {
+    name: 'projects',
+    theme: 'light',
+  },
+  process: {
+    name: 'process',
+    theme: 'dark',
+  },
+  team: {
+    name: 'team',
+    theme: 'dark',
+  },
+  contacts: {
+    name: 'contacts',
+    theme: 'light',
+  },
+}
 
 window.addEventListener('load', () => {
+  document.querySelectorAll('.main[data-hash]').forEach((main, index) => {
+    const hash = main.getAttribute('data-hash')
+    blocks[hash].index = index
+    blocks[index] = blocks[hash]
+  })
+
   const deviceType = getDeviceType(document)
 
   if (deviceType === 'desktop') {
     desktopApp(blocks)
   } else {
-    mobileApp()
+    mobileApp(blocks)
   }
 
   const slideChange = (swiper) => {
@@ -99,36 +92,61 @@ window.addEventListener('load', () => {
     },
   })
 
-  const swipers = {
-    projects: ((element) => ({
-      element,
-      props: {
-        slidesPerView: 3,
-        slideClass: 'project-slide',
-        wrapperClass: 'projects-list',
-        ...swiperDefaultProps(element),
-      },
-    }))(document.querySelector('.projects-list-wrapper')),
-    team: ((element) => ({
-      element,
-      props: {
-        slidesPerView: 3,
-        spaceBetween: 84,
-        slideClass: 'team-slide',
-        wrapperClass: 'team-list',
-        ...swiperDefaultProps(element),
-        breakpoints: {
-          1200: {
-            slidesPerView: 4,
-            spaceBetween: 94,
-          },
+  const projects = ((element) => ({
+    element,
+    props: {
+      slidesPerView: 3,
+      slideClass: 'project-slide',
+      wrapperClass: 'projects-list',
+      ...swiperDefaultProps(element),
+    },
+  }))(document.querySelector('.projects-list-wrapper'))
+
+  const team = ((element) => ({
+    element,
+    props: {
+      slidesPerView: 3,
+      spaceBetween: 84,
+      slideClass: 'team-slide',
+      wrapperClass: 'team-list',
+      ...swiperDefaultProps(element),
+      breakpoints: {
+        600: {
+          slidesPerView: 2,
+        },
+        1200: {
+          slidesPerView: 4,
+          spaceBetween: 94,
         },
       },
-    }))(document.querySelector('.team-list-wrapper')),
-  }
+    },
+  }))(document.querySelector('.team-list-wrapper'))
 
-  Object.keys(swipers).forEach((key) => {
-    const { element, props } = swipers[key]
+  const process = ((element) => ({
+    element,
+    props: {
+      slidesPerView: 2,
+      spaceBetween: 46,
+      spaceBetween: 84,
+      freeMode: true,
+      slideClass: 'process-item',
+      wrapperClass: 'process-list',
+      ...swiperDefaultProps(element),
+    },
+  }))(document.querySelector('.process-list-wrapper'))
+
+  const swipers = [team]
+  if (deviceType === 'desktop') {
+    swipers.push(projects)
+  } else {
+    process.element
+      .querySelectorAll('.process-item')
+      .forEach((element) => element.classList.add('active'))
+    swipers.push(process)
+  }
+  swipers.forEach((swiper) => {
+    const { element, props } = swiper
+    element.classList.add('is-slider')
     new Swiper(element, props)
   })
 })

@@ -1,7 +1,6 @@
 import Swiper from 'swiper'
-
-import { processListAnimation } from './process'
 import WheelIndicator from './vendors/mouseWheelDetector'
+import { processListAnimation } from './process'
 
 export const desktopApp = (blocks) => {
   document.body.classList.add('desktop-app')

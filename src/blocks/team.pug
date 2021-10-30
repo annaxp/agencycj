@@ -12,12 +12,13 @@ include ../components/scroll-below
 - var team = [['Василий Петров', 'Руководитель проектов', path+'person.jpg'], ['Василий Петров', 'Руководитель проектов', path+'person.jpg'], ['Василий Петров', 'Руководитель проектов', path+'person.jpg'], ['Василий Петров', 'Руководитель проектов', path+'person.jpg'], ['Василий Петров', 'Руководитель проектов', path+'person.jpg'], ['Василий Петров', 'Руководитель проектов', path+'person.jpg']]
 
 +main({dataHash:'team', scrollClassName:'theme-light'})
-	.team-block
-		.team-block__top.header-offset
-			.team-block__wrapper.container
-				+main-title-bg(pageTitle)
-				.main-title= pageTitleMobile
-				.team-block__content !{text}
-		.team-block__bottom
-			.container
-				+team-list(team)
+	.main__inside
+		.team-block
+			.team-block__top.header-offset
+				.team-block__wrapper.container
+					+main-title-bg(pageTitle)
+					.main-title= pageTitleMobile
+					.team-block__content !{text}
+			.team-block__bottom
+				.container
+					+team-list(team)

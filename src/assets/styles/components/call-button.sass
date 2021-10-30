@@ -1,9 +1,10 @@
 .call-button
 	position: relative
 	display: inline-flex
+	align-self: center
 	align-items: center
 	justify-content: center
-	padding: 14px 30px
+	padding: 13px 30px
 	color: $mainColor
 	font-family: 'CeraPro', sans-serif
 	font-weight: 700
@@ -11,9 +12,11 @@
 	border: 1px solid $mainColor
 	border-radius: 4px
 	cursor: pointer
-	transition: .4s ease
 	overflow: hidden
 	text-decoration: none
+	transition-property: color, border-color
+	transition-duration: .4s
+	transition-timing-function: ease
 	span
 		position: relative
 	&.call-button--filled
@@ -31,7 +34,9 @@
 		background: linear-gradient(to bottom, $mainColor, $mainColorLight)
 		border-radius: 4px
 		opacity: 0
-		transition: .2s ease
+		transition-property: opacity
+		transition-duration: .4s
+		transition-timing-function: ease
 		pointer-events: none
 	&:hover
 		color: $textLight
