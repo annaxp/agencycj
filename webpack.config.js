@@ -5,7 +5,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const autoprefixer = require('autoprefixer')
 
-const PAGES_DIR = path.join(__dirname, './src/pages')
+const PAGES_DIR = path.join(__dirname, './src/pages/')
 
 const isDev = process.env.mode === 'development'
 
@@ -13,7 +13,11 @@ const fileName = (ext) => `[name].[contenthash].${ext}`
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
-  entry: './index.js',
+  entry: {
+    index: PAGES_DIR + 'index/index.js',
+    projects: PAGES_DIR + 'projects/index.js',
+    projects: PAGES_DIR + 'services/index.js',
+  },
   mode: process.env.mode,
   resolve: {
     alias: {
@@ -30,18 +34,22 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: `${PAGES_DIR}/index.pug`,
+      template: `${PAGES_DIR}index/index.pug`,
       filename: './index.html',
       minify: false,
-      inject: false,
-      // inject: true,
+      inject: true,
     }),
     new HtmlWebpackPlugin({
-      template: `${PAGES_DIR}/services.pug`,
+      template: `${PAGES_DIR}services/index.pug`,
       filename: './services/index.html',
       minify: false,
       inject: false,
-      // inject: true,
+    }),
+    new HtmlWebpackPlugin({
+      template: `${PAGES_DIR}projects/index.pug`,
+      filename: './projects/index.html',
+      minify: false,
+      inject: false,
     }),
     new MiniCssExtractPlugin({
       filename: `./assets/styles/${fileName('css')}`,
@@ -60,7 +68,7 @@ module.exports = {
       {
         test: /\.s?[ac]ss$/i,
         use: [
-          'style-loader',
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
           },

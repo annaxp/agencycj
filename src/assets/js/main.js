@@ -49,14 +49,14 @@ const blocks = {
   },
 }
 
-window.addEventListener('load', () => {
+document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.main[data-hash]').forEach((main, index) => {
     const hash = main.getAttribute('data-hash')
     blocks[hash].index = index
     blocks[index] = blocks[hash]
   })
 
-  const deviceType = getDeviceType(document)
+  const deviceType = getDeviceType()
 
   if (deviceType === 'desktop') {
     desktopApp(blocks)
