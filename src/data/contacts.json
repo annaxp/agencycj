@@ -1,9 +1,9 @@
 {
   "phone": "8 900 800 42 42",
-  "phone-link": "+79008004242",
+  "phone_link": "+79008004242",
   "email": "hello@agensyux.ru",
   "adress": "г. Москва, Ленинский проспект д. 2 оф. 45",
-  "adress-link": "https://yandex.ru/maps/213/moscow/house/leninskiy_prospekt_2/Z04YcAZhSkwFQFtvfXtzeHlhbQ==/?ll=37.617515%2C55.727938&source=wizgeo&utm_medium=maps-desktop&utm_source=serp&z=15.84",
+  "adress_link": "https://yandex.ru/maps/213/moscow/house/leninskiy_prospekt_2/Z04YcAZhSkwFQFtvfXtzeHlhbQ==/?ll=37.617515%2C55.727938&source=wizgeo&utm_medium=maps-desktop&utm_source=serp&z=15.84",
   "facebook": "https://facebook.com",
   "vk": "https://vk.com",
   "instagram": "https://instagram.com"

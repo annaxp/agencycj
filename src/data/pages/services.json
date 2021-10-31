@@ -1,7 +1,7 @@
 {
   "title": "Agensy UX | services",
   "description": "Services page description",
-  "header-nav": [
+  "top_menu": [
     {
       "name": "О компании",
       "link": "#about"
