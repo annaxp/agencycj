@@ -6,7 +6,7 @@ export const processListAnimation = (element, ms = 1300) => {
     current: undefined,
   }
 
-  const start = () =>
+  const play = () =>
     setTimeout(() => {
       anim()
       interval.current = setInterval(() => {
@@ -14,7 +14,7 @@ export const processListAnimation = (element, ms = 1300) => {
       }, ms)
     }, 800)
 
-  const end = () => {
+  const stop = () => {
     clearInterval(interval.current)
     frame = items.length
     anim()
@@ -33,7 +33,7 @@ export const processListAnimation = (element, ms = 1300) => {
   }
 
   return {
-    processListAnimationStart: start,
-    processListAnimationEnd: end,
+    processListAnimationPlay: play,
+    processListAnimationStop: stop,
   }
 }

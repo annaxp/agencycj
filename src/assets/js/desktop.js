@@ -5,7 +5,7 @@ import { processListAnimation } from './process'
 export const desktopApp = (blocks) => {
   document.body.classList.add('desktop-app')
 
-  const { processListAnimationStart, processListAnimationEnd } =
+  const { processListAnimationPlay, processListAnimationStop } =
     processListAnimation(document.getElementById('process-list'))
 
   document.querySelector('html').style = `
@@ -61,9 +61,9 @@ export const desktopApp = (blocks) => {
         },
         slideChange: (swiper) => {
           if (blocks[swiper.activeIndex].name === 'process') {
-            processListAnimationStart()
+            processListAnimationPlay()
           } else {
-            processListAnimationEnd()
+            processListAnimationStop()
           }
           themeStore.changeSlide(blocks[swiper.activeIndex])
         },

@@ -1,3 +1,5 @@
+@use "sass:math"
+
 @import ../components/team-list
 $offsetY: 240
 
@@ -9,12 +11,12 @@ $offsetY: 240
 	justify-content: space-between
 	width: 100%
 	.team-list-wrapper
-		margin-top: -$offsetY / $containerWidth * 100%
-		padding-bottom: $offsetY / 2.8 / $containerWidth * 100%
+		margin-top: math.div(-$offsetY, $containerWidth) * 100%
+		padding-bottom: math.div(math.div($offsetY, 2.8), $containerWidth) * 100%
 		@media screen and ( max-height: $media-height-m)
-			padding-bottom: $offsetY / 3.8 / $containerWidth * 100%
+			padding-bottom: math.div(math.div($offsetY, 3.8), $containerWidth) * 100%
 		#{$isMobile}
-			margin-top: -$offsetY / 3 / $containerWidth * 100%
+			margin-top: math.div(math.div(-$offsetY, 3), $containerWidth) * 100%
 			
 	.main-title-bg__img
 		margin-top: 28px
@@ -46,10 +48,10 @@ $offsetY: 240
 		position: relative
 		display: flex
 		flex-direction: column
-		padding-top: 48 / $containerWidth * 100%
-		padding-bottom: 48 / $containerWidth * 100%
+		padding-top: math.div(48, $containerWidth) * 100%
+		padding-bottom: math.div(48, $containerWidth) * 100%
 		@media screen and ( max-height: $media-height-m)
-			padding-top: 20 / $containerWidth * 100%
+			padding-top: math.div(20, $containerWidth) * 100%
 		@media screen and ( max-width: $media-width-xs )
 			padding-bottom: 56px
 	&__content

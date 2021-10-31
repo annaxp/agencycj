@@ -1,14 +1,16 @@
+@use "sass:math"
+
 .about-block
 	display: grid
 	grid-template-columns: 50% 50%
 	width: 100%
 	flex-grow: 1
-	padding-top: 63 / $containerWidth * 100%
+	padding-top: math.div(63, $containerWidth) * 100%
 	#{$isMobile}
-		padding-top: 43 / $containerWidth * 100%
+		padding-top: math.div(43, $containerWidth) * 100%
 		min-height: 600px
 	@media screen and ( max-width: $media-width-xs )
-		padding-top: 43 / $containerWidth * 100%
+		padding-top: math.div(43, $containerWidth) * 100%
 		min-height: initial
 		grid-template-columns: minmax(30%, 50%) minmax(330px, 70%)
 	&__info
@@ -27,7 +29,7 @@
 		width: 50%
 		@media screen and (max-height: $media-height-m)
 			width: 42%
-		@media screen and ( max-width: $media-width-xs)
+		@media screen and (max-width: $media-width-xs)
 			width: 60%
 			
 	&__img
@@ -35,7 +37,8 @@
 		bottom: 0
 		left: 0
 		width: 100%
-		padding-top: 600 / 284 * 100%
+		$imgWidth: 284
+		padding-top: math.div(600, $imgWidth) * 100%
 		img
 			position: absolute
 			top: 0
@@ -52,7 +55,7 @@
 		color: $mainColor
 		font-size: 22px
 		font-weight: 900
-		@media screen and ( max-width: $media-width-xs )
+		@media screen and (max-width: $media-width-xs)
 			font-size: 18px
 
 .about-content
@@ -63,7 +66,7 @@
 		font-weight: 900
 		color: $mainColor
 		text-transform: uppercase
-		@media screen and ( max-width: $media-width-xs )
+		@media screen and (max-width: $media-width-xs)
 			font-size: 22px
 			margin-bottom: 16px
 	&__content
