@@ -7,8 +7,7 @@ const CopyPlugin = require('copy-webpack-plugin')
 const autoprefixer = require('autoprefixer')
 
 const PAGES_DIR = path.join(__dirname, './src/pages')
-const DATA_DIR = path.join(__dirname, './src/data')
-
+// const DATA_DIR = path.join(__dirname, './src/data')
 // function parseFilesTokens({ dir, filter = /(.)*.json/, callback }) {
 //   const result = {}
 //   ;(function recurseHandler(dir, filter, callback) {
@@ -59,11 +58,26 @@ const DATA_DIR = path.join(__dirname, './src/data')
 
 const isDev = process.env.NODE_ENV === 'development'
 
+const devOptions = isDev
+  ? {
+      devtool: 'source-map',
+      devServer: {
+        contentBase: path.join(__dirname, 'public'),
+        compress: true,
+        port: 9000,
+      },
+      stats: {
+        children: true,
+        errorDetails: true,
+      },
+    }
+  : {}
+
 const htmlWebPackDefault = isDev
   ? { minify: false, inject: 'body' }
   : { minify: true, inject: 'body' }
 
-const fileName = (ext) => `[name].[contenthash].${ext}`
+const fileName = (ext) => `[name]${isDev ? '' : '.[contenthash]'}.${ext}`
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
@@ -127,7 +141,6 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
   ],
-  ...(isDev ? { devtool: 'source-map' } : {}),
   module: {
     rules: [
       {
@@ -182,12 +195,5 @@ module.exports = {
       // },
     ],
   },
-  devServer: {
-    contentBase: path.join(__dirname, 'public'),
-    compress: true,
-    port: 9000,
-  },
-  stats: {
-    children: true,
-  },
+  ...devOptions,
 }

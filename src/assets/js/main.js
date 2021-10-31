@@ -105,8 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const team = ((element) => ({
     element,
     props: {
-      slidesPerView: 3,
-      spaceBetween: 84,
+      slidesPerView: 1,
       slideClass: 'team-slide',
       wrapperClass: 'team-list',
       ...swiperDefaultProps(element),
@@ -114,9 +113,9 @@ document.addEventListener('DOMContentLoaded', () => {
         600: {
           slidesPerView: 2,
         },
-        1200: {
+        1100: {
           slidesPerView: 4,
-          spaceBetween: 94,
+          spaceBetween: deviceType === 'desktop' ? 94 : 0,
         },
       },
     },
@@ -125,13 +124,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const process = ((element) => ({
     element,
     props: {
-      slidesPerView: 2,
-      spaceBetween: 46,
-      spaceBetween: 84,
+      slidesPerView: 1,
       freeMode: true,
       slideClass: 'process-item',
       wrapperClass: 'process-list',
       ...swiperDefaultProps(element),
+      breakpoints: {
+        600: {
+          slidesPerView: 2,
+        },
+      },
     },
   }))(document.querySelector('.process-list-wrapper'))
 

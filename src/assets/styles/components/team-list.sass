@@ -9,9 +9,9 @@ $translateY: 50
 	padding-top: #{$translateY}px
 	z-index: 1
 	#{$isMobile}
+		overflow: visible
 		@media screen and ( max-width: $media-width-xs )	
 			width: 75%
-			overflow: visible
 	.slider-controls
 		padding-top: 27px
 
@@ -20,6 +20,14 @@ $translateY: 50
 .team-slide
 	width: 25%
 	flex-shrink: 0
+	#{$isMobile}
+		padding-right: 84px
+		@media screen and ( max-width: $media-width-xsss )
+			padding-right: 32px
+	@media screen and ( max-width: $media-width-xs )
+		padding-right: 84px
+	@media screen and ( max-width: $media-width-xsss )
+		padding-right: 32px
 .team-item
 	position: relative
 	width: 100%

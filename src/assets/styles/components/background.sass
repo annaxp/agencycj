@@ -1,3 +1,7 @@
+@use "sass:math"
+
+$width: 1920
+$height: 1080
 .background
   position: absolute
   top: 0
@@ -9,3 +13,12 @@
   &__video
     display: block
     width: 100%
+    #{$isDesktop}
+      @media screen and ( max-aspect-ratio: #{$width} / #{$height})
+        height: 100%
+        width: auto
+    &.is-vertical
+      height: 100%
+      width: auto
+
+      

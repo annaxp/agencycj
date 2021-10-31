@@ -1,5 +1,7 @@
 @use "sass:math"
 
+$media-700: 700px
+
 .about-block
 	display: grid
 	grid-template-columns: 50% 50%
@@ -9,21 +11,41 @@
 	#{$isMobile}
 		padding-top: math.div(43, $containerWidth) * 100%
 		min-height: 600px
-	@media screen and ( max-width: $media-width-xs )
-		padding-top: math.div(43, $containerWidth) * 100%
+		@media screen and ( max-width: $media-width-xss )
+			padding-top: 0
+			min-height: initial
+			grid-template-columns: minmax(30%, 50%) minmax(330px, 70%)
+		@media screen and ( max-width: $media-700 )
+			grid-template-columns: 1fr
+	@media screen and ( max-width: $media-width-xss )
+		padding-top: 0
 		min-height: initial
 		grid-template-columns: minmax(30%, 50%) minmax(330px, 70%)
+	@media screen and ( max-width: $media-700 )
+		grid-template-columns: 1fr
+		
 	&__info
 		padding-bottom: 76px
+		@media screen and ( max-width: $media-700 )
+			padding-bottom: 45px
 	&__founder
 		display: flex
 		padding-left: 50px
+		@media screen and ( max-width: $media-700 )
+			padding: 0
 	.main-title
 		margin-bottom: 70px
+		@media screen and ( max-width: $media-700 )
+			margin-bottom: 59px
 
 .about-founder
 	display: flex
 	width: 100%
+	@media screen and ( max-width: $media-700 )
+		width: 60%
+	@media screen and ( max-width: $media-width-xsss)
+		width: 100%
+		max-width: 350px
 	&__img-wrapper
 		position: relative
 		width: 50%
@@ -31,7 +53,6 @@
 			width: 42%
 		@media screen and (max-width: $media-width-xs)
 			width: 60%
-			
 	&__img
 		position: absolute
 		bottom: 0
@@ -39,6 +60,9 @@
 		width: 100%
 		$imgWidth: 284
 		padding-top: math.div(600, $imgWidth) * 100%
+		@media screen and ( max-width: $media-700 )
+			position: static
+			padding: 0
 		img
 			position: absolute
 			top: 0
@@ -46,10 +70,9 @@
 			display: block
 			width: 100%
 			height: 100%
-	&__desc
-		align-self: flex-end
-		margin-bottom: 131px
-		margin-left: auto
+			@media screen and ( max-width: $media-700 )
+				position: static
+				height: initial
 	&__name
 		margin-bottom: 6px
 		color: $mainColor
@@ -57,6 +80,15 @@
 		font-weight: 900
 		@media screen and (max-width: $media-width-xs)
 			font-size: 18px
+		@media screen and ( max-width: $media-700 )
+			margin-bottom: 14px
+	&__desc
+		align-self: flex-end
+		margin-bottom: 131px
+		margin-left: auto
+		@media screen and ( max-width: $media-700 )
+			margin-bottom: 48px
+
 
 .about-content
 	max-width: 490px
@@ -69,6 +101,8 @@
 		@media screen and (max-width: $media-width-xs)
 			font-size: 22px
 			margin-bottom: 16px
+		@media screen and (max-width: $media-700)
+			margin-bottom: 13px
 	&__content
 		line-height: 1.71
 		font-size: 14px

@@ -32,6 +32,19 @@ export const mobileApp = () => {
   const resize = () => {
     menuHeight = document.body.clientHeight - menu.offsetTop
     menuStore.opened && menuStore.open()
+    const previewBackground = document.querySelector('.main__background')
+    if (
+      previewBackground.clientWidth / previewBackground.clientHeight <
+      1920 / 1080
+    ) {
+      previewBackground
+        .querySelector('.background__video')
+        .classList.add('is-vertical')
+    } else {
+      previewBackground
+        .querySelector('.background__video')
+        .classList.remove('is-vertical')
+    }
   }
 
   const menuStore = {

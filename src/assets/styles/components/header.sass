@@ -13,8 +13,6 @@
 		padding-block: 22px
 		background: $mainDark
 		box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16)
-	// #{$isMenu}
-	// 	bottom: 0
 
 	&.theme-dark
 		.header-nav__item
@@ -48,9 +46,20 @@
 		margin-left: auto
 		.desktop-app &
 			display: none
+	&__logo
+		width: 145px
+		@media screen and ( max-width: $media-width-xss )
+			width: 125px
+		@media screen and ( max-width: $media-width-xsss )
+			width: 105px
 
 .header-logo
 	display: block
+	width: 100%
+	& > svg
+		display: block
+		width: 100%
+		height: auto
 	.theme-fill
 		transition: fill .2s ease
 .header-nav

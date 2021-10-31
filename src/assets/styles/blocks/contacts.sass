@@ -37,6 +37,10 @@
 		display: flex
 		flex-direction: column
 		padding-top: math.div(77, $containerWidth) * 100%
+		@media screen and ( max-width: $media-width-xs )
+			padding-top: 15px
+		@media screen and ( max-width: $media-width-xss )
+			padding-top: 0
 	&__content
 		position: relative
 		flex-grow: 1
@@ -60,21 +64,16 @@
 	padding: 14px 0
 	@media screen and ( max-width: $media-width-xs )
 		text-align: left
+	@media screen and ( max-width: $media-width-xsss )
+		padding-top: 60px
+		padding-bottom: 24px
 	&__link
-		position: relative
 		opacity: 0.2
 		color: $textDark
 		text-decoration: none
 		font-size: 18px
 		line-height: 1.56
+		text-decoration: underline
 		transition: opacity .3s ease
-		&::after
-			content: ''
-			position: absolute
-			left: 0
-			right: 0
-			bottom: -1px
-			height: 1px
-			background-color: $textDark
 		&:hover
 			opacity: 1

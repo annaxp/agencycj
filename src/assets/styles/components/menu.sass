@@ -17,10 +17,14 @@ $isMenu: 'body.menu-opened &'
 	&__nav
 		display: grid
 		gap: 46px
-		padding-inline: 60px
+		padding-inline: 50px
 		justify-items: center
 		overflow: hidden
+		@media screen and ( max-width: 330px )
+			padding-inline: 35px
+			
 	&__item
+		text-align: center
 		text-decoration: none
 		font-weight: 700
 		font-size: 26px
