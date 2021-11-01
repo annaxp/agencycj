@@ -1,11 +1,11 @@
 {
   "id": 2,
-  "code": "buro_dmitriya_2",
-  "name": "Бюро Дмитрия Якушева",
-  "preview_picture": "assets/images/projects/buro.png",
-  "background_color": "#056f90",
-  "preview_text": "Бюро Дмитрия Якушева",
-  "detail_text": "Бюро Дмитрия Якушева",
+  "code": "punkt_priema",
+  "name": "Пункт приема Донорской крови",
+  "preview_picture": "assets/images/projects/punkt.png",
+  "background_color": "#fc4400",
+  "preview_text": "Социальные сети и сайт для донорства",
+  "detail_text": "Социальные сети и сайт для донорства",
   "tags_ids": [0, 1, 2, 3, 4],
   "detail_content": [
     {

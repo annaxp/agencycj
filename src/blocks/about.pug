@@ -1,19 +1,20 @@
 //- require mixins block
+include ../components/main
 include ../components/main-title
 
-- var pageTitle = 'О компании'
-
-- var title = 'AGENCY UX ЭТО'
-- var content = 'Прародителем текста-рыбы является известный «Lorem Ipsum» – латинский текст, ноги которого растут аж из 45 года до нашей эры. Сервисов по созданию случайного текста на основе Lorem Ipsum великое множество, однако все они имеют один существенный недостаток: их «рыба текст» подходит лишь для англоязычных ресурсов/проектов. Мы же, фактически, предлагаем Lorem Ipsum на русском языке – вы можете использовать полученный здесь контент абсолютно.'
-
-- var img = ['assets/images/founder.png', 'founder']
-- var name = ['Анна Николаева', 'founder']
+-
+	var projectsBlockInfo = require('@data/pages/index').blocks.about;
+	var sectionTitle = projectsBlockInfo.title
+	var title = projectsBlockInfo.content_title
+	var content = projectsBlockInfo.content_description
+	var img = [projectsBlockInfo.founder_img, projectsBlockInfo.founder_name]
+	var name = [projectsBlockInfo.founder_name, projectsBlockInfo.founder_description]
 
 +main({dataHash:'about', className:'header-offset  main--light', scrollClassName:'theme-light'})
 	.main__inside.container 
 		.about-block
 			.about-block__info
-				+main-title(pageTitle)
+				+main-title(sectionTitle)
 				.about-content
 					.about-content__title #{title}
 					.about-content__content #{content}

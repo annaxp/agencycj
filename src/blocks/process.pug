@@ -1,10 +1,12 @@
 //- require mixins block
 include ../components/main-title
 
-- var pageTitle = 'КАК МЫ РАБОТАЕМ'
+-
+	var processBlockInfo = require('@data/pages/index').blocks.process;
+	var sectionTitle = processBlockInfo.title
 
 +main({dataHash:'process', className:'header-offset  main--dark', scrollClassName:'theme-dark'})
 	.main__inside.container
 		.process-block
-			+main-title(pageTitle)
+			+main-title(sectionTitle)
 			include ../components/process-list

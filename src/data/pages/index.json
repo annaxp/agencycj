@@ -47,7 +47,7 @@
       "content_description": "Прародителем текста-рыбы является известный «Lorem Ipsum» – латинский текст, ноги которого растут аж из 45 года до нашей эры. Сервисов по созданию случайного текста на основе Lorem Ipsum великое множество, однако все они имеют один существенный недостаток: их «рыба текст» подходит лишь для англоязычных ресурсов/проектов. Мы же, фактически, предлагаем Lorem Ipsum на русском языке – вы можете использовать полученный здесь контент абсолютно.",
       "founder_name": "Анна Николаева",
       "founder_description": "founder",
-      "founder_img": "assets/images/founder.png"
+      "founder_img": "/assets/images/founder.png"
     },
     "services": {
       "title": "Наши услуги"
@@ -65,7 +65,7 @@
     },
     "contacts": {
       "title": "Контакты",
-      "title_img": "assets/images/contacts/contacts.svg"
+      "title_img": "/assets/images/contacts/contacts.svg"
     }
   }
 }

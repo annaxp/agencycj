@@ -53,6 +53,19 @@ const data = parseFilesTokens({
   callback: parseTokens,
 })
 
+// const pug = require('pug')
+// const indexPug = 'src/pug-templates-pages/index.pug'
+
+// const fn = pug.compileFile(indexPug, {
+//   pretty: true,
+//   globals: ['contacts', 'other'],
+// })
+
+// // console.log(data.pages.index)
+// const html = fn(data.pages.index)
+
+// console.log(html)
+
 module.exports = {
   data,
 }

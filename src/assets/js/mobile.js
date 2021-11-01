@@ -30,7 +30,7 @@ export const mobileApp = () => {
   }
 
   const resize = () => {
-    menuHeight = window.outerHeight - menu.offsetTop
+    menuHeight = document.body.clientHeight - menu.offsetTop
     menuStore.opened && menuStore.open()
     const previewBackground = document.querySelector('.main__background')
     if (

@@ -1,11 +1,13 @@
 extends ../../components/head
 
 block variables
-	- var title = 'Services'
-	-	var description = 'description'
+	-	
+		var indexPage = require('@data/pages/index')
+		var title = indexPage.title
+		var description = indexPage.description
 
 block content
-	- var nav = [['#about', 'О компании'], ['#services', 'Услуги'], ['#projects', 'Проекты'], ['#process', 'Процесс'], ['#team', 'Команда'], ['#contacts', 'Контакты']]
+	- var nav = indexPage.top_menu
 
 	body.body
 		include ../../components/background

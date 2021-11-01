@@ -1,4 +1,4 @@
 mixin tags(tags)
 	.tags 
 		each val in tags
-			.tag #{val[0]}
+			a.tag(href=val.link) #{val.name}

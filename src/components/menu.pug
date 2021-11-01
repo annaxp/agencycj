@@ -3,5 +3,7 @@ mixin menu(nav, button)
 		.menu.container
 			.menu__nav
 				each item in nav
-					a.menu__item(href=item[0])= item[1]
+					- var name = item.name
+					- var link = item.link
+					a.menu__item(href=link)= name
 			+call-button({tag:'a', href:'#contacts', text: button})

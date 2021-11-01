@@ -1,16 +1,28 @@
 //- require mixins block
+include ../components/main
 include ../components/main-title
 include ../components/projects-list
 
-- var pageTitle = 'Наши работы'
+-
+	var fs = require('fs')
+	var path = require('path')
+	var {cwd} = require('process')
 
-- var imgPath = 'assets/images/projects/'
-- var projects = [['buro', 'Бюро Дмитрия Якушева', 'Сайт калькулятор для строительного бюро', imgPath+'buro.png', '#056f90'], ['buro', 'Бюро Дмитрия Якушева', 'Сайт калькулятор для строительного бюро', imgPath+'buro.png', '#fc4400'], ['buro', 'Бюро Дмитрия Якушева', 'Сайт калькулятор для строительного бюро', imgPath+'buro.png', '#10823c'], ['buro', 'Бюро Дмитрия Якушева', 'Сайт калькулятор для строительного бюро', imgPath+'buro.png', '#ff8900'], ['buro', 'Бюро Дмитрия Якушева', 'Сайт калькулятор для строительного бюро', imgPath+'buro.png', '#056f90'], ['buro', 'Бюро Дмитрия Якушева', 'Сайт калькулятор для строительного бюро', imgPath+'buro.png', '#10823c']]
+	var projectsPath = path.join(cwd(), 'src/data/infoblocks/projects/')
+	var projectsDir = fs.readdirSync(projectsPath)
 
+	var projectsBlockInfo = require('@data/pages/index').blocks.projects;
+	var sectionTitle = projectsBlockInfo.title
+	
+	let projects = []
+	for (var i=0; i<projectsDir.length; i++) {
+		projects.push(require('../data/infoblocks/projects/'+projectsDir[i]))
+	}
+	
 +main({dataHash:'projects', className:'header-offset main--light', scrollClassName:'theme-light'})
 	.main__inside 
 		.projects-block
 			.container
-				+main-title(pageTitle)
+				+main-title(sectionTitle)
 			.container-wide
 				+projects-list(projects)

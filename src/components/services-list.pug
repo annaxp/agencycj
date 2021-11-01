@@ -1,13 +1,17 @@
-- var services = [['web', 'WEB РАЗРАБОТКА', 'Короткий поясняющий текст в две стороки'], ['ux', 'UX АНАЛИТИКА', 'Короткий поясняющий текст в две стороки'], ['ad', 'ВСЕ ВИДЫ РЕКЛАМЫ', 'Короткий поясняющий текст в две стороки'], ['design', 'ДИЗАЙН', 'Короткий поясняющий текст в две стороки'], ['smm', 'SMM', 'Короткий поясняющий текст в две стороки'], ['auto', 'АВТОМАТИЗАЦИЯ', 'Короткий поясняющий текст в две стороки']]
-.services-list
-	each service in services
-		- var title = service[1]
-		- var desc = service[2]
-		.services-item
-			.services-item__link
-				include ../mixins/service-icon
-				.services-item__icon
-					+service-icon(service[0])
-				.services-item__title= title
-				.services-item__desc= desc
+//- require mixins block
+include ../mixins/service-icon
+
+mixin services-list(services)
+	.services-list
+		each service in services
+			- var title = service.name
+			- var desc = service.preview_text
+			- var icon = service.icon_name
+			- var href = 'services/'+service.code
+			.services-item
+				a.services-item__link(href=href target="_blank")
+					.services-item__icon
+						+service-icon(icon)
+					.services-item__title= title
+					.services-item__desc= desc
 			

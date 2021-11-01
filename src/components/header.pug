@@ -9,7 +9,9 @@ mixin header(nav, button, theme = '')
       .header__nav
         .header-nav
           each item in nav
-            a.header-nav__item(href=item[0])= item[1]
+            - var name = item.name
+            - var link = item.link
+            a.header-nav__item(href=link)= name
       .header__call
         include ../components/call-button
         +call-button({tag:'a', href:'#contacts', text: button})

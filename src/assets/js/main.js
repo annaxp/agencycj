@@ -142,13 +142,13 @@ document.addEventListener('DOMContentLoaded', () => {
     swipers.push(projects)
   } else {
     process.element
-      .querySelectorAll('.process-item')
+      ?.querySelectorAll('.process-item')
       .forEach((element) => element.classList.add('active'))
     swipers.push(process)
   }
   swipers.forEach((swiper) => {
     const { element, props } = swiper
     element.classList.add('is-slider')
-    new Swiper(element, props)
+    element && new Swiper(element, props)
   })
 })

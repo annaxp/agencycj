@@ -1,11 +1,11 @@
 {
   "id": 3,
-  "code": "buro_dmitriya_3",
-  "name": "Бюро Дмитрия Якушева",
-  "preview_picture": "assets/images/projects/buro.png",
-  "background_color": "#056f90",
-  "preview_text": "Бюро Дмитрия Якушева",
-  "detail_text": "Бюро Дмитрия Якушева",
+  "code": "regbi",
+  "name": "РЕГБИ КЛУБ ТОРПЕДО ВЛАДИМИР",
+  "preview_picture": "assets/images/projects/regbi.png",
+  "background_color": "#10823c",
+  "preview_text": "Некоммерческий проект",
+  "detail_text": "Некоммерческий проект",
   "tags_ids": [0, 1, 2, 3, 4],
   "detail_content": [
     {

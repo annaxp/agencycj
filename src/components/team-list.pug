@@ -2,9 +2,9 @@ mixin team-list(team)
 	.team-list-wrapper
 		.team-list.swiper-wrapper
 			each person in team 
-				- var title = person[0]
-				- var desc = person[1]
-				- var img = person[2]
+				- var title = person.name
+				- var desc = person.description
+				- var img = person.img
 
 				.team-slide
 					.team-item
@@ -12,6 +12,6 @@ mixin team-list(team)
 							.team-item__img-wrapper.team-item__hover
 								img.team-item__img(src=img)
 							.team-item__content.team-item__hover
-								.team-item__title= title 
+								.team-item__title= title
 								.team-item__desc= desc
 		include ../components/slider-controls

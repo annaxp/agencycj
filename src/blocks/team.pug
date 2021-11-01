@@ -1,23 +1,24 @@
 //- require mixins block
 include ../components/main-title-bg
+include ../components/main-title
 include ../components/team-list
 
-- var pageTitle = 'assets/images/team/team.svg'
-- var pageTitleMobile = 'Команда'
+-
+	var teamBlockInfo = require('@data/pages/index.json').blocks.team
+	var sectionTitle = teamBlockInfo.title_img
+	var sectionTitleMobile = teamBlockInfo.title
+	var content = teamBlockInfo.content
+	var team = require('@data/infoblocks/team/persons')
 
-
-- var path = 'assets/images/team/'
-- var text = '<b>agansy ux</b> - команда профессионалов, которая индивидуально подходит к каждому клиенту и решает его проблемы. Которая знает все о современных технологиях и помешана на автоматизации. Которая ценит ваше время, комфорт и безопасность. Которая имеет опыт и успешные проекты за спиной.'
-- var team = [['Василий Петров', 'Руководитель проектов', path+'person.jpg'], ['Василий Петров', 'Руководитель проектов', path+'person.jpg'], ['Василий Петров', 'Руководитель проектов', path+'person.jpg'], ['Василий Петров', 'Руководитель проектов', path+'person.jpg'], ['Василий Петров', 'Руководитель проектов', path+'person.jpg'], ['Василий Петров', 'Руководитель проектов', path+'person.jpg']]
 
 +main({dataHash:'team', scrollClassName:'theme-light'})
 	.main__inside
 		.team-block
 			.team-block__top.header-offset
 				.team-block__wrapper.container
-					+main-title-bg(pageTitle)
-					.main-title= pageTitleMobile
-					.team-block__content !{text}
+					+main-title-bg(sectionTitle)
+					+main-title(sectionTitleMobile)
+					.team-block__content !{content}
 			.team-block__bottom
 				.container
 					+team-list(team)

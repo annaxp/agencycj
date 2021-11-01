@@ -14,9 +14,11 @@
 
 .services-item
 	max-width: 200px
-	+hover-transition()
 	&__link
+		text-decoration: none
+		color: $mainLight
 		cursor: pointer
+		+hover-transition()
 	&__icon
 		margin-bottom: 20px
 		svg path
@@ -41,8 +43,9 @@
 		.services-item:hover &:hover
 			opacity: 1
 	&:hover
-		color: $mainColor
 		.services-item
+			&__link
+				color: $mainColor
 			&__icon	svg path
 				fill: $mainColor !important
 			&__order

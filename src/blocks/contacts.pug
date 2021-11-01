@@ -1,17 +1,26 @@
 //- require mixins block
 include ../components/main-title-bg
+include ../components/main-title
 
-- var pageTitle = 'assets/images/contacts/contacts.svg'
-- var pageTitleMobile = 'Контакты'
+-
+	var fs = require('fs')
+	var path = require('path')
+	var {cwd} = require('process')
 
-- var adress = ['https://yandex.ru/maps/213/moscow/house/leninskiy_prospekt_2/Z04YcAZhSkwFQFtvfXtzeHlhbQ==/?ll=37.617515%2C55.727938&source=wizgeo&utm_medium=maps-desktop&utm_source=serp&z=15.84', 'г. Москва, Ленинский проспект д. 2 оф. 45']
+
+	var contactsBlockInfo = require('@data/pages/index').blocks.contacts
+	var sectionTitle = contactsBlockInfo.title_img
+	var sectionTitleMobile = contactsBlockInfo.title
+
+	var contactsInfo = require('@data/contacts')
+	var adress = [contactsInfo.adress_link, contactsInfo.adress]
 
 +main({dataHash:'contacts'})
 	.contacts-block
 		.contacts-block__top.header-offset
 			.contacts-block__wrapper.container 
-				+main-title-bg(pageTitle)
-				.main-title= pageTitleMobile
+				+main-title-bg(sectionTitle)
+				+main-title(sectionTitleMobile)
 				.contacts-block__content
 					include ../components/contacts-list
 					.contacts-adress

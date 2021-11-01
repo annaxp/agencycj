@@ -118,7 +118,9 @@ module.exports = {
         { from: 'assets/videos', to: 'assets/videos' },
       ],
     }),
-    new CleanWebpackPlugin(),
+    new CleanWebpackPlugin({
+      ...(isDev ? { cleanOnceBeforeBuildPatterns: ['!public/**'] } : {}),
+    }),
   ],
   module: {
     rules: [
@@ -160,18 +162,20 @@ module.exports = {
           },
         ],
       },
-      // {
-      //   test: /\.(woff|woff2|eot|ttf|otf)$/i,
-      //   use: [
-      //     {
-      //       loader: 'file-loader',
-      //       options: {
-      //         name: `${fileName('[ext]')}`,
-      //         outputPath: 'assets/fonts/',
-      //       },
-      //     },
-      //   ],
-      // },
+      /** 
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: `${fileName('[ext]')}`,
+              outputPath: 'assets/fonts/',
+            },
+          },
+        ],
+      },
+      */
     ],
   },
   ...devOptions,
