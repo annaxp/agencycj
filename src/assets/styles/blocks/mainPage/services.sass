@@ -1,0 +1,15 @@
+@use "sass:math"
+
+@import ~@componentsStyles/mainPage/services-list
+
+.services-block
+	padding-top: math.div(45, $containerWidth) * 100%
+	padding-bottom: math.div(71, $containerWidth) * 100%
+	@media screen and ( max-width: $media-width-xs )
+		padding-bottom: 70px
+	@media screen and ( max-width: $media-width-xss )
+		padding-top: 0
+	.main-title
+		margin-bottom: math.div(90, $containerWidth) * 100%
+		@media screen and (max-height: $media-height-m)
+			margin-bottom: math.div(60, $containerWidth) * 100%

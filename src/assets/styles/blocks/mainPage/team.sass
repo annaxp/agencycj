@@ -1,0 +1,80 @@
+@use "sass:math"
+
+@import ~@componentsStyles/mainPage/team-list
+
+$offsetY: 240
+
+.team-block
+	position: relative
+	flex-grow: 1
+	display: flex
+	flex-direction: column
+	justify-content: space-between
+	width: 100%
+	.team-list-wrapper
+		margin-top: math.div(-$offsetY, $containerWidth) * 100%
+		padding-bottom: math.div(math.div($offsetY, 2.8), $containerWidth) * 100%
+		@media screen and ( max-height: $media-height-m)
+			padding-bottom: math.div(math.div($offsetY, 3.8), $containerWidth) * 100%
+		#{$isMobile}
+			margin-top: math.div(math.div(-$offsetY, 3), $containerWidth) * 100%
+			@media screen and ( max-width: $media-width-xs )
+				margin-top: 0
+				padding-bottom: 0
+			
+	.main-title-bg__img
+		margin-top: 28px
+		@media screen and ( max-width: $media-width-xs )
+			display: none
+	.main-title
+		display: none
+		margin-bottom: 14px
+		@media screen and ( max-width: $media-width-xs )
+			display: block
+	&__top
+		position: relative
+		display: flex
+		flex-grow: 1
+		&::before
+			z-index: -1
+			background-color: $mainDark
+			@media screen and ( max-width: $media-width-xs )
+				background-color: $mainLight
+	&__top::before,
+	&__bottom::before
+		content: ''
+		position: absolute
+		top: 0
+		right: 0
+		bottom: 0
+		left: 0
+	&__wrapper
+		position: relative
+		display: flex
+		flex-direction: column
+		padding-top: math.div(48, $containerWidth) * 100%
+		padding-bottom: math.div(48, $containerWidth) * 100%
+		@media screen and ( max-height: $media-height-m)
+			padding-top: math.div(20, $containerWidth) * 100%
+		@media screen and ( max-width: $media-width-xs )
+			padding-bottom: 56px
+		@media screen and ( max-width: $media-width-xss )
+			padding-top: 0
+	&__content
+		position: relative
+		color: $mainLight
+		line-height: 1.57
+		max-width: 630px
+		margin: 0 auto 89px
+		text-align: center
+		@media screen and ( max-width: $media-width-xs )
+			color: $textDark
+			text-align: left
+			margin: 0
+		b
+			font-weight: 500
+			font-style: italic
+	&__bottom
+		position: relative
+		&::before
+			background-color: $mainLight

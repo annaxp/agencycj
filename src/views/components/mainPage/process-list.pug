@@ -1,0 +1,18 @@
+include ~@components/mainPage/process-icon
+
+mixin process-list(processes)
+	.process-list-wrapper
+		.process-list#process-list
+			- var i = 0
+			each process in processes
+				- i++
+				- var title = process[0]
+				- var desc = process[1]
+				- var area = process[2]
+				div(class=['process-item', 'grid-area-'+area])
+					.process-item__icon
+						+process-icon(i)
+					.process-item__content
+						.process-item__title= title
+						.process-item__desc= desc
+					

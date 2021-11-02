@@ -1,0 +1,83 @@
+@use "sass:math"
+
+@import ~@componentsStyles/mainPage/contacts-list
+@import ~@componentsStyles/form
+
+.contacts-block
+	position: relative
+	display: flex
+	flex-direction: column
+	justify-content: space-between
+	width: 100%
+	.desktop-app &
+		height: 100%
+	.main-title-bg__img
+		@media screen and ( max-width: $media-width-xs )
+			display: none
+	.main-title
+		display: none
+		margin-bottom: 57px
+		@media screen and ( max-width: $media-width-xs )
+			display: block
+	&__top
+		position: relative
+		display: flex
+		flex-grow: 1
+		&::before
+			content: ''
+			position: absolute
+			z-index: 0
+			top: 0
+			right: 0
+			bottom: 0
+			left: 0
+			background-color: $mainLight
+	&__wrapper
+		position: relative
+		display: flex
+		flex-direction: column
+		padding-top: math.div(77, $containerWidth) * 100%
+		@media screen and ( max-width: $media-width-xs )
+			padding-top: 15px
+		@media screen and ( max-width: $media-width-xss )
+			padding-top: 0
+	&__content
+		position: relative
+		flex-grow: 1
+		display: flex
+		flex-direction: column
+		justify-content: space-between
+	&__bottom
+		position: relative
+		&::before
+			content: ''
+			position: absolute
+			z-index: -1
+			top: 0
+			right: 0
+			bottom: 0
+			left: 0
+			background-color: $mainDark
+
+.contacts-adress
+	text-align: center
+	padding: 14px 0
+	@media screen and ( max-width: $media-width-xs )
+		text-align: left
+	@media screen and ( max-width: $media-width-xsss )
+		padding-top: 60px
+		padding-bottom: 24px
+	&__link
+		opacity: 0.2
+		color: $textDark
+		text-decoration: none
+		font-size: 18px
+		line-height: 1.56
+		text-decoration: underline
+		transition: opacity .3s ease
+		&:hover
+			opacity: 1
+.contacts-form-wrapper
+	padding-block: 63px
+	@media screen and ( min-width: $media-width-xsss )
+		padding-inline: 63px

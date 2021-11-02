@@ -1,0 +1,15 @@
+//- require mixins block
+include ~@components/mainPage/main
+include ~@components/main-title
+include ~@components/mainPage/process-list
+
+-
+	var processBlockInfo = require('@data/pages/index').blocks.process;
+	var sectionTitle = processBlockInfo.title
+- var processes = [['Анлитическая работа', 'Корпоративные сайты, лендинги интернет магазины, промо сайты текст рыба, текста', 'a'], ['Составление технического задания', 'Корпоративные сайты, лендинги интернет магазины, промо сайты текст рыба, текста', 'tz'], ['Разработка', 'Корпоративные сайты, лендинги интернет магазины, промо сайты текст рыба, текста', 'd'], ['Тестирование и доработка', 'Корпоративные сайты, лендинги интернет магазины, промо сайты текст рыба, текста', 't']]
+
++main({dataHash:'process', className:['header-offset', 'main--dark'], scrollClassName:['theme-dark']})
+	.main__inside.container
+		.process-block
+			+main-title(sectionTitle)
+			+process-list(processes)

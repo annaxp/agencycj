@@ -1,0 +1,25 @@
+//- require mixins block
+include ~@components/mainPage/main
+include ~@components/main-title-bg
+include ~@components/main-title
+include ~@components/mainPage/team-list
+
+-
+	var teamBlockInfo = require('@data/pages/index.json').blocks.team
+	var sectionTitle = teamBlockInfo.title_img
+	var sectionTitleMobile = teamBlockInfo.title
+	var content = teamBlockInfo.content
+	var team = require('@data/infoblocks/team/persons')
+
+
++main({dataHash:'team', scrollClassName:['theme-light']})
+	.main__inside
+		.team-block
+			.team-block__top.header-offset
+				.team-block__wrapper.container
+					+main-title-bg(sectionTitle)
+					+main-title(sectionTitleMobile)
+					.team-block__content !{content}
+			.team-block__bottom
+				.container
+					+team-list(team)

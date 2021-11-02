@@ -1,0 +1,27 @@
+include ~@components/menu
+
+mixin header({logo='/', nav, button, theme = [], buttonClass=[]})
+  header(class=['header-wrapper', ...theme])
+    .header.container
+      .header__logo
+        a.header-logo(href=logo)
+          include ~@assets/icons/logo.svg
+      .header__nav
+        .header-nav
+          each item in nav
+            - var name = item.name
+            - var link = item.link
+            a.header-nav__item(href=link)= name
+      .header__call
+        include ~@components/call-button
+        +call-button({tag:'a', href:'#contacts', text: button, buttonClass})
+      .header__mobile 
+        .header__message 
+          include ~@assets/icons/call.svg
+        .header__burger
+          .menu-icon
+            .menu-icon__closed
+              include ~@assets/icons/menu.svg
+            .menu-icon__opened
+              include ~@assets/icons/menu-close.svg
+    +menu(nav, button)

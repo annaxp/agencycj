@@ -9,7 +9,7 @@ const { data } = require('./getData.js')
 const { infoblocks } = data
 const { projects, services } = infoblocks
 
-const PAGES_DIR = path.join(__dirname, './src/pages')
+const PAGES_DIR = path.join(__dirname, './src/views/pages')
 
 const isDev = process.env.NODE_ENV === 'development'
 
@@ -44,7 +44,7 @@ const htmlIndex = new HtmlWebpackPlugin({
 
 const html404page = new HtmlWebpackPlugin({
   ...htmlWebPackDefault,
-  template: `${PAGES_DIR}/page404/index.pug`,
+  template: `${PAGES_DIR}/page404.pug`,
   filename: '404.html',
 })
 
@@ -53,7 +53,7 @@ const htmlProjectsPages = Object.keys(projects).map((key) => {
   const categoryData = projects[key]
   return new HtmlWebpackPlugin({
     ...htmlWebPackDefault,
-    template: `${PAGES_DIR}/${category}/index.pug`,
+    template: `${PAGES_DIR}/${category}.pug`,
     filename: `${category}/${categoryData.code}.html`,
     chunks: ['common_vendors', 'common', 'detail'],
     data: key,
@@ -65,7 +65,7 @@ const htmlServicesPages = Object.keys(services).map((key) => {
   const categoryData = services[key]
   return new HtmlWebpackPlugin({
     ...htmlWebPackDefault,
-    template: `${PAGES_DIR}/${category}/index.pug`,
+    template: `${PAGES_DIR}/${category}.pug`,
     filename: `${category}/${categoryData.code}.html`,
     chunks: ['common_vendors', 'common', 'detail'],
     data: key,
@@ -79,17 +79,24 @@ const miniCssExtractPlugin = new MiniCssExtractPlugin({
 module.exports = {
   context: path.resolve(__dirname, 'src'),
   entry: {
-    common: './common.js',
-    index: './index.js',
-    detail: './detail.js',
+    common: './app/common.js',
+    index: './app/index.js',
+    detail: './app/detail.js',
   },
   mode: process.env.NODE_ENV,
   resolve: {
     alias: {
-      '@components': path.resolve(__dirname, './src/components'),
-      '@pages': path.resolve(__dirname, './src/pages'),
-      '@blocks': path.resolve(__dirname, './src/blocks'),
+      '@pages': path.resolve(__dirname, './src/views/pages'),
+      '@blocks': path.resolve(__dirname, './src/views/blocks'),
+      '@components': path.resolve(__dirname, './src/views/components'),
+      '@mixins': path.resolve(__dirname, './src/views/mixins'),
+      '@assets': path.resolve(__dirname, './src/assets'),
       '@styles': path.resolve(__dirname, './src/assets/styles'),
+      '@componentsStyles': path.resolve(
+        __dirname,
+        './src/assets/styles/components',
+      ),
+      '@blocksStyles': path.resolve(__dirname, './src/assets/styles/blocks'),
       '@scripts': path.resolve(__dirname, './src/assets/js'),
       '@fonts': path.resolve(__dirname, './src/assets/fonts'),
       '@data': path.resolve(__dirname, './src/data'),
@@ -104,7 +111,7 @@ module.exports = {
       cacheGroups: {
         common_vendors: {
           test: /[\\/]node_modules[\\/](swiper)[\\/]/,
-          name: 'common_vendors', // имя чанка
+          name: 'common_vendors',
           chunks: 'initial',
           enforce: true,
         },

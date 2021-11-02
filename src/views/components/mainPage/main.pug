@@ -1,0 +1,11 @@
+//- require mixins block
+include ~@components/mainPage/scroll-below
+
+mixin main({className=[], dataHash='', scrollClassName, background})
+	section(class=['main', ...className] data-hash=dataHash)
+		if background
+			.main__background 
+				include ~@components/mainPage/background
+		block
+		if scrollClassName
+				+scroll-below(scrollClassName)

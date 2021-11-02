@@ -1,0 +1,28 @@
+//- require mixins block
+include ~@components/mainPage/main
+include ~@components/main-title
+
+-
+	var projectsBlockInfo = require('@data/pages/index').blocks.about;
+	var sectionTitle = projectsBlockInfo.title
+	var title = projectsBlockInfo.content_title
+	var content = projectsBlockInfo.content_description
+	var img = [projectsBlockInfo.founder_img, projectsBlockInfo.founder_name]
+	var name = [projectsBlockInfo.founder_name, projectsBlockInfo.founder_description]
+
++main({dataHash:'about', className:['header-offset', 'main--light'], scrollClassName:['theme-light']})
+	.main__inside.container 
+		.about-block
+			.about-block__info
+				+main-title(sectionTitle)
+				.about-content
+					.about-content__title #{title}
+					.about-content__content #{content}
+			.about-block__founder
+				.about-founder 
+					.about-founder__img-wrapper 
+						.about-founder__img
+							img(src=img[0], alt=img[1])
+					.about-founder__desc
+						.about-founder__name #{name[0]}
+						.about-founder__desc-desc #{name[1]}

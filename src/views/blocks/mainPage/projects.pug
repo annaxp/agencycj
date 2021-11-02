@@ -1,0 +1,28 @@
+//- require mixins block
+include ~@components/mainPage/main
+include ~@components/main-title
+include ~@components/mainPage/projects-list
+
+-
+	var fs = require('fs')
+	var path = require('path')
+	var {cwd} = require('process')
+
+	var projectsPath = path.join(cwd(), 'src/data/infoblocks/projects/')
+	var projectsDir = fs.readdirSync(projectsPath)
+
+	var projectsBlockInfo = require('@data/pages/index').blocks.projects;
+	var sectionTitle = projectsBlockInfo.title
+	
+	let projects = []
+	for (var i=0; i<projectsDir.length; i++) {
+		projects.push(require('@data/infoblocks/projects/'+projectsDir[i]))
+	}
+	
++main({dataHash:'projects', className:['header-offset', 'main--light'], scrollClassName:['theme-light']})
+	.main__inside 
+		.projects-block
+			.container
+				+main-title(sectionTitle)
+			.container-wide
+				+projects-list(projects)

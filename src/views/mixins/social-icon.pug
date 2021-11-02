@@ -1,0 +1,10 @@
+mixin social-icon(serviceId)
+	case serviceId
+		when 'fb'
+			include ~@assets/icons/social/fb.svg
+		when 'vk'
+			include ~@assets/icons/social/vk.svg
+		when 'inst'
+			include ~@assets/icons/social/inst.svg
+		default
+			include ~@assets/icons/social/fb.svg
