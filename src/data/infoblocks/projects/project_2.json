@@ -2,7 +2,7 @@
   "id": 2,
   "code": "punkt_priema",
   "name": "Пункт приема Донорской крови",
-  "preview_picture": "assets/images/projects/punkt.png",
+  "preview_picture": "/assets/images/projects/punkt.png",
   "background_color": "#fc4400",
   "preview_text": "Социальные сети и сайт для донорства",
   "detail_text": "Социальные сети и сайт для донорства",

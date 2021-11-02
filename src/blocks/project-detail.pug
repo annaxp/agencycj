@@ -1,17 +1,27 @@
 //- require mixins block
 include ../components/main-title
+include ../components/tags
 
 mixin project-detail(project)
 	- 
 		var sectionTitle = project.name
 		var previewPicture = project.preview_picture
-		var bsStyle = 'background-color: '+project.background_color
 		var subtitle = project.preview_text
+		var bgStyle = `background-color: ${project.background_color}`
+		var detailText = project.detail_text
 
-	setcion(class=['main', 'header-offset'])
-		.main__inside.container
-			.project-detail
-				.project-detail__title
-					+main-title(sectionTitle, 'h1')
-				.project-detail__subtitle= subtitle
+		var previewBlockInfo = require('@data/pages/index').blocks.preview
+
+	section(class=['project-detail', 'header-offset'] style=bgStyle)
+		.project-detail__inside.container
+			.project-detail__img 
+				img(src=previewPicture, alt="")
+			.project-detail__title
+				+main-title(sectionTitle, 'h1')
+			.project-detail__subtitle= subtitle
+	section.container
+		.detail-content
+			.detail-content__text= detailText
+			+tags(previewBlockInfo.tags)
+
 

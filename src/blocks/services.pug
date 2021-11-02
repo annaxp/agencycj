@@ -19,7 +19,7 @@ include ../components/services-list
 		services[i] = require(`@data/infoblocks/services/${servicesDir[i]}`);
 	}
 
-+main({dataHash:'services', className:'header-offset  main--dark', scrollClassName:'theme-dark'})
++main({dataHash:'services', className:['header-offset', 'main--dark'], scrollClassName:'theme-dark'})
 	.main__inside.container
 		.services-block 
 			+main-title(sectionTitle)

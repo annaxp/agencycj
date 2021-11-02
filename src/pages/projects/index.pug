@@ -6,7 +6,8 @@ include ../../blocks/project-detail
 
 block variables
 	-
-		var projectInfo = require('@data/infoblocks/projects/project_1')
+		var webpackData = htmlWebpackPlugin.options.data
+		var projectInfo = require(`@data/infoblocks/projects/${webpackData}`)
 		var title = projectInfo.name
 		var description = projectInfo.preview_text
 
@@ -14,9 +15,10 @@ block content
 	-	
 		var indexPage = require('@data/pages/projects')
 		var nav = indexPage.top_menu
+		var langFile = require('@data/other/index')
 
 	body.body
-		+header(nav, 'Связаться с нами')
+		+header({nav, button: langFile['Связаться с нами'], theme: ['header-wrapper--detail'], buttonClass:['button-light']})
 		+project-detail(projectInfo)
-		.contacts-form-wrapper.container
-			include ../../components/form
+		//- +project-content(content)
+		include ../../blocks/project-form

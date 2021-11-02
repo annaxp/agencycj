@@ -5,7 +5,7 @@ include ../components/main-title
 	var processBlockInfo = require('@data/pages/index').blocks.process;
 	var sectionTitle = processBlockInfo.title
 
-+main({dataHash:'process', className:'header-offset  main--dark', scrollClassName:'theme-dark'})
++main({dataHash:'process', className:['header-offset', 'main--dark'], scrollClassName:'theme-dark'})
 	.main__inside.container
 		.process-block
 			+main-title(sectionTitle)

@@ -13,6 +13,8 @@ const PAGES_DIR = path.join(__dirname, './src/pages')
 
 const isDev = process.env.NODE_ENV === 'development'
 
+const fileName = (ext) => `[name]${isDev ? '' : '.[contenthash]'}.${ext}`
+
 const devOptions = isDev
   ? {
       devtool: 'source-map',
@@ -28,20 +30,22 @@ const devOptions = isDev
     }
   : {}
 
-const htmlWebPackDefault = isDev
-  ? { minify: false, inject: true }
-  : { minify: true, inject: true }
+const htmlWebPackDefault = {
+  inject: true,
+  minify: false,
+}
 
 const htmlIndex = new HtmlWebpackPlugin({
   ...htmlWebPackDefault,
   template: `${PAGES_DIR}/index.pug`,
-  filename: `./index.html`,
+  filename: 'index.html',
+  chunks: ['common_vendors', 'common', 'index'],
 })
 
 const html404page = new HtmlWebpackPlugin({
   ...htmlWebPackDefault,
   template: `${PAGES_DIR}/page404/index.pug`,
-  filename: `./404.html`,
+  filename: '404.html',
 })
 
 const htmlProjectsPages = Object.keys(projects).map((key) => {
@@ -50,7 +54,9 @@ const htmlProjectsPages = Object.keys(projects).map((key) => {
   return new HtmlWebpackPlugin({
     ...htmlWebPackDefault,
     template: `${PAGES_DIR}/${category}/index.pug`,
-    filename: `./${category}/${categoryData.code}.html`,
+    filename: `${category}/${categoryData.code}.html`,
+    chunks: ['common_vendors', 'common', 'detail'],
+    data: key,
   })
 })
 
@@ -60,11 +66,15 @@ const htmlServicesPages = Object.keys(services).map((key) => {
   return new HtmlWebpackPlugin({
     ...htmlWebPackDefault,
     template: `${PAGES_DIR}/${category}/index.pug`,
-    filename: `./${category}/${categoryData.code}.html`,
+    filename: `${category}/${categoryData.code}.html`,
+    chunks: ['common_vendors', 'common', 'detail'],
+    data: key,
   })
 })
 
-const fileName = (ext) => `[name]${isDev ? '' : '.[contenthash]'}.${ext}`
+const miniCssExtractPlugin = new MiniCssExtractPlugin({
+  filename: `./assets/styles/${fileName('css')}`,
+})
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
@@ -73,7 +83,7 @@ module.exports = {
     index: './index.js',
     detail: './detail.js',
   },
-  mode: process.env.mode,
+  mode: process.env.NODE_ENV,
   resolve: {
     alias: {
       '@components': path.resolve(__dirname, './src/components'),
@@ -91,7 +101,14 @@ module.exports = {
   },
   optimization: {
     splitChunks: {
-      chunks: 'all',
+      cacheGroups: {
+        common_vendors: {
+          test: /[\\/]node_modules[\\/](swiper)[\\/]/,
+          name: 'common_vendors', // имя чанка
+          chunks: 'initial',
+          enforce: true,
+        },
+      },
     },
   },
   plugins: [
@@ -99,14 +116,7 @@ module.exports = {
     html404page,
     ...htmlProjectsPages,
     ...htmlServicesPages,
-    ...(isDev
-      ? []
-      : [
-          new MiniCssExtractPlugin({
-            filename: `./assets/styles/${fileName('css')}`,
-            chunkFilename: `./assets/styles/${fileName('css')}`,
-          }),
-        ]),
+    miniCssExtractPlugin,
     new CopyPlugin({
       patterns: [
         { from: 'assets/images', to: 'assets/images' },
@@ -120,9 +130,19 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.m?js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+          },
+        },
+      },
+      {
         test: /\.s?[ac]ss$/i,
         use: [
-          isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
           },

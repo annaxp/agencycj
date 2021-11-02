@@ -1,11 +1,17 @@
+@import '~normalize.css'
 @import vars
+@import fonts
 
 *
   box-sizing: border-box
 body
+  display: flex
+  flex-direction: column
+  width: 100%
+  justify-content: space-between
   font-family: 'CeraPro', sans-serif
   font-size: 14px
-  &.desktop-app
+  &.desktop-fp
     height: 100vh
   &.menu-opened
     overflow: hidden

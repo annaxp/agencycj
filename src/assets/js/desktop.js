@@ -3,7 +3,7 @@ import WheelIndicator from './vendors/mouseWheelDetector'
 import { processListAnimation } from './process'
 
 export const desktopApp = (blocks) => {
-  document.body.classList.add('desktop-app')
+  document.body.classList.add('desktop-app', 'desktop-fp')
 
   const { processListAnimationPlay, processListAnimationStop } =
     processListAnimation(document.getElementById('process-list'))

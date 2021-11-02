@@ -19,7 +19,7 @@ include ../components/projects-list
 		projects.push(require('../data/infoblocks/projects/'+projectsDir[i]))
 	}
 	
-+main({dataHash:'projects', className:'header-offset main--light', scrollClassName:'theme-light'})
++main({dataHash:'projects', className:['header-offset', 'main--light'], scrollClassName:'theme-light'})
 	.main__inside 
 		.projects-block
 			.container

@@ -1,7 +1,7 @@
-mixin call-button({tag='div', href, text, className=''})
+mixin call-button({tag='div', href, text, buttonClass=[]})
 	if tag === 'a'
-		a(href=href class="call-button "+className)
+		a(href=href class=['call-button', ...buttonClass])
 			span #{text}
 	else
-		#{tag}(class="call-button "+className) 
+		#{tag}(class=['call-button', ...buttonClass]) 
 			span #{text}

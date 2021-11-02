@@ -9,7 +9,7 @@ export const processListAnimation = (element, ms = 1300) => {
 
   let frame = items.length
 
-  let interval = {
+  const interval = {
     current: undefined,
   }
 

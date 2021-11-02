@@ -22,38 +22,38 @@ document.addEventListener('DOMContentLoaded', () => {
   const deviceType = getDeviceType()
 
   if (deviceType === 'desktop') {
-    // desktopApp(blocks)
+    document.body.classList.add('desktop-app')
   } else {
     mobileApp(blocks)
   }
 
-  //   const slideChange = (swiper) => {
-  //     if (deviceType !== 'desktop') return
-  //     swiper.el.querySelector('.slider-controls__current').innerText =
-  //       swiper.activeIndex + 1
-  //   }
+  const slideChange = (swiper) => {
+    if (deviceType !== 'desktop') return
+    swiper.el.querySelector('.slider-controls__current').innerText =
+      swiper.activeIndex + 1
+  }
 
-  //   const swiperDefaultProps = (element) => ({
-  //     speed: 400,
-  //     on: {
-  //       slideChange,
-  //       afterInit: (swiper) => {
-  //         if (deviceType === 'desktop') {
-  //           const sliderControlsWrapper = element.querySelector(
-  //             '.slider-controls-wrapper',
-  //           )
-  //           setSliderButtons(sliderControlsWrapper, true)
-  //           element.querySelector('.slider-controls__count').innerText =
-  //             swiper.slides.length - swiper.params.slidesPerView + 1
-  //           slideChange(swiper)
-  //           element.querySelector('.arrow--left').onclick = () =>
-  //             swiper.slidePrev()
-  //           element.querySelector('.arrow--right').onclick = () =>
-  //             swiper.slideNext()
-  //         }
-  //       },
-  //     },
-  //   })
+  const swiperDefaultProps = (element) => ({
+    speed: 400,
+    on: {
+      slideChange,
+      afterInit: (swiper) => {
+        if (deviceType === 'desktop') {
+          const sliderControlsWrapper = element.querySelector(
+            '.slider-controls-wrapper',
+          )
+          setSliderButtons(sliderControlsWrapper, true)
+          element.querySelector('.slider-controls__count').innerText =
+            swiper.slides.length - swiper.params.slidesPerView + 1
+          slideChange(swiper)
+          element.querySelector('.arrow--left').onclick = () =>
+            swiper.slidePrev()
+          element.querySelector('.arrow--right').onclick = () =>
+            swiper.slideNext()
+        }
+      },
+    },
+  })
 
   //   const projects = ((element) => ({
   //     element,

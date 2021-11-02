@@ -1,7 +1,7 @@
 include ../components/menu
 
-mixin header(nav, button, theme = '')
-  header(class='header-wrapper '+theme)
+mixin header({nav, button, theme = [], buttonClass=[]})
+  header(class=['header-wrapper', ...theme])
     .header.container
       .header__logo
         a.header-logo(href="#")
@@ -14,7 +14,7 @@ mixin header(nav, button, theme = '')
             a.header-nav__item(href=link)= name
       .header__call
         include ../components/call-button
-        +call-button({tag:'a', href:'#contacts', text: button})
+        +call-button({tag:'a', href:'#contacts', text: button, buttonClass})
       .header__mobile 
         .header__message 
           include ../assets/icons/call.svg

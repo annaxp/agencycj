@@ -1,14 +1,12 @@
-- var phone = ['tel:89008004242', '8 900 800 42 42']
-- var mail = ['mailTo:hello@agansyux.ru', 'hello@agansyux.ru']
-- var socials = [['fb', 'fb.com'], ['vk', 'vk.com'], ['inst', 'inst.com']]
-.contacts-list 
-	.contacts-list__item
-		a.contacts-list__link(href=phone[0])= phone[1]
-	.contacts-list__item
-		a.contacts-list__link(href=mail[0])= mail[1]
-	.contacts-list__item
-		include ../mixins/social-icon
-		.contacts-list__socials
-			each social in socials
-				a.social-icon(href=social[1])
-					+social-icon(social[0])
+mixin contacts-list({phone=[], email='', socials=[]})
+	.contacts-list 
+		.contacts-list__item
+			a.contacts-list__link(href=phone[0])= phone[1]
+		.contacts-list__item
+			a.contacts-list__link(href=`mailTo:${email}`)= email
+		.contacts-list__item
+			include ../mixins/social-icon
+			.contacts-list__socials
+				each social in socials
+					a.social-icon(href=social.link)
+						+social-icon(social.icon)

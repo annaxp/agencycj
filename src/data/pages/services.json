@@ -4,27 +4,27 @@
   "top_menu": [
     {
       "name": "О компании",
-      "link": "#about"
+      "link": "/#about"
     },
     {
       "name": "Услуги",
-      "link": "#services"
+      "link": "/#services"
     },
     {
       "name": "Проекты",
-      "link": "#projects"
+      "link": "/#projects"
     },
     {
       "name": "Процесс",
-      "link": "#process"
+      "link": "/#process"
     },
     {
       "name": "Команда",
-      "link": "#team"
+      "link": "/#team"
     },
     {
       "name": "Контакты",
-      "link": "#contacts"
+      "link": "/#contacts"
     }
   ]
 }

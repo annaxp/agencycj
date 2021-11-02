@@ -1,8 +1,8 @@
 //- require mixins block
 include ../components/scroll-below
 
-mixin main({className='', dataHash='', scrollClassName, background})
-	div(class='main '+className data-hash=dataHash)
+mixin main({className=[], dataHash='', scrollClassName, background})
+	section(class=['main', ...className] data-hash=dataHash)
 		if background
 			.main__background 
 				include ../components/background
