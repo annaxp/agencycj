@@ -1,0 +1,17 @@
+//- require mixins block
+include ../components/main-title
+
+mixin project-detail(project)
+	- 
+		var sectionTitle = project.name
+		var previewPicture = project.preview_picture
+		var bsStyle = 'background-color: '+project.background_color
+		var subtitle = project.preview_text
+
+	setcion(class=['main', 'header-offset'])
+		.main__inside.container
+			.project-detail
+				.project-detail__title
+					+main-title(sectionTitle, 'h1')
+				.project-detail__subtitle= subtitle
+

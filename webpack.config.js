@@ -6,8 +6,8 @@ const CopyPlugin = require('copy-webpack-plugin')
 const autoprefixer = require('autoprefixer')
 
 const { data } = require('./getData.js')
-const { pages, infoblocks, contacts } = data
-const { projects, services, team } = infoblocks
+const { infoblocks } = data
+const { projects, services } = infoblocks
 
 const PAGES_DIR = path.join(__dirname, './src/pages')
 
@@ -29,26 +29,20 @@ const devOptions = isDev
   : {}
 
 const htmlWebPackDefault = isDev
-  ? { minify: false, inject: 'body' }
-  : { minify: true, inject: 'body' }
+  ? { minify: false, inject: true }
+  : { minify: true, inject: true }
 
-const htmlIndex = (function (data) {
-  return new HtmlWebpackPlugin({
-    ...htmlWebPackDefault,
-    template: `${PAGES_DIR}/index.pug`,
-    filename: `./index.html`,
-    data,
-  })
-})({ page: pages.index, projects, services, team, contacts })
+const htmlIndex = new HtmlWebpackPlugin({
+  ...htmlWebPackDefault,
+  template: `${PAGES_DIR}/index.pug`,
+  filename: `./index.html`,
+})
 
-const html404page = (function (data) {
-  return new HtmlWebpackPlugin({
-    ...htmlWebPackDefault,
-    template: `${PAGES_DIR}/page404/index.pug`,
-    filename: `./404.html`,
-    data,
-  })
-})({ page: pages.page404 })
+const html404page = new HtmlWebpackPlugin({
+  ...htmlWebPackDefault,
+  template: `${PAGES_DIR}/page404/index.pug`,
+  filename: `./404.html`,
+})
 
 const htmlProjectsPages = Object.keys(projects).map((key) => {
   const category = 'projects'
@@ -57,7 +51,6 @@ const htmlProjectsPages = Object.keys(projects).map((key) => {
     ...htmlWebPackDefault,
     template: `${PAGES_DIR}/${category}/index.pug`,
     filename: `./${category}/${categoryData.code}.html`,
-    data: categoryData,
   })
 })
 
@@ -68,7 +61,6 @@ const htmlServicesPages = Object.keys(services).map((key) => {
     ...htmlWebPackDefault,
     template: `${PAGES_DIR}/${category}/index.pug`,
     filename: `./${category}/${categoryData.code}.html`,
-    data: categoryData,
   })
 })
 
@@ -77,13 +69,16 @@ const fileName = (ext) => `[name]${isDev ? '' : '.[contenthash]'}.${ext}`
 module.exports = {
   context: path.resolve(__dirname, 'src'),
   entry: {
-    main: './index.js',
+    common: './common.js',
+    index: './index.js',
+    detail: './detail.js',
   },
   mode: process.env.mode,
   resolve: {
     alias: {
       '@components': path.resolve(__dirname, './src/components'),
       '@pages': path.resolve(__dirname, './src/pages'),
+      '@blocks': path.resolve(__dirname, './src/blocks'),
       '@styles': path.resolve(__dirname, './src/assets/styles'),
       '@scripts': path.resolve(__dirname, './src/assets/js'),
       '@fonts': path.resolve(__dirname, './src/assets/fonts'),

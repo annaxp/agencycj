@@ -1,18 +1,22 @@
-extends ../../components/head
+//- require mixins block
+include ../../components/header
+include ../../blocks/project-detail
 
 block variables
 	-	
-		var indexPage = require('@data/pages/index')
+		var indexPage = require('@data/pages/services')
 		var title = indexPage.title
 		var description = indexPage.description
+
+	-
+		var projectInfo = require('@data/infoblocks/services/web')
 
 block content
 	- var nav = indexPage.top_menu
 
 	body.body
-		include ../../components/background
-		include ../../components/header
 		+header(nav, 'Связаться с нами')
-		include ../../blocks/preview
-		include ../../blocks/contacts
+		+project-detail(projectInfo)
+		.contacts-form-wrapper.container
+			include ../../components/form
 

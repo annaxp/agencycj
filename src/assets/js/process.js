@@ -1,7 +1,7 @@
 export const processListAnimation = (element, ms = 1300) => {
   const items = element?.querySelectorAll('.process-item')
 
-  if (!items.length)
+  if (!items?.length)
     return {
       processListAnimationPlay: () => undefined,
       processListAnimationStop: () => undefined,
