@@ -10,7 +10,8 @@ const { data } = require('./getData.js')
 const { infoblocks } = data
 const { projects, services } = infoblocks
 
-const PAGES_DIR = path.join(__dirname, './src/views/pages')
+const pagesDir = path.join(__dirname, './src/views/pages')
+const buildDir = 'public_html'
 
 const isDev = process.env.NODE_ENV === 'development'
 
@@ -20,7 +21,7 @@ const devOptions = isDev
   ? {
       devtool: 'source-map',
       devServer: {
-        contentBase: path.join(__dirname, 'public'),
+        contentBase: path.join(__dirname, buildDir),
         compress: true,
         port: 9000,
       },
@@ -38,7 +39,7 @@ const htmlWebPackDefault = {
 
 const htmlIndex = new HtmlWebpackPlugin({
   ...htmlWebPackDefault,
-  template: `${PAGES_DIR}/index.pug`,
+  template: `${pagesDir}/index.pug`,
   filename: 'index.html',
   chunks: ['common_vendors', 'common', 'index'],
   data,
@@ -46,7 +47,7 @@ const htmlIndex = new HtmlWebpackPlugin({
 
 const html404page = new HtmlWebpackPlugin({
   ...htmlWebPackDefault,
-  template: `${PAGES_DIR}/page404.pug`,
+  template: `${pagesDir}/page404.pug`,
   filename: '404.html',
   data,
 })
@@ -55,7 +56,7 @@ const htmlProjectsPages = projects.map((categoryData, index) => {
   const category = 'projects'
   return new HtmlWebpackPlugin({
     ...htmlWebPackDefault,
-    template: `${PAGES_DIR}/${category}.pug`,
+    template: `${pagesDir}/${category}.pug`,
     filename: `${category}/${categoryData.code}.html`,
     chunks: ['common_vendors', 'common', 'detail'],
     data,
@@ -67,7 +68,7 @@ const htmlServicesPages = services.map((categoryData, index) => {
   const category = 'services'
   return new HtmlWebpackPlugin({
     ...htmlWebPackDefault,
-    template: `${PAGES_DIR}/${category}.pug`,
+    template: `${pagesDir}/${category}.pug`,
     filename: `${category}/${categoryData.code}.html`,
     chunks: ['common_vendors', 'common', 'detail'],
     data,
@@ -107,7 +108,7 @@ module.exports = {
   },
   output: {
     filename: `./assets/js/${fileName('js')}`,
-    path: path.resolve(__dirname, 'public_html'),
+    path: path.resolve(__dirname, buildDir),
   },
   optimization: {
     splitChunks: {
