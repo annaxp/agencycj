@@ -1,4 +1,5 @@
 const path = require('path')
+const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
@@ -40,35 +41,37 @@ const htmlIndex = new HtmlWebpackPlugin({
   template: `${PAGES_DIR}/index.pug`,
   filename: 'index.html',
   chunks: ['common_vendors', 'common', 'index'],
+  data,
 })
 
 const html404page = new HtmlWebpackPlugin({
   ...htmlWebPackDefault,
   template: `${PAGES_DIR}/page404.pug`,
   filename: '404.html',
+  data,
 })
 
-const htmlProjectsPages = Object.keys(projects).map((key) => {
+const htmlProjectsPages = projects.map((categoryData, index) => {
   const category = 'projects'
-  const categoryData = projects[key]
   return new HtmlWebpackPlugin({
     ...htmlWebPackDefault,
     template: `${PAGES_DIR}/${category}.pug`,
     filename: `${category}/${categoryData.code}.html`,
     chunks: ['common_vendors', 'common', 'detail'],
-    data: key,
+    data,
+    dataId: index,
   })
 })
 
-const htmlServicesPages = Object.keys(services).map((key) => {
+const htmlServicesPages = services.map((categoryData, index) => {
   const category = 'services'
-  const categoryData = services[key]
   return new HtmlWebpackPlugin({
     ...htmlWebPackDefault,
     template: `${PAGES_DIR}/${category}.pug`,
     filename: `${category}/${categoryData.code}.html`,
     chunks: ['common_vendors', 'common', 'detail'],
-    data: key,
+    data,
+    dataId: index,
   })
 })
 
@@ -103,8 +106,8 @@ module.exports = {
     },
   },
   output: {
-    filename: `./assets/${fileName('js')}`,
-    path: path.resolve(__dirname, 'public'),
+    filename: `./assets/js/${fileName('js')}`,
+    path: path.resolve(__dirname, 'public_html'),
   },
   optimization: {
     splitChunks: {
@@ -119,19 +122,24 @@ module.exports = {
     },
   },
   plugins: [
+    new webpack.ProgressPlugin(),
     htmlIndex,
     html404page,
     ...htmlProjectsPages,
-    ...htmlServicesPages,
+    // ...htmlServicesPages,
     miniCssExtractPlugin,
     new CopyPlugin({
       patterns: [
-        { from: 'assets/images', to: 'assets/images' },
-        { from: 'assets/videos', to: 'assets/videos' },
+        { from: 'assets/images', to: 'upload/images' },
+        { from: 'assets/videos', to: 'upload/videos' },
+        { from: 'assets/styles/fonts.css', to: 'assets/styles/fonts.css' },
+        { from: 'assets/fonts', to: 'assets/fonts' },
       ],
     }),
     new CleanWebpackPlugin({
-      ...(isDev ? { cleanOnceBeforeBuildPatterns: ['!public/**'] } : {}),
+      ...(isDev
+        ? { cleanOnceBeforeBuildPatterns: ['!public/**', '!public_html/**'] }
+        : { cleanOnceBeforeBuildPatterns: ['!public_html/.htaccess'] }),
     }),
   ],
   module: {
@@ -184,20 +192,6 @@ module.exports = {
           },
         ],
       },
-      /** 
-      {
-        test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: `${fileName('[ext]')}`,
-              outputPath: 'assets/fonts/',
-            },
-          },
-        ],
-      },
-      */
     ],
   },
   ...devOptions,

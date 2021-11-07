@@ -1,0 +1,20 @@
+mixin detail-slider(props)
+  -
+    var classes = ['detail-slider-wrapper', 'container-wide']
+    if (props.slides.length > 1) {
+      classes.push('is-slider')
+    }
+  div(class=classes)
+    .detail-slider
+      each slide in props.slides
+        -
+          var img = slide.src.replace(/#project#/g, `/upload/images/projects/${props.fileName}`)
+        .detail-slider__slide
+          .detail-slider__img-wrapper
+            img.detail-slider__img(src=img, alt=slide.alt)
+    if props.slides.length > 1
+      .detail-slider-wrapper__pagination.swiper-pagination
+      .detail-slider-wrapper__button-prev.swiper-button-prev
+        include ~@assets/icons/detail/detail-slider-arrow.svg
+      .detail-slider-wrapper__button-next.swiper-button-next
+        include ~@assets/icons/detail/detail-slider-arrow.svg

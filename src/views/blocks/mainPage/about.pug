@@ -3,7 +3,8 @@ include ~@components/mainPage/main
 include ~@components/main-title
 
 -
-	var projectsBlockInfo = require('@data/pages/index').blocks.about;
+	var data = htmlWebpackPlugin.options.data
+	var projectsBlockInfo = data.pages.index.blocks.about
 	var sectionTitle = projectsBlockInfo.title
 	var title = projectsBlockInfo.content_title
 	var content = projectsBlockInfo.content_description

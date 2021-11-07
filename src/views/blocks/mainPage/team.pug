@@ -5,11 +5,13 @@ include ~@components/main-title
 include ~@components/mainPage/team-list
 
 -
-	var teamBlockInfo = require('@data/pages/index.json').blocks.team
+	var data = htmlWebpackPlugin.options.data
+	var services = data.infoblocks.services
+	var teamBlockInfo = data.pages.index.blocks.team
 	var sectionTitle = teamBlockInfo.title_img
 	var sectionTitleMobile = teamBlockInfo.title
 	var content = teamBlockInfo.content
-	var team = require('@data/infoblocks/team/persons')
+	var team = data.infoblocks.team
 
 
 +main({dataHash:'team', scrollClassName:['theme-light']})

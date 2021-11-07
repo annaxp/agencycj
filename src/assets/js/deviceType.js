@@ -3,7 +3,7 @@ export const deviceType = () => {
     /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
       navigator.userAgent,
     )
-  return isMobileDevice || document.body.clientWidth < 1025
+  return isMobileDevice || document.body.clientWidth < 1200
     ? 'mobile'
     : 'desktop'
 }

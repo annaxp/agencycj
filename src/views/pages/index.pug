@@ -1,18 +1,22 @@
-extends ~@components/head
+extends ~@components/page
 
 //- require mixins block
 include ~@components/header
 
 block variables
 	-	
-		var indexPage = require('@data/pages/index')
+		var data = htmlWebpackPlugin.options.data
+		var indexPage = data.pages.index
 		var title = indexPage.title
 		var description = indexPage.description
+		var keywords = indexPage.keywords
 	
 block content
 	- 
 		var nav = indexPage.top_menu
-		var langFile = require('@data/other/index')
+		var videos = indexPage.blocks.preview.videos
+
+		var langFile = htmlWebpackPlugin.options.data.other.index
 
 	body.body
 		+header({logo:'#', nav, button: langFile['Связаться с нами']})

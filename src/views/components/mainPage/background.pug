@@ -1,3 +1,5 @@
-.background
-  video.background__video(loop='loop' autoplay='autoplay' muted='muted')
-    source(src="/assets/videos/background.mp4", type='video/mp4')
+mixin background(videos)
+  .background
+    video.background__video(loop='loop' autoplay='autoplay' muted='muted')
+      each source in videos
+        source(src=source.src, type=source.type)

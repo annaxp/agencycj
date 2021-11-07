@@ -1,6 +1,5 @@
 @import '~normalize.css'
 @import vars
-@import fonts
 
 *
   box-sizing: border-box
@@ -18,17 +17,22 @@ body
 .container
   width: 100%
   max-width: #{$containerWidth}px
-  padding: 0 40px
+  padding-inline: 40px
   margin: 0 auto
   @media screen and ( max-width: $media-width-xs ) and (min-width: $media-width-xsss)
     padding: 0 80px
   @media screen and ( max-width: $media-width-xss )
     padding: 0 36px
     
-
 .container-wide
   width: 100%
   max-width: #{$containerWideWidth}px
+  margin: 0 auto
+
+.container-short
+  width: 100%
+  max-width: #{$containerShortWidth}px
+  padding-inline: 40px
   margin: 0 auto
 
 .header-offset

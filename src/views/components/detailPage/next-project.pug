@@ -1,0 +1,20 @@
+mixin next-project(props)
+  - 
+    var langFile = htmlWebpackPlugin.options.data.other.index
+
+  .container 
+    .next-project 
+      .next-project__prev 
+        if props.prev 
+          a.next-project__link(href=props.prev.link)
+            .next-project__arrow 
+              include ~@assets/icons/detail/detail-next-icon.svg
+            .next-project__desc= langFile["Предыдущий проект"]
+            .next-project__name= props.prev.name
+      .next-project__next 
+        if props.next 
+          a.next-project__link(href=props.next.link)
+            .next-project__arrow 
+              include ~@assets/icons/detail/detail-next-icon.svg
+            .next-project__desc= langFile["Следующий проект"]
+            .next-project__name= props.next.name

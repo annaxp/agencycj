@@ -7,7 +7,7 @@ mixin services-list(services)
 			- var title = service.name
 			- var desc = service.preview_text
 			- var icon = service.icon_name
-			- var href = 'services/'+service.code
+			- var href = 'services/'+service.code+'.html'
 			.services-item
 				a.services-item__link(href=href target="_blank")
 					.services-item__icon

@@ -2,15 +2,13 @@
 include ~@components/main-title
 include ~@components/tags
 
-mixin project-detail(project)
+mixin project-detail(props)
 	- 
-		var sectionTitle = project.name
-		var previewPicture = project.preview_picture
-		var subtitle = project.preview_text
-		var bgStyle = `background-color: ${project.background_color}`
-		var detailText = project.detail_text
-
-		var previewBlockInfo = require('@data/pages/index').blocks.preview
+		var sectionTitle = props.name
+		var subtitle = props.preview_text
+		var bgStyle = `background-color: ${props.background_color}`
+		var detailText = props.detail_text
+		var previewPicture = props.preview_picture.replace(/#project#/g, `/upload/images/projects/${props.fileName}`)
 
 	section(class=['project-detail', 'header-offset'] style=bgStyle)
 		.project-detail__inside.container
@@ -19,9 +17,8 @@ mixin project-detail(project)
 			.project-detail__title
 				+main-title(sectionTitle, 'h1')
 			.project-detail__subtitle= subtitle
-	section.container
-		.detail-content
-			.detail-content__text= detailText
-			+tags(previewBlockInfo.tags)
+	.detail-content.container-short
+		.detail-content__text= detailText
+		+tags(props.tags)
 
 

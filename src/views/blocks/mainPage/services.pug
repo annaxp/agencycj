@@ -4,20 +4,8 @@ include ~@components/main-title
 include ~@components/mainPage/services-list
 
 -
-	var fs = require('fs')
-	var path = require('path')
-	var {cwd} = require('process')
-
-	var servicesPath = path.join(cwd(), 'src/data/infoblocks/services/')
-	var servicesDir = fs.readdirSync(servicesPath)
-
-	var servicesBlockInfo = require('@data/pages/index').blocks.services;
-	var sectionTitle = servicesBlockInfo.title
-
-	var services = [];
-	for (var i=0; i < servicesDir.length; i++) {
-		services[i] = require(`@data/infoblocks/services/${servicesDir[i]}`);
-	}
+	var data = htmlWebpackPlugin.options.data
+	var services = data.infoblocks.services
 
 +main({dataHash:'services', className:['header-offset', 'main--dark'], scrollClassName:['theme-dark']})
 	.main__inside.container

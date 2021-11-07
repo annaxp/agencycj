@@ -1,0 +1,49 @@
+.next-project
+  display: flex
+  justify-content: space-between
+  width: 100%
+  gap: 50px
+  padding-top: 70px
+  padding-bottom: 106px
+  &__prev
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    padding-right: 40px
+    .next-project__arrow
+      right: -40px
+  &__next
+    display: flex
+    flex-direction: column
+    align-items: flex-end
+    padding-left: 40px
+    .next-project__arrow
+      left: -40px
+      transform: rotate(180deg)
+  &__link
+    position: relative
+    color: $textDark
+    opacity: 0.4
+    text-decoration: none
+    transition: .4s ease
+    &:hover
+      color: $mainColor
+      opacity: 1
+      .next-project__arrow
+        opacity: 1
+  &__arrow
+    position: absolute
+    top: -75px
+    display: block
+    width: 215px
+    height: 215px
+    opacity: 0
+    transition: opacity .4s ease
+  &__desc
+    font-size: 24px
+    font-weight: 900
+    margin-bottom: 15px
+  &__name
+    max-height: 40px
+    line-height: 1.86
+    overflow: hidden

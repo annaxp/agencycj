@@ -5,11 +5,12 @@ include ~@components/main-title
 include ~@components/mainPage/contacts-list
 
 -
-	var contactsBlockInfo = require('@data/pages/index').blocks.contacts
+	var data = htmlWebpackPlugin.options.data
+	var contactsBlockInfo = data.pages.index.blocks.contacts
 	var sectionTitle = contactsBlockInfo.title_img
 	var sectionTitleMobile = contactsBlockInfo.title
 
-	var contactsInfo = require('@data/contacts')
+	var contactsInfo = data.contacts
 	var adress = [contactsInfo.adress_link, contactsInfo.adress]
 	var phone = [contactsInfo.phone_link, contactsInfo.phone]
 	var email = contactsInfo.email

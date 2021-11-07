@@ -1,0 +1,15 @@
+include ~@components/detailPage/detail-person
+include ~@components/detailPage/detail-slider
+include ~@components/detailPage/detail-text
+
+mixin project-content(props)
+  section.project-content
+    each content in props.detailContent
+      - let contentType = content.content
+      case content.type 
+        when 'text'
+          +detail-text(contentType)
+        when 'slider'
+          +detail-slider({slides: contentType, fileName: props.fileName})
+        when 'person'
+          +detail-person({person: contentType, fileName: props.fileName})

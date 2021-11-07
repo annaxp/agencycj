@@ -3,9 +3,13 @@ const path = require('path')
 
 const DATA_DIR = path.join(__dirname, './src/data')
 
-function parseFilesTokens({ dir, filter = /(.)*.json/, callback }) {
+function parseFilesTokens({
+  dir,
+  filter = /(.)*.json/,
+  callback = parseTokens,
+}) {
   const result = {}
-  ;(function recurseHandler(dir, deep = []) {
+  function recurseHandler(dir, deep = []) {
     if (!fs.existsSync(dir)) {
       console.error('no dir ', dir)
       return
@@ -17,26 +21,49 @@ function parseFilesTokens({ dir, filter = /(.)*.json/, callback }) {
         if (fs.lstatSync(filePath).isDirectory()) {
           recurseHandler(filePath, deep.concat(fileName))
         } else if (filter.test(filePath)) {
+          let lastProp
           let currentResultProp = result
           if (deep.length) {
             for (let index = 0; index < deep.length; index++) {
-              if (!currentResultProp[deep[index]]) {
-                currentResultProp[deep[index]] = {}
+              lastProp = deep[index]
+              let type
+              if (['projects', 'services', 'tags'].includes(lastProp)) {
+                type = []
+              } else {
+                type = {}
               }
-              currentResultProp = currentResultProp[deep[index]]
+              if (!currentResultProp[lastProp]) {
+                currentResultProp[lastProp] = type
+              }
+              currentResultProp = currentResultProp[lastProp]
             }
           }
-          if (!currentResultProp[fileName]) {
-            currentResultProp[fileName] = {}
+          const fileData = callback(filePath)
+          if (Array.isArray(currentResultProp)) {
+            currentResultProp.push({
+              ...fileData,
+              fileName,
+              infoblock: lastProp,
+            })
+            currentResultProp.sort((a, b) => a.id - b.id)
+          } else {
+            if (Array.isArray(fileData)) {
+              currentResultProp[fileName] = fileData
+            } else {
+              if (!currentResultProp[fileName]) {
+                currentResultProp[fileName] = {}
+              }
+              currentResultProp = currentResultProp[fileName]
+              Object.assign(currentResultProp, fileData)
+            }
           }
-          currentResultProp = currentResultProp[fileName]
-          Object.assign(currentResultProp, callback(filePath))
         }
       })
     } catch (e) {
       console.error(e)
     }
-  })(dir)
+  }
+  recurseHandler(dir)
   return result
 }
 
@@ -50,21 +77,7 @@ function parseTokens(fileName) {
 
 const data = parseFilesTokens({
   dir: DATA_DIR,
-  callback: parseTokens,
 })
-
-// const pug = require('pug')
-// const indexPug = 'src/pug-templates-pages/index.pug'
-
-// const fn = pug.compileFile(indexPug, {
-//   pretty: true,
-//   globals: ['contacts', 'other'],
-// })
-
-// // console.log(data.pages.index)
-// const html = fn(data.pages.index)
-
-// console.log(html)
 
 module.exports = {
   data,

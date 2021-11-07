@@ -1,24 +1,57 @@
-extends ~@components/head
+extends ~@components/page
 
 //- require mixins block
 include ~@components/header
 include ~@blocks/detailPage/project-detail
+include ~@blocks/detailPage/project-content
+include ~@components/detailPage/next-project
 
 block variables
 	-
-		var webpackData = htmlWebpackPlugin.options.data
-		var projectInfo = require(`@data/infoblocks/projects/${webpackData}`)
-		var title = projectInfo.name
-		var description = projectInfo.preview_text
+		var data = htmlWebpackPlugin.options.data
+		var index = htmlWebpackPlugin.options.dataId
+		var infoblock = data.infoblocks.projects[index]
+
+		var title = infoblock.name
+		var description = infoblock.preview_text
+		var keywords = infoblock.keywords
+		var detailContent = infoblock.detail_content
 
 block content
 	-	
-		var indexPage = require('@data/pages/projects')
-		var nav = indexPage.top_menu
-		var langFile = require('@data/other/index')
+		var tags = []
+		for (let i=0; i<data.infoblocks.tags.length; i++) {
+			var tag = data.infoblocks.tags[i]
+			if (infoblock.tag_codes.includes(tag.code)) {
+				tags.push({
+					name: tag.name,
+					link: '/services/'+tag.code+'.html'
+				})
+			}
+		}
+		var nav = data.pages.projects.top_menu
+
+		var nextProjects = (function(project) {
+			var prevProject = project[index - 1]
+			var nextProject = project[index + 1]
+			return {
+				prev: prevProject ? {
+					name: prevProject.name,
+					link: `/projects/${prevProject.code}.html`,
+				} : undefined,
+				next: nextProject ? {
+					name: nextProject.name,
+					link: `/projects/${nextProject.code}.html`,
+				} : undefined,
+		}
+		})(data.infoblocks.projects)
+
+		var langFile = htmlWebpackPlugin.options.data.other.index
 
 	body.body
 		+header({nav, button: langFile['Связаться с нами'], theme: ['header-wrapper--detail'], buttonClass:['button-light']})
-		+project-detail(projectInfo)
-		//- +project-content(content)
+		+project-detail({...infoblock, tags})
+		+project-content({detailContent, fileName: infoblock.fileName})
+		if nextProjects.prev || nextProjects.next
+			+next-project(nextProjects)
 		include ~@blocks/detailPage/project-form

@@ -1,15 +1,17 @@
-extends ~@components/head
+extends ~@components/page
 
 //- require mixins block
 include ~@components/header
 include ~@blocks/detailPage/project-detail
+include ~@blocks/detailPage/project-content
 
 block variables
 	-	
-		var webpackData = htmlWebpackPlugin.options.data
-		var serviceInfo = require(`@data/infoblocks/services/${webpackData}`)
-		var title = serviceInfo.title
-		var description = serviceInfo.description
+		var webpackData = htmlWebpackPlugin.options.dataId
+		var infoblock = require(`@data/infoblocks/services/${webpackData}`)
+		var title = infoblock.title
+		var description = infoblock.description
+		var keywords = infoblock.keywords
 
 block content
 	- 
@@ -19,7 +21,7 @@ block content
 
 	body.body
 		+header({nav, button: langFile['Связаться с нами'], theme: ['header-wrapper--detail'], buttonClass:['button-light']})
-		+project-detail(serviceInfo)
+		//- +project-detail(infoblock)
 		//- +project-content(content)
 		include ~@blocks/detailPage/project-form
 

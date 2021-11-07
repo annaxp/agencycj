@@ -1,22 +1,9 @@
-import Swiper from 'swiper'
+import Swiper, { Navigation } from 'swiper'
 import { deviceType as getDeviceType } from './deviceType.js'
 import { desktopApp } from './desktop'
 import { mobileApp } from './mobile'
 
-const setSliderButtons = (container, value) => {
-  const sliderButtons = `
-  <div class="slider-controls"> 
-    <div class="arrow arrow--left"></div>
-      <div class="slider-controls__info"> <span class="slider-controls__current">1</span><span class="slider-controls__count">4</span></div>
-    <div class="arrow arrow--right"></div>
-  </div>`
-
-  if (value) {
-    container.innerHTML = sliderButtons
-  } else {
-    container.innerHTML = ''
-  }
-}
+Swiper.use([Navigation])
 
 const blocks = {
   preview: {
@@ -76,17 +63,9 @@ document.addEventListener('DOMContentLoaded', () => {
       slideChange,
       afterInit: (swiper) => {
         if (deviceType === 'desktop') {
-          const sliderControlsWrapper = element.querySelector(
-            '.slider-controls-wrapper',
-          )
-          setSliderButtons(sliderControlsWrapper, true)
           element.querySelector('.slider-controls__count').innerText =
             swiper.slides.length - swiper.params.slidesPerView + 1
           slideChange(swiper)
-          element.querySelector('.arrow--left').onclick = () =>
-            swiper.slidePrev()
-          element.querySelector('.arrow--right').onclick = () =>
-            swiper.slideNext()
         }
       },
     },
@@ -98,6 +77,13 @@ document.addEventListener('DOMContentLoaded', () => {
       slidesPerView: 3,
       slideClass: 'project-slide',
       wrapperClass: 'projects-list',
+      navigation:
+        deviceType === 'desktop'
+          ? {
+              prevEl: element.querySelector('.arrow--left'),
+              nextEl: element.querySelector('.arrow--right'),
+            }
+          : false,
       ...swiperDefaultProps(element),
     },
   }))(document.querySelector('.projects-list-wrapper'))
@@ -108,6 +94,13 @@ document.addEventListener('DOMContentLoaded', () => {
       slidesPerView: 1,
       slideClass: 'team-slide',
       wrapperClass: 'team-list',
+      navigation:
+        deviceType === 'desktop'
+          ? {
+              prevEl: element.querySelector('.arrow--left'),
+              nextEl: element.querySelector('.arrow--right'),
+            }
+          : false,
       ...swiperDefaultProps(element),
       breakpoints: {
         600: {

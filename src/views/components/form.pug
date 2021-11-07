@@ -1,9 +1,11 @@
+- var langFile = htmlWebpackPlugin.options.data.other.index
+
 form.form
 	.form__wrapper
-		label.form-input 
+		label.form-input
 			input.form-input__input(placeholder="Имя")
-		label.form-input 
+		label.form-input
 			input.form-input__input(placeholder="Телефон")
 	.form__button
 		include ../components/call-button
-		+call-button({text:'Оставить заявку', className:'call-button--filled'})
+		+call-button({text: langFile["Оставить заявку"], className: 'call-button--filled'})

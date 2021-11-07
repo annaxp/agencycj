@@ -5,6 +5,17 @@ import { processListAnimation } from './process'
 export const desktopApp = (blocks) => {
   document.body.classList.add('desktop-app', 'desktop-fp')
 
+  document.querySelectorAll('.slider-controls-wrapper').forEach((slider) => {
+    slider.innerHTML = `
+    <div class="slider-controls"> 
+      <div class="arrow arrow--left"></div>
+        <div class="slider-controls__info"> 
+          <span class="slider-controls__current">6</span>
+          <span class="slider-controls__count">14</span></div>
+      <div class="arrow arrow--right"></div>
+    </div>`
+  })
+
   const { processListAnimationPlay, processListAnimationStop } =
     processListAnimation(document.getElementById('process-list'))
 

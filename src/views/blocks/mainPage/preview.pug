@@ -2,13 +2,26 @@
 include ~@components/mainPage/main
 include ~@components/main-title
 include ~@components/tags
+include ~@components/mainPage/background
 
 -
+	var data = htmlWebpackPlugin.options.data
+	var tags = []
+	for (let i=0; i < data.infoblocks.tags.length; i++) {
+		var tag = data.infoblocks.tags[i]
+		tags.push({
+			name: tag.name,
+			link: '/services/'+tag.code+'.html'
+		})
+	}
+
 	var previewBlockInfo = require('@data/pages/index').blocks.preview
 	var sectionTitle = previewBlockInfo.title
-	var tags = previewBlockInfo.tags
+	var videos = previewBlockInfo.videos
 
-+main({dataHash:'preview', className:['header-offset', 'main--dark', 'main--preview'], scrollClassName:['theme-dark'], background: true})
++main({dataHash:'preview', className:['header-offset', 'main--dark', 'main--preview'], scrollClassName:['theme-dark']})
+	.main__background 
+		+background(videos)
 	.main__inside.container 
 		.preview-block
 			+main-title(sectionTitle, 'h1')
