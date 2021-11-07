@@ -4,7 +4,7 @@
 .services-list
 	display: grid
 	grid-template-columns: repeat(3, 1fr)
-	gap: 80px 60px
+	gap: 40px 60px
 	@media screen and (max-height: $media-height-m)
 		gap: 70px 60px
 	@media screen and ( max-width: $media-width-xs)
@@ -50,3 +50,13 @@
 				fill: $mainColor !important
 			&__order
 				opacity: .4
+			&__hover
+				opacity: 0.4
+	&__hover
+		display: block
+		margin-top: 20px
+		opacity: 0
+		+hover-transition()
+		cursor: pointer
+		&.services-item__hover:hover
+			opacity: 1
