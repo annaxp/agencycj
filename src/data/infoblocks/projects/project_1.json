@@ -1,5 +1,6 @@
 {
   "id": 1,
+  "hasLink": false,
   "code": "buro_dmitriya",
   "name": "Бюро Дмитрия Якушева",
   "preview_picture": "#project#/buro.png",

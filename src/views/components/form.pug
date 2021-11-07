@@ -1,11 +1,14 @@
 - var langFile = htmlWebpackPlugin.options.data.other.index
 
-form.form
-	.form__wrapper
-		label.form-input
-			input.form-input__input(placeholder="Имя")
-		label.form-input
-			input.form-input__input(placeholder="Телефон")
-	.form__button
-		include ../components/call-button
-		+call-button({text: langFile["Оставить заявку"], className: 'call-button--filled'})
+.form-container(data-success= langFile["Успешная отправка"])
+	form.form-wrapper(action='/mail.php')
+		.form
+			label.form-input
+				input.form-input__input(placeholder="Имя", name="name")
+			label.form-input
+				input.form-input__input(placeholder="Телефон", name="phone")
+		.form__button
+			include ../components/call-button
+			+call-button({tag:'button', text: langFile["Оставить заявку"], className: 'call-button--filled'})
+	//- .form-success 
+	//- 	.form-success__content= langFile["Успешная отправка"]

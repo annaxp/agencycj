@@ -1,17 +1,17 @@
-.form
+.form-wrapper
 	display: flex
 	flex-direction: column
 	margin-bottom: 0
-	&__wrapper
-		display: grid
-		width: 100%
-		max-width: 850px
-		grid-template-columns: repeat(2, 1fr)
-		gap: 24px
-		align-self: center
-		@media screen and ( max-width: $media-width-xsss )
-			gap: 41px
-			grid-template-columns: 1fr
+.form
+	display: grid
+	width: 100%
+	max-width: 850px
+	grid-template-columns: repeat(2, 1fr)
+	gap: 24px
+	align-self: center
+	@media screen and ( max-width: $media-width-xsss )
+		gap: 41px
+		grid-template-columns: 1fr
 			
 	&__button
 		text-align: center

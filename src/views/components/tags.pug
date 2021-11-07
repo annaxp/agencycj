@@ -1,4 +1,7 @@
-mixin tags(tags)
+mixin tags(props)
 	.tags 
-		each val in tags
-			div.tag(href=val.link) #{val.name}
+		each val in props.tags
+			- var elementTag = val.hasLink ? 'a' : 'div'
+			- var name = val.name
+			- var href = val.link
+			#{elementTag}.tag(href=href) #{name}

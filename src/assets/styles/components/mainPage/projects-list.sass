@@ -54,7 +54,8 @@ $hoverColor: #030303
 	width: 100%
 	padding: (math.div(103, $width) * 100%) 34px (math.div(122, $width) * 100%)
 	color: $textLight
-	cursor: pointer
+	@media screen and ( min-width: #{$containerWidth + 1}px )
+		height: 331px
 	@media screen and (max-height: $media-height-m)
 		padding: (math.div(90, $width) * 100%) 34px (math.div(105, $width) * 100%)
 	@media screen and ( max-width: $media-width-xsss )
@@ -62,11 +63,13 @@ $hoverColor: #030303
 	&__content
 		position: relative
 		width: 100%
-		max-width: 250px
+		max-width: 260px
 	&__title
 		line-height: 1.33
 		font-size: 24px
 		font-weight: 900
+		max-height: 93px
+		overflow: hidden
 		text-transform: uppercase
 		@media screen and ( max-width: $media-width-xsss )
 			font-size: 20px
@@ -93,7 +96,8 @@ $hoverColor: #030303
 			+transition()
 		img
 			display: block
-			width: 40%
+			max-width: 40%
+			max-height: 80%
 			transform-origin: 100% 100%
 			+transition()
 	&:hover
