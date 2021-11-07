@@ -1,5 +1,6 @@
 {
   "id": 0,
+  "hasLink": false,
   "code": "web_development",
   "name": "WEB РАЗРАБОТКА",
   "icon_name": "web",

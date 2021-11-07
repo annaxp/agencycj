@@ -9,6 +9,7 @@ mixin project-detail(props)
 		var bgStyle = `background-color: ${props.background_color}`
 		var detailText = props.detail_text
 		var previewPicture = props.preview_picture.replace(/#project#/g, `/upload/images/projects/${props.fileName}`)
+		var tags = props.tags
 
 	section(class=['project-detail', 'header-offset'] style=bgStyle)
 		.project-detail__inside.container
@@ -19,6 +20,6 @@ mixin project-detail(props)
 			.project-detail__subtitle= subtitle
 	.detail-content.container-short
 		.detail-content__text= detailText
-		+tags(props.tags)
+		+tags({tags})
 
 

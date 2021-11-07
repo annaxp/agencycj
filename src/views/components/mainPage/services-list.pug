@@ -1,16 +1,17 @@
 //- require mixins block
 include ~@mixins/service-icon
 
-mixin services-list(services)
+mixin services-list(props)
 	.services-list
-		each service in services
+		each service in props.services
+			- var elementTag = service.hasLink ? 'a' : 'div'
 			- var title = service.name
 			- var desc = service.preview_text
 			- var icon = service.icon_name
 			- var href = 'services/'+service.code+'.html'
 			.services-item
 				.services-item__link-wrapper
-					div.services-item__link(href=href target="_blank")
+					#{elementTag}.services-item__link(href=href target="_blank")
 						.services-item__icon
 							+service-icon(icon)
 						.services-item__title= title

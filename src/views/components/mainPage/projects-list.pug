@@ -1,10 +1,10 @@
-- var langFile = htmlWebpackPlugin.options.data.other.index
-
 mixin projects-list(props)
+	- var langFile = htmlWebpackPlugin.options.data.other.index
+
 	.projects-list-wrapper
 		.projects-list
 			each project in props.projects
-				- var id = project.id
+				- var projectTag = project.hasLink ? 'a' : 'div'
 				- var name = project.name
 				- var desc = project.preview_text
 				- var bgStyles = 'background-color: '+project.background_color
@@ -12,7 +12,7 @@ mixin projects-list(props)
 				- var href = '/projects/'+project.code+'.html'
 
 				.project-slide(style=bgStyles)
-					a.project-item(href=href)
+					#{projectTag}.project-item(href=href)
 						.project-item__img
 							img(src=img)
 							.project-item__img-hover
@@ -22,4 +22,4 @@ mixin projects-list(props)
 		.container
 			include ~@components/mainPage/slider-controls
 		.projects-list-wrapper__preloader
-			+call-button({tag: 'div', text: langFile["Еще"]})
+			//- +call-button({tag: 'div', text: langFile["Ещё"]})

@@ -17,7 +17,6 @@
 	&__link
 		text-decoration: none
 		color: $mainLight
-		cursor: pointer
 		+hover-transition()
 	&__icon
 		margin-bottom: 20px
@@ -51,12 +50,19 @@
 			&__order
 				opacity: .4
 			&__hover
-				opacity: 0.4
+				opacity: .4
 	&__hover
 		display: block
 		margin-top: 20px
 		opacity: 0
 		+hover-transition()
 		cursor: pointer
+		& > svg
+			display: block
+			width: 100%
+			height: auto
+			max-height: 45px
+		#{$isMobile}
+			opacity: 1
 		&.services-item__hover:hover
 			opacity: 1

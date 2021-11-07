@@ -1,5 +1,6 @@
 {
   "id": 2,
+  "hasLink": false,
   "code": "punkt_priema",
   "name": "Пункт приема Донорской крови",
   "preview_picture": "#project#/punkt.png",

@@ -5,7 +5,6 @@ mixin process-list(processes)
 		.process-list#process-list
 			- var i = 0
 			each process in processes
-				- i++
 				- var title = process.name
 				- var desc = process.description
 				- var area = process.grid_area
@@ -15,4 +14,6 @@ mixin process-list(processes)
 					.process-item__content
 						.process-item__title= title
 						.process-item__desc= desc
+				- i++
+				
 					

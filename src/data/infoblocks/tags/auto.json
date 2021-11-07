@@ -1,5 +1,6 @@
 {
   "id": 5,
+  "hasLink": false,
   "code": "automation1",
   "name": "АВТОМАТИЗАЦИЯ",
   "icon_name": "auto",

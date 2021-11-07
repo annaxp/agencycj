@@ -1,10 +1,25 @@
 mixin process-icon(active)
-	.process-icon 
-		- var n = 0
-		while n < 4
-			if (n < active)
+	.process-icon
+		case active
+			when 1
 				.process-icon__path.active
-			else 
+				.process-icon__path.active
 				.process-icon__path
-			- n++
+				.process-icon__path
+			when 2
+				.process-icon__path.active
+				.process-icon__path.active
+				.process-icon__path
+				.process-icon__path.active
+			when 3
+				.process-icon__path.active
+				.process-icon__path.active
+				.process-icon__path.active
+				.process-icon__path.active
+			when 0
+			default
+				.process-icon__path.active
+				.process-icon__path
+				.process-icon__path
+				.process-icon__path
 			
