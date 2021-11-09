@@ -12,22 +12,43 @@
 	@media screen and ( max-width: $media-width-xsss )
 		gap: 41px
 		grid-template-columns: 1fr
-			
 	&__button
-		text-align: center
+		position: relative
+		display: inline-block
+		align-self: center
 		padding-top: 67px
 		@media screen and ( max-width: $media-width-xsss )
-			text-align: left
+			align-self: self-start
 			padding-top: 55px
 .form-input
 	font-family: 'GothamPro', sans-serif
 	font-size: 16px
 	border-bottom: 1px solid $mainColor
 	padding-bottom: 1px
+	&.empty
+		opacity: 0.6
 	&__input
 		width: 100%
 		color: $mainColor
+		background-color: transparent
 		&::placeholder
 			color: $mainColor
 			font-size: 12px
 			text-transform: uppercase
+
+.form-error
+	position: absolute
+	top: 100%
+	display: none
+	margin-top: 4px
+	opacity: 0.4
+	font-size: 12px
+	color: #fff
+	form.error &
+		display: block
+.form-success
+	padding: 40px
+	font-size: 24px
+	font-weight: 700
+	text-align: center
+	color: $mainLight

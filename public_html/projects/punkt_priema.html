@@ -8,7 +8,7 @@
     <meta name="keywords">
     <title>Пункт приема Донорской крови</title>
     <link rel="stylesheet" href="/assets/styles/fonts.css">
-  <script defer src=".././assets/js/common.8c71d9a142a617b826d4.js"></script><script defer src=".././assets/js/common_vendors.8b83a23e541bb89920f3.js"></script><script defer src=".././assets/js/detail.fd094bfb3aea8a7cda92.js"></script><link href=".././assets/styles/common.dd0b3e1dfe8aa6848239.css" rel="stylesheet"><link href=".././assets/styles/detail.ce7ae4d2d8d6eabd59e6.css" rel="stylesheet"></head>
+  <script defer src=".././assets/js/common.38dcf8f67500b6b39565.js"></script><script defer src=".././assets/js/common_vendors.d5f1e3d97b0b7b037675.js"></script><script defer src=".././assets/js/detail.5cf249ee14a78de32300.js"></script><link href=".././assets/styles/common.8ce1245941d868af2fc5.css" rel="stylesheet"><link href=".././assets/styles/detail.d9b0cbd9e5436893df3a.css" rel="stylesheet"></head>
   <body class="body">
     <header class="header-wrapper header-wrapper--detail">
       <div class="header container">
@@ -199,15 +199,16 @@
         <div class="form-container" data-success="Успешная отправка">
           <form class="form-wrapper" action="/mail.php">
             <div class="form">
-              <label class="form-input">
-                <input class="form-input__input" placeholder="Имя" name="name">
+              <label class="form-input empty">
+                <input class="form-input__input" placeholder="Имя" name="name" autocomplete="off">
               </label>
-              <label class="form-input">
-                <input class="form-input__input" placeholder="Телефон" name="phone">
+              <label class="form-input empty">
+                <input class="form-input__input" placeholder="Телефон" name="phone" autocomplete="off">
               </label>
             </div>
             <div class="form__button">
-                            <button class="call-button"> <span>Оставить заявку</span></button>
+                            <button class="call-button call-button--filled"> <span>Оставить заявку</span></button>
+              <div class="form-error">Заполните все поля</div>
             </div>
           </form>
         </div>

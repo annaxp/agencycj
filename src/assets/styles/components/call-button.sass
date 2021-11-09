@@ -9,22 +9,27 @@
 	font-family: 'CeraPro', sans-serif
 	font-weight: 700
 	font-size: 14px
-	border: 1px solid $mainColor
 	border-radius: 4px
-	cursor: pointer
 	overflow: hidden
 	text-decoration: none
 	transition-property: color, border-color
 	transition-duration: .4s
 	transition-timing-function: ease
 	background: none
+	&:not(:disabled)
+		border: 1px solid $mainColor
+		cursor: pointer
 	span
 		position: relative
 	&.call-button--filled
 		border: none
 		color: $textLight
 		background-color: $mainColor
-	&::before
+	&:disabled
+		background-color: $error
+		border: none
+		opacity: 0.4
+	&:not(:disabled)::before
 		content: ''
 		position: absolute
 		top: 0

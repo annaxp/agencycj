@@ -3,12 +3,13 @@
 .form-container(data-success= langFile["Успешная отправка"])
 	form.form-wrapper(action='/mail.php')
 		.form
-			label.form-input
-				input.form-input__input(placeholder="Имя", name="name")
-			label.form-input
-				input.form-input__input(placeholder="Телефон", name="phone")
+			label(class=['form-input', 'empty'])
+				input.form-input__input(placeholder="Имя", name="name", autocomplete="off", class=[])
+			label(class=['form-input', 'empty'])
+				input.form-input__input(placeholder="Телефон", name="phone", autocomplete="off")
 		.form__button
 			include ../components/call-button
-			+call-button({tag:'button', text: langFile["Оставить заявку"], className: 'call-button--filled'})
+			+call-button({tag:'button', text: langFile["Оставить заявку"], buttonClass: ['call-button--filled']})
+			.form-error= langFile["Заполните все поля"]
 	//- .form-success 
 	//- 	.form-success__content= langFile["Успешная отправка"]
