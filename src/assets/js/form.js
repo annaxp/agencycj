@@ -15,7 +15,6 @@ const formSend = () => {
       const url = `${form.action}?${data}`
 
       fetch(url)
-        .then((res) => res.data)
         .then((res) => console.log(res))
         .catch((error) => console.log(error))
       // if (result) {
