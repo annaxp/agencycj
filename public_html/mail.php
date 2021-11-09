@@ -1,6 +1,7 @@
 <?
-$botId = "2111200320:AAGuezHGXwnsBGtw6w8LE51SI1z1QZ9Rbsg";
-$chatId = "-701885969";
+$botId = "2111200320:AAGuezHGXwnsBGtw6w8LE51SI1z1QZ9Rbsg"; // Id телеграмм бота
+$chatId = "-701885969"; // Id телеграмм чата
+
 $name = $_GET["name"];
 $phone = $_GET["phone"];
 $antispam = $_GET["antispam"];
@@ -8,7 +9,8 @@ if (!$antispam) {
   echo json_encode(["ok" => false]);
 } else {
   $domen = ($_SERVER["HTTPS"] ? "https://" : "http://").$_SERVER["HTTP_HOST"];
-  $message = "<b>Заявка с {$domen}</b>\n<b>Имя</b>: {$name}\n<b>Телефон</b>: {$phone}";
+  
+  $message = "<b>Заявка с {$domen}</b>\n<b>Имя</b>: {$name}\n<b>Телефон</b>: {$phone}";  // HTML шаблон сообщения в телеграмме
   
   $data = array(
     "chat_id" => $chatId,
