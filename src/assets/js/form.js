@@ -13,14 +13,16 @@ const formSend = () => {
       e.preventDefault()
       const data = `name=${name.value}&phone=${phone.value}`
       const url = `${form.action}?${data}`
-      ;(async function () {
-        const result = await fetch(url).then((res) => res.data)
-        if (result) {
-          getSuccess(wrapper)
-        } else {
-          onError()
-        }
-      })()
+
+      fetch(url)
+        .then((res) => res.data)
+        .then((res) => console.log(res))
+        .catch((error) => console.log(error))
+      // if (result) {
+      //   getSuccess(wrapper)
+      // } else {
+      //   onError()
+      // }
     }
   }
   function getSuccess(wrapper) {
