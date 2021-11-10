@@ -1,6 +1,6 @@
 - var langFile = htmlWebpackPlugin.options.data.other.index
 
-.form-container(data-success= langFile["Успешная отправка"])
+.form-container(data-success-desc= langFile["Успешная отправка описание"], data-success= langFile["Успешная отправка"])
 	form.form-wrapper(action='/mail.php')
 		.form
 			label(class=['form-input', 'empty'])
@@ -12,4 +12,5 @@
 			+call-button({tag:'button', text: langFile["Оставить заявку"], buttonClass: ['call-button--filled']})
 			.form-error= langFile["Заполните все поля"]
 	//- .form-success 
-	//- 	.form-success__content= langFile["Успешная отправка"]
+	//- 	.form-success__description= langFile["Успешная отправка описание"]
+	//- 	.form-success__title= langFile["Успешная отправка"]

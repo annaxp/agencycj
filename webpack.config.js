@@ -8,7 +8,7 @@ const autoprefixer = require('autoprefixer')
 
 const { data } = require('./getData.js')
 const { infoblocks } = data
-const { projects, services } = infoblocks
+const { projects, services, tags } = infoblocks
 
 const pagesDir = path.join(__dirname, './src/views/pages')
 const buildDir = 'public_html'
@@ -76,8 +76,26 @@ const htmlServicesPages = services.map((categoryData, index) => {
   })
 })
 
+const htmlTagsPages = tags.map((categoryData, index) => {
+  const category = 'services'
+  return new HtmlWebpackPlugin({
+    ...htmlWebPackDefault,
+    template: `${pagesDir}/tags.pug`,
+    filename: `${category}/${categoryData.code}.html`,
+    chunks: ['common_vendors', 'common', 'detail'],
+    data,
+    dataId: index,
+  })
+})
+
 const miniCssExtractPlugin = new MiniCssExtractPlugin({
   filename: `./assets/styles/${fileName('css')}`,
+})
+
+const cleanPlugin = new CleanWebpackPlugin({
+  ...(isDev
+    ? { cleanOnceBeforeBuildPatterns: [`!${buildDir}/**`] }
+    : { cleanOnceBeforeBuildPatterns: [`!${buildDir}/mail.php`] }),
 })
 
 module.exports = {
@@ -127,7 +145,8 @@ module.exports = {
     htmlIndex,
     html404page,
     ...htmlProjectsPages,
-    // ...htmlServicesPages,
+    ...htmlServicesPages,
+    ...htmlTagsPages,
     miniCssExtractPlugin,
     new CopyPlugin({
       patterns: [
@@ -137,11 +156,7 @@ module.exports = {
         { from: 'assets/fonts', to: 'assets/fonts' },
       ],
     }),
-    new CleanWebpackPlugin({
-      ...(isDev
-        ? { cleanOnceBeforeBuildPatterns: ['!public/**', '!public_html/**'] }
-        : { cleanOnceBeforeBuildPatterns: ['!public_html/.htaccess'] }),
-    }),
+    cleanPlugin,
   ],
   module: {
     rules: [

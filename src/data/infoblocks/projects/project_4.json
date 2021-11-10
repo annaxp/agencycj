@@ -1,7 +1,7 @@
 {
   "id": 4,
-  "hasLink": false,
-  "code": "buro_dmitriya_4",
+  "hasLink": true,
+  "code": "buro_dmitriya_copy",
   "name": "Бюро Дмитрия Якушева",
   "preview_picture": "#project#/buro.png",
   "background_color": "#056f90",

@@ -25,7 +25,7 @@ include ~@components/mainPage/contacts-list
 				.contacts-block__content
 					+contacts-list({phone, email, socials})
 					.contacts-adress
-						a.contacts-adress__link(href=adress[0])= adress[1]
+						a.contacts-adress__link(href=adress[0], target="_blank")= adress[1]
 		.contacts-block__bottom
 			.contacts-form-wrapper.container
 				include ~@components/form

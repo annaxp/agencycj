@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="781" viewBox="0 0 1600 781">
+    <defs>
+        <clipPath id="clip-path">
+            <path id="Прямоугольник_8637" data-name="Прямоугольник 8637" style="fill:#fff" d="M0 0h1600v781H0z"/>
+        </clipPath>
+        <style>
+            .cls-3{opacity:.07}.cls-4,.cls-5,.cls-6{fill:none;stroke:#fff;stroke-miterlimit:10}.cls-4{stroke-width:1.61px}.cls-5{stroke-width:1.559px}.cls-6{stroke-width:1.563px}
+        </style>
+    </defs>
+    <g id="Группа_масок_61" data-name="Группа масок 61" style="clip-path:url(#clip-path)">
+        <g id="Сгруппировать_12225" data-name="Сгруппировать 12225" class="cls-3" transform="translate(108.98 -796.452)">
+            <g id="Сгруппировать_766-2" data-name="Сгруппировать 766" transform="translate(-76.98 489.574)">
+                <path id="Прямоугольник_8380-2" data-name="Прямоугольник 8380" class="cls-4" d="M0 0h1535.449v1527.757H0z"/>
+            </g>
+            <g id="Сгруппировать_767-2" data-name="Сгруппировать 767" transform="translate(74.658 489.574)">
+                <path id="Линия_205-2" data-name="Линия 205" class="cls-5" d="M0 1527.757V0"/>
+                <path id="Линия_206-2" data-name="Линия 206" class="cls-5" transform="translate(154.114)" d="M0 1527.757V0"/>
+                <path id="Линия_207-2" data-name="Линия 207" class="cls-5" transform="translate(308.227)" d="M0 1527.757V0"/>
+                <path id="Линия_208-2" data-name="Линия 208" class="cls-5" transform="translate(462.341)" d="M0 1527.757V0"/>
+                <path id="Линия_209-2" data-name="Линия 209" class="cls-5" transform="translate(616.454)" d="M0 1527.757V0"/>
+                <path id="Линия_210-2" data-name="Линия 210" class="cls-5" transform="translate(770.568)" d="M0 1527.757V0"/>
+                <path id="Линия_211-2" data-name="Линия 211" class="cls-5" transform="translate(924.681)" d="M0 1527.757V0"/>
+                <path id="Линия_212-2" data-name="Линия 212" class="cls-5" transform="translate(1078.795)" d="M0 1527.757V0"/>
+                <path id="Линия_213-2" data-name="Линия 213" class="cls-5" transform="translate(1232.908)" d="M0 1527.757V0"/>
+            </g>
+            <g id="Сгруппировать_768-2" data-name="Сгруппировать 768" transform="translate(-76.245 636.998)">
+                <path id="Линия_214-2" data-name="Линия 214" class="cls-6" transform="translate(0 1232.908)" d="M1534.714 0H0"/>
+                <path id="Линия_215-2" data-name="Линия 215" class="cls-6" transform="translate(0 1078.794)" d="M1534.714 0H0"/>
+                <path id="Линия_216-2" data-name="Линия 216" class="cls-6" transform="translate(0 924.681)" d="M1534.714 0H0"/>
+                <path id="Линия_217-2" data-name="Линия 217" class="cls-6" transform="translate(0 770.568)" d="M1534.714 0H0"/>
+                <path id="Линия_218-2" data-name="Линия 218" class="cls-6" transform="translate(0 616.454)" d="M1534.714 0H0"/>
+                <path id="Линия_219-2" data-name="Линия 219" class="cls-6" transform="translate(0 462.34)" d="M1534.714 0H0"/>
+                <path id="Линия_220-2" data-name="Линия 220" class="cls-6" transform="translate(0 308.227)" d="M1534.714 0H0"/>
+                <path id="Линия_221-2" data-name="Линия 221" class="cls-6" transform="translate(0 154.113)" d="M1534.714 0H0"/>
+                <path id="Линия_222-2" data-name="Линия 222" class="cls-6" d="M1534.714 0H0"/>
+            </g>
+        </g>
+    </g>
+</svg>

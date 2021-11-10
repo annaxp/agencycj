@@ -1,12 +1,13 @@
+include ~@mixins/social-icon
+
 mixin contacts-list({phone=[], email='', socials=[]})
 	.contacts-list 
 		.contacts-list__item
-			a.contacts-list__link(href=phone[0])= phone[1]
+			a.contacts-list__link(href=`tel:${phone[0]}`)= phone[1]
 		.contacts-list__item
 			a.contacts-list__link(href=`mailTo:${email}`)= email
 		.contacts-list__item
-			include ~@mixins/social-icon
 			.contacts-list__socials
 				each social in socials
-					a.social-icon(href=social.link)
+					a.social-icon(href=social.link, target="_blank")
 						+social-icon(social.icon)

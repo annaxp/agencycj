@@ -26,6 +26,7 @@ const formSend = () => {
   })
 
   function getForm(wrapper) {
+    wrapper.style.height = wrapper.clientHeight
     const form = wrapper.querySelector('form')
     const name = form.querySelector('input[name="name"]')
     const phone = form.querySelector('input[name="phone"]')
@@ -37,7 +38,6 @@ const formSend = () => {
         formState.firstClick = false
         setButtonDisabled(true)
         return false
-      } else {
       }
 
       const data = `name=${name.value}&phone=${phone.value}&antispam=antispam`
@@ -119,9 +119,12 @@ const formSend = () => {
     function getSuccessHtml(wrapper) {
       wrapper.innerHTML = `
         <div class="form-success">
-          <div class="form-success__content">${
-            wrapper.getAttribute('data-success') || 'Успех'
-          }</div>
+          <div class="form-success__description">${wrapper.getAttribute(
+            'data-success-desc',
+          )}</div>
+          <div class="form-success__title">${wrapper.getAttribute(
+            'data-success',
+          )}</div>
         </div>
       `
     }

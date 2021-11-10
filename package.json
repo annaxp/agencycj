@@ -42,6 +42,7 @@
   },
   "dependencies": {
     "normalize.css": "^8.0.1",
+    "remove-files-webpack-plugin": "^1.4.5",
     "swiper": "^7.0.9"
   }
 }

@@ -1,6 +1,13 @@
+.form-container
+	display: flex
+	justify-content: center
+	padding-block: 63px
+	@media screen and ( min-width: $media-width-xsss )
+		padding-inline: 63px
 .form-wrapper
 	display: flex
 	flex-direction: column
+	width: 100%
 	margin-bottom: 0
 .form
 	display: grid
@@ -47,8 +54,17 @@
 	form.error &
 		display: block
 .form-success
-	padding: 40px
-	font-size: 24px
-	font-weight: 700
-	text-align: center
-	color: $mainLight
+	display: flex
+	flex-direction: column
+	justify-content: space-between
+	align-items: center
+	min-height: 100px
+	&__description
+		padding-bottom: 20px
+		color: $mainLight
+		opacity: 0.6
+	&__title
+		font-weight: 700
+		color: $mainColor
+		font-size: 18px
+

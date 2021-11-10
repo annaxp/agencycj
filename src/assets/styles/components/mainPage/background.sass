@@ -8,11 +8,11 @@ $height: 1080
   right: 0
   bottom: 0
   left: 0
-  filter: blur(2px)
   overflow: hidden
   &__video
     display: block
     width: 100%
+    filter: blur(2px)
     #{$isDesktop}
       @media screen and ( max-aspect-ratio: #{$width} / #{$height})
         height: 100%
@@ -20,5 +20,15 @@ $height: 1080
     &.is-vertical
       height: 100%
       width: auto
+  &__grid
+    position: absolute
+    z-index: 1
+    top: 0
+    bottom: 0
+    left: 50%
+    transform: translateX(-50%)
+    img
+      display: block
+      height: 100%
 
       
