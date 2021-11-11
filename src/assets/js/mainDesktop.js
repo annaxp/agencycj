@@ -27,6 +27,9 @@ export const mainDesktopApp = (blocks) => {
     </div>`
   })
 
+  const { processListAnimationPlay, processListAnimationStop } =
+    processListAnimation(document.getElementById('process-list'))
+
   const headerNavLinks = document.querySelectorAll('a.header-nav__item')
 
   const themeStore = {
@@ -71,9 +74,6 @@ export const mainDesktopApp = (blocks) => {
           screens.isScrolling = false
         },
         slideChange: (swiper) => {
-          const { processListAnimationPlay, processListAnimationStop } =
-            processListAnimation(document.getElementById('process-list'))
-
           if (blocks[swiper.activeIndex].name === 'process') {
             processListAnimationPlay()
           } else {

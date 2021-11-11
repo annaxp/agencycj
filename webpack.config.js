@@ -98,6 +98,8 @@ const cleanPlugin = new CleanWebpackPlugin({
     : { cleanOnceBeforeBuildPatterns: [`!${buildDir}/mail.php`] }),
 })
 
+// const cleanPlugin = new CleanWebpackPlugin()
+
 module.exports = {
   context: path.resolve(__dirname, 'src'),
   entry: {
