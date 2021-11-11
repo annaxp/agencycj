@@ -1,0 +1,9 @@
+{
+  id: 0,
+  hasLink: false,
+  code: 'web_development1',
+  name: 'WEB РАЗРАБОТКА',
+  icon_name: 'web',
+  preview_text: 'Короткий поясняющий текст в две стороки',
+  detail_text: 'Короткий поясняющий текст в две стороки',
+}

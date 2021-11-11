@@ -1,7 +1,7 @@
 import Swiper, { Navigation } from 'swiper'
-import { deviceType as getDeviceType } from './deviceType.js'
-import { desktopApp } from './desktop'
-import { mobileApp } from './mobile'
+import { deviceType as getDeviceType } from './common/deviceType.js'
+import { mainDesktopApp } from './mainDesktop'
+import { mainMobileApp } from './mainMobile'
 
 Swiper.use([Navigation])
 
@@ -46,13 +46,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const deviceType = getDeviceType()
 
   if (deviceType === 'desktop') {
-    desktopApp(blocks)
-  } else {
-    mobileApp(blocks)
+    mainDesktopApp(blocks)
   }
 
   const slideChange = (swiper) => {
-    if (deviceType !== 'desktop') return
     swiper.el.querySelector('.slider-controls__current').innerText =
       swiper.activeIndex + 1
   }
@@ -60,14 +57,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const swiperDefaultProps = (element) => ({
     speed: 400,
     on: {
-      slideChange,
-      afterInit: (swiper) => {
-        if (deviceType === 'desktop') {
-          element.querySelector('.slider-controls__count').innerText =
-            swiper.slides.length - swiper.params.slidesPerView + 1
-          slideChange(swiper)
-        }
-      },
+      ...(deviceType === 'desktop'
+        ? {
+            slideChange,
+            afterInit: (swiper) => {
+              element.querySelector('.slider-controls__count').innerText =
+                swiper.slides.length - swiper.params.slidesPerView + 1
+              slideChange(swiper)
+            },
+          }
+        : {}),
     },
   })
 
@@ -77,13 +76,14 @@ document.addEventListener('DOMContentLoaded', () => {
       slidesPerView: 3,
       slideClass: 'project-slide',
       wrapperClass: 'projects-list',
-      navigation:
-        deviceType === 'desktop'
-          ? {
+      ...(deviceType === 'desktop'
+        ? {
+            navigation: {
               prevEl: element.querySelector('.arrow--left'),
               nextEl: element.querySelector('.arrow--right'),
-            }
-          : false,
+            },
+          }
+        : {}),
       ...swiperDefaultProps(element),
     },
   }))(document.querySelector('.projects-list-wrapper'))
@@ -94,13 +94,14 @@ document.addEventListener('DOMContentLoaded', () => {
       slidesPerView: 1,
       slideClass: 'team-slide',
       wrapperClass: 'team-list',
-      navigation:
-        deviceType === 'desktop'
-          ? {
+      ...(deviceType === 'desktop'
+        ? {
+            navigation: {
               prevEl: element.querySelector('.arrow--left'),
               nextEl: element.querySelector('.arrow--right'),
-            }
-          : false,
+            },
+          }
+        : {}),
       ...swiperDefaultProps(element),
       breakpoints: {
         600: {
@@ -144,4 +145,8 @@ document.addEventListener('DOMContentLoaded', () => {
     element.classList.add('is-slider')
     element && new Swiper(element, props)
   })
+
+  if (deviceType === 'mobile') {
+    mainMobileApp()
+  }
 })

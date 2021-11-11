@@ -1,0 +1,9 @@
+{
+  id: 1,
+  hasLink: false,
+  code: 'ux_analitics1',
+  name: 'UX АНАЛИТИКА',
+  icon_name: 'ux',
+  preview_text: 'Короткий поясняющий текст в две стороки',
+  detail_text: 'Короткий поясняющий текст в две стороки',
+}

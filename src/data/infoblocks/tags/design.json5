@@ -1,0 +1,9 @@
+{
+  id: 3,
+  hasLink: false,
+  code: 'design1',
+  name: 'ДИЗАЙН',
+  icon_name: 'design',
+  preview_text: 'Короткий поясняющий текст в две стороки',
+  detail_text: 'Короткий поясняющий текст в две стороки',
+}

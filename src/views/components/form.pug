@@ -1,16 +1,18 @@
 - var langFile = htmlWebpackPlugin.options.data.other.index
 
-.form-container(data-success-desc= langFile["Успешная отправка описание"], data-success= langFile["Успешная отправка"])
+.form-container(data-success-desc= langFile["success_desc"], data-success= langFile["success"])
 	form.form-wrapper(action='/mail.php')
 		.form
 			label(class=['form-input', 'empty'])
-				input.form-input__input(placeholder="Имя", name="name", autocomplete="off", class=[])
+				input.form-input__input(placeholder=langFile["input_name"], name="name", autocomplete="off", class=[])
 			label(class=['form-input', 'empty'])
-				input.form-input__input(placeholder="Телефон", name="phone", autocomplete="off")
+				input.form-input__input(placeholder=langFile["input_phone"], name="phone", autocomplete="off")
 		.form__button
 			include ../components/call-button
-			+call-button({tag:'button', text: langFile["Оставить заявку"], buttonClass: ['call-button--filled']})
-			.form-error= langFile["Заполните все поля"]
+			+call-button({tag:'button', text: langFile["send"], buttonClass: ['call-button--filled']})
+			.form-error= langFile["form_error"]
 	//- .form-success 
-	//- 	.form-success__description= langFile["Успешная отправка описание"]
-	//- 	.form-success__title= langFile["Успешная отправка"]
+	//- 	.form-success__description= langFile["success_desc"]
+	//- 	.form-success__title
+					img.form-success__icon(src="/upload/images/success.svg")
+					langFile["success"]

@@ -1,15 +1,14 @@
-include ~@components/detailPage/detail-person
 include ~@components/detailPage/detail-slider
-include ~@components/detailPage/detail-text
+include ~@components/detailPage/visual-editor
 
 mixin project-content(props)
   section.project-content
     each content in props.detailContent
-      - let contentType = content.content
+      - 
+        var contentType = content.content
+        var quote = content.quote
       case content.type 
         when 'text'
-          +detail-text(contentType)
+          +visual-editor({text: contentType, quote, fileName: props.fileName, className: ['container-short']})
         when 'slider'
           +detail-slider({slides: contentType, fileName: props.fileName})
-        when 'person'
-          +detail-person({person: contentType, fileName: props.fileName})

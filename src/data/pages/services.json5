@@ -1,0 +1,31 @@
+{
+  title: 'Agensy UX | services',
+  description: 'Services page description',
+  keywords: '',
+  top_menu: [
+    {
+      name: 'О компании',
+      link: '/#about',
+    },
+    {
+      name: 'Услуги',
+      link: '/#services',
+    },
+    {
+      name: 'Проекты',
+      link: '/#projects',
+    },
+    {
+      name: 'Процесс',
+      link: '/#process',
+    },
+    {
+      name: 'Команда',
+      link: '/#team',
+    },
+    {
+      name: 'Контакты',
+      link: '/#contacts',
+    },
+  ],
+}

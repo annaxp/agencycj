@@ -2,10 +2,9 @@ mixin detail-person({person, fileName})
   -
     var img = person.src.replace(/#project#/g, `/upload/images/projects/${fileName}`)
     
-  .container-short
-    .detail-person
-      .detail-person__img-wrapper
-        img.detail-person__img(src=img)
-      .detail-person__content 
-        .detail-person__name= person.name
-        .detail-person__desc= person.description
+  .detail-person
+    .detail-person__img-wrapper
+      img.detail-person__img(src=img)
+    .detail-person__content 
+      .detail-person__name= person.name
+      .detail-person__desc= person.description

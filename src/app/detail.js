@@ -1,3 +1,3 @@
-import '@styles/pages/projects.sass'
+import '@styles/pages/detail.sass'
 
 import '@scripts/detail'

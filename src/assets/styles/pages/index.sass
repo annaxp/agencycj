@@ -9,6 +9,10 @@
 @import ~@blocksStyles/mainPage/team
 @import ~@blocksStyles/mainPage/contacts
 
+.header-wrapper
+	#{$isDesktop}
+		position: fixed
+
 .screens
 	position: relative
 	width: 100%
@@ -17,7 +21,7 @@
 	list-style: none
 	padding: 0
 	z-index: 1
-	.desktop-app &
+	#{$isDesktop}
 		height: 100vh
 		overflow: hidden
 

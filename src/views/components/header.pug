@@ -17,7 +17,8 @@ mixin header({logo='/', nav, button, theme = [], buttonClass=[]})
         +call-button({tag:'a', href:'#contacts', text: button, buttonClass})
       .header__mobile 
         .header__message 
-          include ~@assets/icons/call.svg
+          a.header-icon-link(href="#contacts")
+            include ~@assets/icons/call.svg
         .header__burger
           .menu-icon
             .menu-icon__closed

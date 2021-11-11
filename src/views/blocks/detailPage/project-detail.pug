@@ -1,6 +1,7 @@
 //- require mixins block
 include ~@components/main-title
 include ~@components/tags
+include ~@components/detailPage/visual-editor
 
 mixin project-detail(props)
 	- 
@@ -19,7 +20,7 @@ mixin project-detail(props)
 				+main-title(sectionTitle, 'h1')
 			.project-detail__subtitle= subtitle
 	.detail-content.container-short
-		.detail-content__text= detailText
+		+visual-editor({text: detailText})
 		+tags({tags})
 
 

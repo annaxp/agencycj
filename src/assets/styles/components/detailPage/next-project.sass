@@ -5,11 +5,15 @@
   gap: 50px
   padding-top: 70px
   padding-bottom: 106px
+  @media screen and ( max-width: $media-width-xsss )
+    flex-wrap: wrap
+    
   &__prev
     display: flex
     flex-direction: column
     align-items: flex-start
     padding-right: 40px
+    text-align: start
     .next-project__arrow
       right: -40px
   &__next
@@ -17,9 +21,13 @@
     flex-direction: column
     align-items: flex-end
     padding-left: 40px
-    .next-project__arrow
-      left: -40px
-      transform: rotate(180deg)
+    text-align: end
+    @media screen and ( max-width: $media-width-xsss )
+      margin-left: auto
+    .next-project
+      &__arrow
+        left: -40px
+        transform: rotate(180deg)
   &__link
     position: relative
     color: $textDark
@@ -29,8 +37,9 @@
     &:hover
       color: $mainColor
       opacity: 1
-      .next-project__arrow
-        opacity: 1
+      .next-project
+        &__arrow
+          opacity: 1
   &__arrow
     position: absolute
     top: -75px
@@ -39,10 +48,14 @@
     height: 215px
     opacity: 0
     transition: opacity .4s ease
+    @media screen and ( max-width: $media-width-xsss )
+      display: none
   &__desc
     font-size: 24px
     font-weight: 900
     margin-bottom: 15px
+    @media screen and ( max-width: $media-width-xsss )
+      font-size: 18px
   &__name
     max-height: 40px
     line-height: 1.86

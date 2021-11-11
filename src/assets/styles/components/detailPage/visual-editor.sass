@@ -1,0 +1,36 @@
+.visual-editor
+  font-size: 18px
+  line-height: 2
+  margin-top: 88px
+  h1,h2,h3
+    margin: 0 0 62px
+    font-weight: 900
+  h1
+    line-height: 1.21
+    font-size: 56px
+  h2
+    font-size: 32px
+    line-height: 1.75
+  p
+    padding: 0
+    margin: 44px 0
+  b
+    font-weight: 700
+  ul,ol
+    margin: 0
+    padding: 0
+    list-style: none
+  ol
+    counter-reset: section
+  li
+    padding: 0
+    margin: 36px 0
+  ol > li::before
+    counter-increment: section
+    content: counter(section)
+  ul > li::before
+    content: '- '
+  a
+    font-style: italic
+    color: $mainColor !important
+    

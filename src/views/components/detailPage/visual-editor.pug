@@ -1,0 +1,11 @@
+include ~@components/detailPage/detail-person
+
+mixin visual-editor({text, className=[], quote, fileName})
+  div(class=['visual-editor', ...className]) 
+    | !{text}
+    if quote
+      +detail-person({person: quote, fileName})
+  //- |
+  //- |  !{text}
+    //- if quote
+    //-   +detail-person({person: quote, fileName})

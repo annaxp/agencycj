@@ -1,12 +1,13 @@
 const fs = require('fs')
 const path = require('path')
+require('json5/lib/register')
 
 const DATA_DIR = path.join(__dirname, './src/data')
 
 function parseFilesTokens({
   dir,
-  filter = /(.)*.json/,
-  callback = parseTokens,
+  filter = /(.)*.json5?/,
+  parseFunction = parseTokens,
 }) {
   const result = {}
   function recurseHandler(dir, deep = []) {
@@ -16,7 +17,7 @@ function parseFilesTokens({
     }
     try {
       fs.readdirSync(dir, { withFileTypes: true }).forEach((file) => {
-        const fileName = file.name.replace(/.json/g, '')
+        const fileName = file.name.replace(/.json5?/g, '')
         const filePath = dir + '/' + file.name
         if (fs.lstatSync(filePath).isDirectory()) {
           recurseHandler(filePath, deep.concat(fileName))
@@ -38,7 +39,7 @@ function parseFilesTokens({
               currentResultProp = currentResultProp[lastProp]
             }
           }
-          const fileData = callback(filePath)
+          const fileData = parseFunction(filePath)
           if (Array.isArray(currentResultProp)) {
             currentResultProp.push({
               ...fileData,
@@ -67,9 +68,9 @@ function parseFilesTokens({
   return result
 }
 
-function parseTokens(fileName) {
+function parseTokens(filePath) {
   try {
-    return require(fileName)
+    return require(filePath)
   } catch (e) {
     console.error(e)
   }

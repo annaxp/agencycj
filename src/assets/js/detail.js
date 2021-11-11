@@ -1,6 +1,7 @@
 import Swiper, { Navigation, Pagination } from 'swiper'
-import { deviceType as getDeviceType } from './deviceType.js'
-import { mobileApp } from './mobile'
+import { deviceType as getDeviceType } from './common/deviceType.js'
+import { detailMobileApp } from './detailMobile'
+import { mobileScrollTo } from './common/mobileScrollTo'
 
 Swiper.use([Navigation, Pagination])
 
@@ -9,8 +10,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (deviceType === 'desktop') {
     document.body.classList.add('desktop-app')
+    const form = document.querySelector('.projects-form')
+
+    document.querySelector('.header .call-button').onclick = (e) => {
+      e.preventDefault()
+      form && mobileScrollTo(form)
+    }
   } else {
-    mobileApp(blocks)
+    detailMobileApp()
   }
 
   const swipers = []

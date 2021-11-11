@@ -5,6 +5,8 @@ include ~@components/mainPage/services-list
 
 -
 	var data = htmlWebpackPlugin.options.data
+	var servicesBlockInfo = data.pages.index.blocks.services
+	var sectionTitle = servicesBlockInfo.title
 	var services = data.infoblocks.services
 
 +main({dataHash:'services', className:['header-offset', 'main--dark'], scrollClassName:['theme-dark']})

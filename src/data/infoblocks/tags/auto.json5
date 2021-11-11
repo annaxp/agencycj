@@ -1,0 +1,9 @@
+{
+  id: 5,
+  hasLink: false,
+  code: 'automation1',
+  name: 'АВТОМАТИЗАЦИЯ',
+  icon_name: 'auto',
+  preview_text: 'Короткий поясняющий текст в две стороки',
+  detail_text: 'Короткий поясняющий текст в две стороки',
+}
