@@ -26,7 +26,7 @@
   })
 
   function formInit(wrapper) {
-    setFormHeight(wrapper)
+    setTimeout(() => setFormHeight(wrapper), 1000)
     window.addEventListener('resize', () => setFormHeight(wrapper))
     const form = wrapper.querySelector('form')
     const name = form.querySelector('input[name="name"]')
