@@ -46,33 +46,20 @@ $media-700: 700px
 	@media screen and ( max-width: $media-width-xsss)
 		width: 100%
 		max-width: 350px
-	&__img-wrapper
-		position: relative
+	&__img
+		align-self: flex-end
+		$imgWidth: 284
+		aspect-ratio: $imgWidth / 600
 		width: 50%
 		@media screen and (max-height: $media-height-m)
 			width: 42%
 		@media screen and (max-width: $media-width-xs)
 			width: 60%
-	&__img
-		position: absolute
-		bottom: 0
-		left: 0
-		width: 100%
-		$imgWidth: 284
-		padding-top: math.div(600, $imgWidth) * 100%
 		@media screen and ( max-width: $media-700 )
 			position: static
-			padding: 0
 		img
-			position: absolute
-			top: 0
-			left: 0
 			display: block
 			width: 100%
-			height: 100%
-			@media screen and ( max-width: $media-700 )
-				position: static
-				height: initial
 	&__name
 		margin-bottom: 6px
 		color: $mainColor

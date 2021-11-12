@@ -20,9 +20,9 @@ body
   padding-inline: 40px
   margin: 0 auto
   @media screen and ( max-width: $media-width-xs ) and (min-width: $media-width-xsss)
-    padding: 0 80px
+    padding-inline: 80px
   @media screen and ( max-width: $media-width-xss )
-    padding: 0 36px
+    padding-inline: 36px
     
 .container-wide
   width: 100%
@@ -34,6 +34,8 @@ body
   max-width: #{$containerShortWidth}px
   padding-inline: 40px
   margin: 0 auto
+  @media screen and ( max-width: $media-width-xs ) and (min-width: $media-width-xsss)
+    padding-inline: 80px
 
 .header-offset
   padding-top: $headerHeight
@@ -47,6 +49,10 @@ input
   &:focus
     outline: none
     border: none
+
+a,input,button
+  #{$isMobile}
+    -webkit-tap-highlight-color: transparent
 
 @import @styles/components/header.sass
 @import @styles/components/tags.sass

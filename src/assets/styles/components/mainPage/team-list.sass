@@ -1,4 +1,6 @@
 $translateY: 50
+=transition()
+	transition: .3s ease
 
 .team-list-wrapper
 	position: relative
@@ -6,7 +8,6 @@ $translateY: 50
 	flex-direction: column
 	overflow: hidden
 	list-style: none
-	padding-top: #{$translateY}px
 	z-index: 1
 	#{$isMobile}
 		overflow: visible
@@ -30,50 +31,40 @@ $translateY: 50
 		padding-right: 32px
 .team-item
 	position: relative
-	width: 100%
 	color: #000
+	padding-top: #{$translateY}px
+	aspect-ratio: 100 / 121
+	box-sizing: content-box
+	overflow: hidden
 	#{$isDesktop}
 		&:hover
 			.team-item
-				&__hover
+				&__inner
 					transform: translateY(-#{$translateY}px)
-				&__content
-					opacity: 1
-					pointer-events: all
 	#{$isMobile}
 		.team-item
-			&__hover
+			&__inner
 				transform: translateY(-#{$translateY}px)
-			&__content
-				opacity: 1
-				pointer-events: all
 	&__inner
-		position: relative
+		position: absolute
+		top: #{$translateY}px
+		left: 0
 		width: 100%
-		padding-top: 121%
-	&__hover
-		transition: .3s ease
+		overflow: hidden
+		+transition()
+
 	&__img-wrapper
-		position: absolute
-		top: 0
-		right: 0
-		bottom: 0
-		left: 0
+		position: relative
+		aspect-ratio: 100 / 121
 	&__img
-		position: absolute
-		top: 50%
-		left: 50%
 		display: block
+		height: 100%
 		width: 100%
-		transform: translate(-50%, -50%)
+		object-fit: cover
 	&__content
-		position: absolute
-		top: 100%
-		left: 0
 		width: 100%
 		padding-top: 8px
 		color: $textDark
-		opacity: 0
 		pointer-events: none
 	&__title
 		margin-bottom: 11px

@@ -14,11 +14,12 @@ mixin project-detail(props)
 
 	section(class=['project-detail', 'header-offset'] style=bgStyle)
 		.project-detail__inside.container
-			.project-detail__img 
+			.project-detail__container
+				.project-detail__title
+					+main-title(sectionTitle, 'h1')
+				.project-detail__subtitle= subtitle
+			.project-detail__img-wrapper
 				img(src=previewPicture, alt="")
-			.project-detail__title
-				+main-title(sectionTitle, 'h1')
-			.project-detail__subtitle= subtitle
 	.detail-content.container-short
 		+visual-editor({text: detailText})
 		+tags({tags})
