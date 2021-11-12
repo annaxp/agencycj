@@ -92,13 +92,13 @@ const miniCssExtractPlugin = new MiniCssExtractPlugin({
   filename: `./assets/styles/${fileName('css')}`,
 })
 
-// const cleanPlugin = new CleanWebpackPlugin({
-//   ...(isDev
-//     ? { cleanOnceBeforeBuildPatterns: [`!${buildDir}/**`] }
-//     : { cleanOnceBeforeBuildPatterns: [`!${buildDir}/mail.php`] }),
-// })
+const cleanPlugin = new CleanWebpackPlugin({
+  ...(isDev
+    ? { cleanOnceBeforeBuildPatterns: [`!${buildDir}/**`] }
+    : { cleanOnceBeforeBuildPatterns: [`!${buildDir}/mail.php`] }),
+})
 
-const cleanPlugin = new CleanWebpackPlugin()
+// const cleanPlugin = new CleanWebpackPlugin()
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
