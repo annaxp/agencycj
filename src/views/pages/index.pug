@@ -16,10 +16,10 @@ block content
 		var nav = indexPage.top_menu
 		var videos = indexPage.blocks.preview.videos
 
-		var langFile = htmlWebpackPlugin.options.data.other.index
+		var langFile = data.other.index
 
 	body.body
-		+header({logo:'', nav, button: langFile["feedback"]})
+		+header({logo:'', nav, button: langFile['feedback']})
 		.screens
 			.screens-wrapper
 				include ~@blocks/mainPage/preview

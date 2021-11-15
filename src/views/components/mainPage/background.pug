@@ -1,7 +1,0 @@
-mixin background(videos)
-  .background
-    .background__grid 
-      img(src="/upload/images/background-grid.svg", alt="")
-    video.background__video(loop='loop' autoplay='autoplay' muted='muted' playsinline='playsinline')
-      each source in videos
-        source(src=source.src, type=source.type)

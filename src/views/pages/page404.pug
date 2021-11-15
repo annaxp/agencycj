@@ -2,19 +2,25 @@ extends ~@components/page
 
 //- require mixins block
 include ~@components/header
+include ~@components/background
 
 block variables
 	-	
 		var data = htmlWebpackPlugin.options.data
-		var indexPage = data.pages.index
+		var indexPage = data.pages.page404
 		var title = indexPage.title
 		var description = indexPage.description
 
 block content
 	- 
 		var nav = indexPage.top_menu
-
-		var langFile = htmlWebpackPlugin.options.data.other.index
+		var langFile = data.other.index
 
 	body.body
-		+header({nav, button: langFile["feedback"], theme: ['header-wrapper--detail'], buttonClass:['button-light']})
+		+header({nav, button: langFile['feedback'], theme: ['header-wrapper--404', 'theme-dark'], buttonClass:['button-light']})
+		section.main-404.header-offsety
+			.main-404__background
+				+background(videos)
+			.main-404__inside.container
+				h1.main-404__title= langFile['_404_title']
+				.main-404__subtitle= langFile['_404_description']

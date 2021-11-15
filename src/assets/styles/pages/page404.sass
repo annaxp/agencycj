@@ -1,0 +1,31 @@
+@import '@styles/vars'
+@import '@styles/components/background'
+
+.header-wrapper--404
+  position: absolute
+.main-404
+  position: relative
+  display: flex
+  height: 100vh
+  padding-bottom: 20%
+  background-color: $textDark
+  color: $mainLight
+  overflow: hidden
+  &__background
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+  &__inside
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    width: 100%
+  &__title
+    font-size: 96px
+    font-weight: 900
+  &__subtitle
+    font-size: 18px
+    font-weight: 700

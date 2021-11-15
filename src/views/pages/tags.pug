@@ -18,7 +18,7 @@ block variables
 block content
 	- 
 		var nav = data.pages.services.top_menu
-		var langFile = htmlWebpackPlugin.options.data.other.index
+		var langFile = data.other.index
 
 	body.body
 		+header({nav, button: langFile["feedback"], theme: ['header-wrapper--detail'], buttonClass:['button-light']})

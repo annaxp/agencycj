@@ -5,7 +5,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const autoprefixer = require('autoprefixer')
-
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 const { data, getData } = require('./getData.js')
@@ -51,6 +50,7 @@ const html404page = new HtmlWebpackPlugin({
   ...htmlWebPackDefault,
   template: `${pagesDir}/page404.pug`,
   filename: '404.html',
+  chunks: ['page404'],
   data,
 })
 
@@ -109,6 +109,7 @@ module.exports = {
     common: './app/common.js',
     index: './app/index.js',
     detail: './app/detail.js',
+    page404: './app/page404.js',
   },
   mode: process.env.NODE_ENV,
   resolve: {
