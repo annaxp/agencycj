@@ -4,6 +4,8 @@
   code: 'advert',
   name: 'ВСЕ ВИДЫ РЕКЛАМЫ',
   icon_name: 'ad',
+  preview_picture: '#service#/ad.svg',
   preview_text: 'Короткий поясняющий текст в две стороки',
   detail_text: 'Короткий поясняющий текст в две стороки',
+  detail_content: [],
 }

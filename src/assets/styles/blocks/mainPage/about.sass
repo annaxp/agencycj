@@ -49,7 +49,7 @@ $media-700: 700px
 	&__img
 		align-self: flex-end
 		$imgWidth: 284
-		aspect-ratio: $imgWidth / 600
+		aspect-ratio: math.div($imgWidth, 600)
 		width: 50%
 		@media screen and (max-height: $media-height-m)
 			width: 42%

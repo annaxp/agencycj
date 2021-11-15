@@ -6,4 +6,5 @@
   icon_name: 'smm',
   preview_text: 'Короткий поясняющий текст в две стороки',
   detail_text: 'Короткий поясняющий текст в две стороки',
+  detail_content: [],
 }

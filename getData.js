@@ -80,6 +80,13 @@ const data = parseFilesTokens({
   dir: DATA_DIR,
 })
 
+const getData = () => {
+  return parseFilesTokens({
+    dir: DATA_DIR,
+  })
+}
+
 module.exports = {
   data,
+  getData,
 }

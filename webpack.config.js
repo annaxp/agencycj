@@ -6,7 +6,9 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const autoprefixer = require('autoprefixer')
 
-const { data } = require('./getData.js')
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+
+const { data, getData } = require('./getData.js')
 const { infoblocks } = data
 const { projects, services, tags } = infoblocks
 
@@ -84,6 +86,7 @@ const htmlTagsPages = tags.map((categoryData, index) => {
     filename: `${category}/${categoryData.code}.html`,
     chunks: ['common_vendors', 'common', 'detail'],
     data,
+    getData,
     dataId: index,
   })
 })
@@ -92,13 +95,13 @@ const miniCssExtractPlugin = new MiniCssExtractPlugin({
   filename: `./assets/styles/${fileName('css')}`,
 })
 
-const cleanPlugin = new CleanWebpackPlugin({
-  ...(isDev
-    ? { cleanOnceBeforeBuildPatterns: [`!${buildDir}/**`] }
-    : { cleanOnceBeforeBuildPatterns: [`!${buildDir}/mail.php`] }),
-})
+// const cleanPlugin = new CleanWebpackPlugin({
+//   ...(isDev
+//     ? { cleanOnceBeforeBuildPatterns: [`!${buildDir}/**`] }
+//     : { cleanOnceBeforeBuildPatterns: [`!${buildDir}/mail.php`] }),
+// })
 
-// const cleanPlugin = new CleanWebpackPlugin()
+const cleanPlugin = new CleanWebpackPlugin()
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
@@ -144,6 +147,40 @@ module.exports = {
   },
   plugins: [
     new webpack.ProgressPlugin(),
+    new FaviconsWebpackPlugin({
+      logo: './favicon.svg',
+      outputPath: './assets/favicons/',
+      prefix: './assets/favicons/',
+      favicons: {
+        appName: 'ux_design',
+        developerURL: null,
+        background: '#000',
+        theme_color: '#ff8900',
+        icons: {
+          android: ['android-chrome-192x192.png'],
+          appleIcon: [
+            'apple-touch-icon-1024x1024.png',
+            'apple-touch-icon-167x167.png',
+            'apple-touch-icon-precomposed.png',
+            'apple-touch-icon.png',
+          ],
+          appleStartup: ['apple-touch-startup-image-640x1136.png'],
+          favicons: [
+            'favicon-16x16.png',
+            'favicon-32x32.png',
+            'favicon-48x48.png',
+            'favicon.ico',
+          ],
+          windows: [
+            'mstile-144x144.png',
+            'mstile-150x150.png',
+            'mstile-310x150.png',
+            'mstile-310x310.png',
+          ],
+          yandex: false,
+        },
+      },
+    }),
     htmlIndex,
     html404page,
     ...htmlProjectsPages,
@@ -156,6 +193,7 @@ module.exports = {
         { from: 'assets/videos', to: 'upload/videos' },
         { from: 'assets/styles/fonts.css', to: 'assets/styles/fonts.css' },
         { from: 'assets/fonts', to: 'assets/fonts' },
+        { from: 'mail.php', to: 'mail.php' },
       ],
     }),
     cleanPlugin,

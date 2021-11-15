@@ -2,8 +2,9 @@
   id: 0,
   hasLink: true,
   code: 'web_development',
-  name: 'WEB РАЗРАБОТКА',
+  name: 'WEB',
   icon_name: 'web',
   preview_text: 'Короткий поясняющий текст в две стороки',
   detail_text: 'Короткий поясняющий текст в две стороки',
+  detail_content: [],
 }

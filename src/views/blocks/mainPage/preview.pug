@@ -11,7 +11,8 @@ include ~@components/mainPage/background
 		var tag = data.infoblocks.tags[i]
 		tags.push({
 			name: tag.name,
-			link: '/services/'+tag.code+'.html'
+			link: '/services/'+tag.code+'.html',
+			hasLink: tag.hasLink
 		})
 	}
 

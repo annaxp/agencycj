@@ -18,4 +18,11 @@ export const mainMobileApp = () => {
     e.preventDefault()
     setSlide('#contacts')
   }
+
+  document.querySelectorAll('.services-item__hover').forEach((serviceLink) => {
+    serviceLink.onclick = (e) => {
+      e.preventDefault()
+      setSlide(serviceLink.getAttribute('href'))
+    }
+  })
 }

@@ -12,7 +12,7 @@ mixin project-detail(props)
 		var previewPicture = props.preview_picture.replace(/#project#/g, `/upload/images/projects/${props.fileName}`)
 		var tags = props.tags
 
-	section(class=['project-detail', 'header-offset'] style=bgStyle)
+	section(class=['project-detail', 'header-offset'], style=bgStyle)
 		.project-detail__inside.container
 			.project-detail__container
 				.project-detail__title

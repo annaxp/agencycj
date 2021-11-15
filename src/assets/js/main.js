@@ -55,8 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const deviceType = getDeviceType()
 
-  console.log(deviceType)
-
   if (deviceType === 'desktop') {
     mainDesktopApp(blocks)
   }
