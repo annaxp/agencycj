@@ -3,7 +3,7 @@
   hasLink: false,
   code: 'design1',
   name: 'ДИЗАЙН',
-  icon_name: 'design',
+  detail_picture: '',
   preview_text: 'Короткий поясняющий текст в две стороки',
   detail_text: 'Короткий поясняющий текст в две стороки',
   detail_content: [],

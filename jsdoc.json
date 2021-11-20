@@ -1,0 +1,18 @@
+{
+  "source": {
+    "include": "devDocs",
+    "includePattern": ".js$"
+  },
+  "templates": {
+    "cleverLinks": true,
+    "monospaceLinks": true
+  },
+  "plugins": ["plugins/markdown"],
+  "opts": {
+    "recurse": true,
+    "destination": "./public_docs",
+    "template": "docs-template",
+    "readme": "./README.md",
+    "tutorials": "./devDocs"
+  }
+}

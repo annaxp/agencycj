@@ -3,7 +3,7 @@
   hasLink: false,
   code: 'automation1',
   name: 'АВТОМАТИЗАЦИЯ',
-  icon_name: 'auto',
+  detail_picture: '',
   preview_text: 'Короткий поясняющий текст в две стороки',
   detail_text: 'Короткий поясняющий текст в две стороки',
   detail_content: [],

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Tutorial: Данные</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Tutorial: Данные</h1>
+
+    <section>
+
+<header>
+    
+
+    <h2>Данные</h2>
+</header>
+
+<article>
+    <h1>Форматирование данных</h1>
+<h2>Проекты</h2>
+<p><strong>Путь: <code>/src/data/infoblocks/projects/</code></strong></p>
+<p>Кадый элемент - это новый файл. Название файла <strong>НЕ влияет</strong> на сортировку элементов и <strong>НЕ влияет</strong> на ссылку к элементу. Пример названия - <code>project_name.json5</code>.</p>
+<p><strong>ВСЕ</strong> картинки у каждого элемента должны лежать в своей папке по пути <code>src/assets/images/projects/project_name/</code> (папку нужно создать вручную). Это нужно для того, чтобы избежать путанницы в дальнейшем и воспользоваться упрощенными ссылками к картинкам. См. тип <a href="#%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B0">Картинка</a>.</p>
+<p><strong>Нежелательно переименовывать файлы, иначе придется переименовывать папки у картинок</strong>.</p>
+<p>Каждый элемент состоит из набора <strong>свойств</strong>:</p>
+<ul>
+<li><code>id</code>: <strong>число УНИКАЛЬНОЕ среди проектов</strong>. Отвечает за сортировку (min &gt; max)</li>
+<li><code>hasLink</code>: <strong>true/false</strong>. Отображение ссылки. Если значение <code>false</code> или <strong>свойство</strong> отсутствует, то элемент будет отображаться без ссылки (без перехода на внутряк)</li>
+<li><code>code</code>: Формирует ссылку на проект (/projects/<code>code</code>.html)</li>
+<li><code>name</code>: Заголовок  проекта</li>
+<li><code>preview_picture</code>: Тип <code>картинка</code>. См. тип <a href="#%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B0">Картинка</a>. Путь к картинке</li>
+<li><code>background_color</code>: <strong>строка HEX или RGB</strong>. Цвет фона</li>
+<li><code>preview_text</code>: Краткий текст</li>
+<li><code>detail_text</code>: <strong>текст или HTML</strong>. Детальный текст (визуальные редактор).</li>
+<li><code>tag_codes</code>: <strong>массив</strong>. Из раздела тэгов нужно выбрать <strong>свойства</strong> <code>code</code>.
+<img src="./images/project-tags.jpg" alt="tags!" title="tags"></li>
+<li><code>detail_content</code>: <strong>массив контента</strong>. См. тип <a href="#%D0%BA%D0%BE%D0%BD%D1%82%D0%B5%D0%BD%D1%82">Контент</a>.</li>
+</ul>
+<h2>Услуги</h2>
+<p><strong>Путь: <code>/src/data/infoblocks/services/</code></strong></p>
+<p>Кадый элемент - это новый файл. Название файла <strong>НЕ влияет</strong> на сортировку элементов и <strong>НЕ влияет</strong> на ссылку к элементу. Пример названия - <code>service_name.json5</code>.</p>
+<p><strong>ВСЕ</strong> картинки у каждого элемента должны лежать в своей папке по пути <code>src/assets/images/services/service_name/</code> (папку нужно создать вручную). Это нужно для того, чтобы избежать путанницы в дальнейшем и воспользоваться упрощенными ссылками к картинкам. См. тип <a href="#%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B0">Картинка</a>.</p>
+<p><strong>Нежелательно переименовывать файлы, иначе придется переименовывать папки у картинок</strong>.</p>
+<p>Каждый элемент состоит из набора <strong>свойств</strong>:</p>
+<ul>
+<li><code>id</code>: <strong>число УНИКАЛЬНОЕ среди проектов</strong>. Отвечает за сортировку (min &gt; max)</li>
+<li><code>hasLink</code>: <strong>true/false</strong>. Отображение ссылки. Если значение <code>false</code> или <strong>свойство</strong> отсутствует, то элемент будет отображаться без ссылки (без перехода на внутряк)</li>
+<li><code>code</code>: <strong>строка</strong>. Формирует ссылку на проект (/services/<code>code</code>.html)</li>
+<li><code>name</code>: Заголовок  проекта</li>
+<li><code>preview_picture</code>: Тип <code>картинка</code>. См. тип <a href="#%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B0">Картинка</a>. Путь к картинке</li>
+<li><code>detail_picture</code>: Тип <code>картинка</code>. См. тип <a href="#%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B0">Картинка</a>. Путь к картинке</li>
+<li><code>preview_text</code>: Краткий текст</li>
+<li><code>detail_text</code>: <strong>текст или HTML</strong>. Детальный текст (визуальные редактор).</li>
+<li><code>detail_content</code>: <strong>массив контента</strong>. См. тип <a href="#%D0%BA%D0%BE%D0%BD%D1%82%D0%B5%D0%BD%D1%82">Контент</a>.</li>
+</ul>
+<h2>Теги</h2>
+<p><strong>Путь: <code>/src/data/infoblocks/tags/</code></strong></p>
+<p>Кадый элемент - это новый файл. Название файла <strong>НЕ влияет</strong> на сортировку элементов и <strong>НЕ влияет</strong> на ссылку к элементу. Пример названия - <code>tag_name.json5</code>.</p>
+<p><strong>ВСЕ</strong> картинки у каждого элемента должны лежать в своей папке по пути <code>src/assets/images/tags/tag_name/</code> (папку нужно создать вручную). Это нужно для того, чтобы избежать путанницы в дальнейшем и воспользоваться упрощенными ссылками к картинкам. См. тип <a href="#%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B0">Картинка</a>.</p>
+<p><strong>Нежелательно переименовывать файлы, иначе придется переименовывать папки у картинок</strong>ю</p>
+<p>Каждый элемент состоит из набора <strong>свойств</strong>:</p>
+<ul>
+<li><code>id</code>: <strong>число УНИКАЛЬНОЕ среди проектов</strong>. Отвечает за сортировку (min &gt; max)</li>
+<li><code>hasLink</code>: <strong>true/false</strong>. Отображение ссылки на главной. Если значение <code>false</code> или <strong>свойство</strong> отсутствует, то элемент будет отображаться без ссылки (без перехода на внутряк)</li>
+<li><code>code</code>: <strong>строка</strong>. Формирует ссылку на проект (/tags/<code>code</code>.html)</li>
+<li><code>name</code>: Заголовок  проекта</li>
+<li><code>preview_picture</code>: Тип <code>картинка</code>. См. тип <a href="#%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B0">Картинка</a>. Путь к картинке</li>
+<li><code>detail_picture</code>: Тип <code>картинка</code>. См. тип <a href="#%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B0">Картинка</a>. Путь к картинке</li>
+<li><code>preview_text</code>: Краткий текст</li>
+<li><code>detail_text</code>: <strong>текст или HTML</strong>. Детальный текст (визуальные редактор).</li>
+<li><code>detail_content</code>: <strong>массив контента</strong>. См. тип <a href="#%D0%BA%D0%BE%D0%BD%D1%82%D0%B5%D0%BD%D1%82">Контент</a>.</li>
+</ul>
+<hr>
+<h2><span id="контент" >Тип контент</span></h2>
+<p>Тип контент имеет 2 вида.</p>
+<p><code>text</code>.
+Имеет следующие свойства:</p>
+<ul>
+<li><code>type</code>: значение <code>text</code>.</li>
+<li><code>content</code>: <strong>текст или HTML</strong>. Детальный текст (визуальные редактор).</li>
+<li><code>quote</code>: Цитата (необязательно). Цитата состоит из:
+<ul>
+<li><code>src</code>: Тип <code>картинка</code>. См. тип <a href="#%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B0">Картинка</a>. Путь к картинке.</li>
+<li><code>name</code>: Заголовок.</li>
+<li><code>description</code>: Краткое описание.</li>
+</ul>
+</li>
+</ul>
+<p><code>slider</code>.
+Является массивом изображений. Если указан 1 элемент, то отобразится как обычная картинка без слайдера.
+Имеет свойства:</p>
+<ul>
+<li><code>type</code>: значение <code>slider</code>.</li>
+<li><code>content</code>: Массив из картинок. Каждый элемент состоит из:
+<ul>
+<li><code>src</code>: Тип <code>картинка</code>. См. тип <a href="#%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B0">Картинка</a>. Путь к картинке.</li>
+<li><code>alt</code>: Название картинки (необязательно).</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2>Команда</h2>
+<p><strong>Путь: <code>/src/data/infoblocks/team.json5</code></strong>
+<img src="./images/team.jpg" alt="team!" title="team"></p>
+<h2>Контакты</h2>
+<p><strong>Путь: <code>/src/data/contacts.json5</code></strong>
+<img src="./images/contacts.jpg" alt="contacts!" title="contacts"></p>
+<hr>
+<h2><span id="картинка" >Тип картинка</span></h2>
+<p>Тип картинка можно задать 2-мя способами:</p>
+<ul>
+<li>просто текст
+<img src="./images/picture.jpg" alt="picture!" title="picture"></li>
+<li>умная ссылка. Позволяет писать путь к картинке кратко.
+<img src="./images/special-picture.jpg" alt="special_picture!" title="special_picture"></li>
+</ul>
+</article>
+
+</section>
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Tutorials</h3><ul><li><a href="tutorial-data.html">Данные</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Sat Nov 20 2021 14:02:31 GMT+0300 (Москва, стандартное время)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

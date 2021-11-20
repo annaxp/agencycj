@@ -3,7 +3,7 @@
   hasLink: false,
   code: 'smm1',
   name: 'SMM',
-  icon_name: 'smm',
+  detail_picture: '',
   preview_text: 'Короткий поясняющий текст в две стороки',
   detail_text: 'Короткий поясняющий текст в две стороки',
   detail_content: [],

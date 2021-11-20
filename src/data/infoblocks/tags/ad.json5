@@ -3,8 +3,8 @@
   hasLink: false,
   code: 'advert1',
   name: 'ВСЕ ВИДЫ РЕКЛАМЫ',
-  icon_name: 'ad',
   preview_text: 'Короткий поясняющий текст в две стороки',
+  detail_picture: '',
   detail_text: 'Короткий поясняющий текст в две стороки',
   detail_content: [],
 }

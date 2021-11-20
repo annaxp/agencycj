@@ -3,7 +3,7 @@
   hasLink: false,
   code: 'web_development1',
   name: 'WEB РАЗРАБОТКА',
-  icon_name: 'web',
+  detail_picture: '',
   preview_text: 'Короткий поясняющий текст в две стороки',
   detail_text: 'Короткий поясняющий текст в две стороки',
   detail_content: [],

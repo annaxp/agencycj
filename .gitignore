@@ -1,2 +1,7 @@
 node_modules
 .htaccess
+robots.txt
+!docs-template/**
+docs-template/tmpl
+docs-template/static/fonts
+docs-template/static/scripts

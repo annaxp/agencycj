@@ -101,7 +101,9 @@ const miniCssExtractPlugin = new MiniCssExtractPlugin({
 //     : { cleanOnceBeforeBuildPatterns: [`!${buildDir}/mail.php`] }),
 // })
 
-const cleanPlugin = new CleanWebpackPlugin()
+const cleanPlugin = new CleanWebpackPlugin({
+  ...(isDev ? { cleanOnceBeforeBuildPatterns: [`!${buildDir}/**`] } : {}),
+})
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
