@@ -11,7 +11,7 @@ mixin services-list(props)
 			- var href = 'services/'+service.code+'.html'
 			.services-item
 				.services-item__link-wrapper
-					#{elementTag}.services-item__link(href=href target="_blank")
+					#{elementTag}.services-item__link(href=href)
 						.services-item__icon
 							+service-icon(icon)
 						.services-item__title= title

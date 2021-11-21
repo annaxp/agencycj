@@ -2,25 +2,46 @@ extends ~@components/page
 
 //- require mixins block
 include ~@components/header
-include ~@blocks/detailPage/project-detail
+include ~@blocks/detailPage/service-detail
 include ~@blocks/detailPage/project-content
+include ~@components/detailPage/next-elements
 
 block variables
 	-	
 		var data = htmlWebpackPlugin.options.data
 		var index = htmlWebpackPlugin.options.dataId
-		var infoblock = data.infoblocks.services[index]
+		var infoblock = data.infoblocks.tags[index]
 
 		var title = infoblock.title
 		var description = infoblock.description
 		var keywords = infoblock.keywords
+		var detailContent = infoblock.detail_content
 
 block content
 	- 
 		var nav = data.pages.services.top_menu
 		var langFile = data.other.index
 
+		var nextElements = (function(element) {
+		var prevElement = element[index - 1]
+		var nextElement = element[index + 1]
+		return {
+			prev: prevElement ? {
+				name: prevElement.name,
+				link: `/services/${prevElement.code}.html`,
+			} : undefined,
+			next: nextElement ? {
+				name: nextElement.name,
+				link: `/services/${nextElement.code}.html`,
+			} : undefined,
+		}
+		})(data.infoblocks.tags)
+
 	body.body
 		+header({nav, button: langFile["feedback"], theme: ['header-wrapper--detail'], buttonClass:['button-light']})
+		+service-detail({...infoblock})
+		+project-content({detailContent, fileName: infoblock.fileName})
+		if nextElements.prev || nextElements.next
+			+next-elements({...nextElements, prevText: langFile["prev_tag"], nextText: langFile["next_tag"]})
 		include ~@blocks/detailPage/project-form
 

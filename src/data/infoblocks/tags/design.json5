@@ -3,7 +3,7 @@
   hasLink: false,
   code: 'design1',
   name: 'ДИЗАЙН',
-  detail_picture: '',
+  detail_picture: '#tag#/detail.jpg',
   preview_text: 'Короткий поясняющий текст в две стороки',
   detail_text: 'Короткий поясняющий текст в две стороки',
   detail_content: [],

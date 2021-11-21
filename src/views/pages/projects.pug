@@ -4,7 +4,7 @@ extends ~@components/page
 include ~@components/header
 include ~@blocks/detailPage/project-detail
 include ~@blocks/detailPage/project-content
-include ~@components/detailPage/next-project
+include ~@components/detailPage/next-elements
 
 block variables
 	-
@@ -32,17 +32,17 @@ block content
 		var nav = data.pages.projects.top_menu
 		var langFile = data.other.index
 
-		var nextProjects = (function(project) {
-			var prevProject = project[index - 1]
-			var nextProject = project[index + 1]
+		var nextElements = (function(project) {
+			var prevElement = project[index - 1]
+			var nextElement = project[index + 1]
 			return {
-				prev: prevProject ? {
-					name: prevProject.name,
-					link: `/projects/${prevProject.code}.html`,
+				prev: prevElement ? {
+					name: prevElement.name,
+					link: `/projects/${prevElement.code}.html`,
 				} : undefined,
-				next: nextProject ? {
-					name: nextProject.name,
-					link: `/projects/${nextProject.code}.html`,
+				next: nextElement ? {
+					name: nextElement.name,
+					link: `/projects/${nextElement.code}.html`,
 				} : undefined,
 		}
 		})(data.infoblocks.projects)
@@ -51,6 +51,6 @@ block content
 		+header({nav, button: langFile["feedback"], theme: ['header-wrapper--detail'], buttonClass:['button-light']})
 		+project-detail({...infoblock, tags})
 		+project-content({detailContent, fileName: infoblock.fileName})
-		if nextProjects.prev || nextProjects.next
-			+next-project(nextProjects)
+		if nextElements.prev || nextElements.next
+			+next-elements({...nextElements, prevText: langFile["prev_project"], nextText: langFile["next_project"]})
 		include ~@blocks/detailPage/project-form

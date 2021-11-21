@@ -7,18 +7,16 @@ mixin service-detail(props)
 	- 
 		var sectionTitle = props.name
 		var subtitle = props.preview_text
-		var bgStyle = `background-color: ${props.background_color}`
 		var detailText = props.detail_text
-		var previewPicture = props.preview_picture?.replace(/#service#/g, `/upload/images/services/${props.fileName}`)
-
+		var previewPicture = props.detail_picture?.replace(/#((service)|(tag))#/g, `/upload/images/$1s/${props.fileName}`)
 	section(class=['project-detail', 'header-offset', 'with-bg'])
+		.project-detail__background 
+			img(src=previewPicture, alt="")
 		.project-detail__inside.container
 			.project-detail__container
 				.project-detail__title
 					+main-title(sectionTitle, 'h1')
 				.project-detail__subtitle= subtitle
-			.project-detail__img-wrapper
-				img(src=previewPicture, alt="")
 	.detail-content.container-short
 		+visual-editor({text: detailText})
 

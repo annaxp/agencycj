@@ -7,7 +7,7 @@ const CopyPlugin = require('copy-webpack-plugin')
 const autoprefixer = require('autoprefixer')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
-const { data, getData } = require('./getData.js')
+const { data } = require('./getData.js')
 const { infoblocks } = data
 const { projects, services, tags } = infoblocks
 
@@ -55,11 +55,11 @@ const html404page = new HtmlWebpackPlugin({
 })
 
 const htmlProjectsPages = projects.map((categoryData, index) => {
-  const category = 'projects'
+  const section = 'projects'
   return new HtmlWebpackPlugin({
     ...htmlWebPackDefault,
-    template: `${pagesDir}/${category}.pug`,
-    filename: `${category}/${categoryData.code}.html`,
+    template: `${pagesDir}/${section}.pug`,
+    filename: `${section}/${categoryData.code}.html`,
     chunks: ['common_vendors', 'common', 'detail'],
     data,
     dataId: index,
@@ -67,11 +67,11 @@ const htmlProjectsPages = projects.map((categoryData, index) => {
 })
 
 const htmlServicesPages = services.map((categoryData, index) => {
-  const category = 'services'
+  const section = 'services'
   return new HtmlWebpackPlugin({
     ...htmlWebPackDefault,
-    template: `${pagesDir}/${category}.pug`,
-    filename: `${category}/${categoryData.code}.html`,
+    template: `${pagesDir}/${section}.pug`,
+    filename: `${section}/${categoryData.code}.html`,
     chunks: ['common_vendors', 'common', 'detail'],
     data,
     dataId: index,
@@ -79,14 +79,13 @@ const htmlServicesPages = services.map((categoryData, index) => {
 })
 
 const htmlTagsPages = tags.map((categoryData, index) => {
-  const category = 'services'
+  const section = 'services'
   return new HtmlWebpackPlugin({
     ...htmlWebPackDefault,
     template: `${pagesDir}/tags.pug`,
-    filename: `${category}/${categoryData.code}.html`,
+    filename: `${section}/${categoryData.code}.html`,
     chunks: ['common_vendors', 'common', 'detail'],
     data,
-    getData,
     dataId: index,
   })
 })
@@ -199,7 +198,7 @@ module.exports = {
         { from: 'mail.php', to: 'mail.php' },
       ],
     }),
-    cleanPlugin,
+    // cleanPlugin,
   ],
   module: {
     rules: [

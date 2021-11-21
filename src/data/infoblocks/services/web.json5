@@ -6,21 +6,21 @@
   icon_name: 'web',
   preview_text: 'Короткий поясняющий текст в две стороки',
   detail_text: 'Короткий поясняющий текст в две стороки',
-  detail_picture: '',
+  detail_picture: '#service#/detail.jpg',
   detail_content: [
     {
       type: 'slider',
       content: [
         {
-          src: '#project#/slide.png',
+          src: '#service#/slide.png',
           alt: '',
         },
         {
-          src: '#project#/slide.png',
+          src: '#service#/slide.png',
           alt: '',
         },
         {
-          src: '#project#/slide.png',
+          src: '#service#/slide.png',
           alt: '',
         },
       ],
@@ -56,7 +56,7 @@
       </ol>\
       ',
       quote: {
-        src: '#project#/person.jpg',
+        src: '#service#/person.jpg',
         name: 'Дмитрий',
         description: 'Предприниматель',
       },
@@ -69,7 +69,7 @@
       type: 'slider',
       content: [
         {
-          src: '#project#/person.jpg',
+          src: '#service#/person.jpg',
           alt: '',
         },
       ],

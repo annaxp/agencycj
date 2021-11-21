@@ -1,7 +1,4 @@
-mixin next-project(props)
-  - 
-    var langFile = htmlWebpackPlugin.options.data.other.index
-
+mixin next-elements(props)
   .container 
     .next-project 
       .next-project__prev 
@@ -9,12 +6,12 @@ mixin next-project(props)
           a.next-project__link(href=props.prev.link)
             .next-project__arrow 
               include ~@assets/icons/detail/detail-next-icon.svg
-            .next-project__desc= langFile["prev_project"]
+            .next-project__desc= props.prevText
             .next-project__name= props.prev.name
       .next-project__next 
         if props.next 
           a.next-project__link(href=props.next.link)
             .next-project__arrow 
               include ~@assets/icons/detail/detail-next-icon.svg
-            .next-project__desc= langFile["next_project"]
+            .next-project__desc= props.nextText
             .next-project__name= props.next.name

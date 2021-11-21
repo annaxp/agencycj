@@ -1,7 +1,9 @@
 .project-detail
+  position: relative
   color: $mainLight
   &__inside
     position: relative
+    z-index: 2
     display: flex
     min-height: 361px
     @media screen and ( max-width: $media-width-xs )
@@ -49,6 +51,17 @@
       height: 100%
       @media screen and ( max-width: $media-width-xsss )
         width: 100%
+  &__background
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background-color: $textDark
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
 .detail-content
   .tags
     margin-top: 32px

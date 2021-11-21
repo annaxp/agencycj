@@ -4,7 +4,7 @@ extends ~@components/page
 include ~@components/header
 include ~@blocks/detailPage/service-detail
 include ~@blocks/detailPage/project-content
-include ~@components/detailPage/next-project
+include ~@components/detailPage/next-elements
 
 block variables
 	-	
@@ -22,17 +22,17 @@ block content
 		var nav = data.pages.services.top_menu
 		var langFile = data.other.index
 
-		var nextServices = (function(element) {
-		var prevService = element[index - 1]
-		var nextService = element[index + 1]
+		var nextElements = (function(element) {
+		var prevElement = element[index - 1]
+		var nextElement = element[index + 1]
 		return {
-			prev: prevService ? {
-				name: prevService.name,
-				link: `/services/${prevService.code}.html`,
+			prev: prevElement ? {
+				name: prevElement.name,
+				link: `/services/${prevElement.code}.html`,
 			} : undefined,
-			next: nextService ? {
-				name: nextService.name,
-				link: `/services/${nextService.code}.html`,
+			next: nextElement ? {
+				name: nextElement.name,
+				link: `/services/${nextElement.code}.html`,
 			} : undefined,
 		}
 		})(data.infoblocks.services)
@@ -40,5 +40,8 @@ block content
 	body.body
 		+header({nav, button: langFile['feedback'], theme: ['header-wrapper--detail'], buttonClass:['button-light']})
 		+service-detail({...infoblock})
+		+project-content({detailContent, fileName: infoblock.fileName})
+		if nextElements.prev || nextElements.next
+			+next-elements({...nextElements, prevText: langFile["prev_service"], nextText: langFile["next_service"]})
 		include ~@blocks/detailPage/project-form
 
