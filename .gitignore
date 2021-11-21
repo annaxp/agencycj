@@ -1,5 +1,5 @@
 node_modules
-.htaccess
+.htaccess*
 robots.txt
 !docs-template/**
 docs-template/tmpl
