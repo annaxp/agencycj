@@ -2,8 +2,8 @@ extends ~@components/page
 
 //- require mixins block
 include ~@components/header
-include ~@blocks/detailPage/project-detail
-include ~@blocks/detailPage/project-content
+include ~@blocks/detailPage/detail-preview
+include ~@components/detailPage/detail-content
 include ~@components/detailPage/next-elements
 
 block variables
@@ -44,13 +44,13 @@ block content
 					name: nextElement.name,
 					link: `/projects/${nextElement.code}.html`,
 				} : undefined,
-		}
+			}
 		})(data.infoblocks.projects)
 
 	body.body
-		+header({nav, button: langFile["feedback"], theme: ['header-wrapper--detail'], buttonClass:['button-light']})
-		+project-detail({...infoblock, tags})
-		+project-content({detailContent, fileName: infoblock.fileName})
+		+header({nav, button: langFile['feedback'], theme: ['header-wrapper--detail'], buttonClass:['button-light']})
+		+detail-preview({...infoblock, tags})
+		+detail-content({detailContent, fileName: infoblock.fileName})
 		if nextElements.prev || nextElements.next
-			+next-elements({...nextElements, prevText: langFile["prev_project"], nextText: langFile["next_project"]})
-		include ~@blocks/detailPage/project-form
+			+next-elements({...nextElements, prevText: langFile['prev_project'], nextText: langFile['next_project']})
+		include ~@blocks/detailPage/detail-form

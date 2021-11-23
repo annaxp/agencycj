@@ -4,7 +4,7 @@ import { mobileScrollTo } from './common/mobileScrollTo'
 
 export const detailMobileApp = () => {
   mobileApp()
-  const form = document.querySelector('.projects-form')
+  const form = document.querySelector('.detail-form')
   const { menu } = mobileMenu(false)
 
   document.querySelector('.header-icon-link').onclick = scrollToForm

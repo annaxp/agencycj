@@ -3,7 +3,7 @@ include ~@components/main-title
 include ~@components/tags
 include ~@components/detailPage/visual-editor
 
-mixin project-detail(props)
+mixin detail-preview(props)
 	- 
 		var sectionTitle = props.name
 		var subtitle = props.preview_text
@@ -12,13 +12,13 @@ mixin project-detail(props)
 		var previewPicture = props.preview_picture.replace(/#project#/g, `/upload/images/projects/${props.fileName}`)
 		var tags = props.tags
 
-	section(class=['project-detail', 'header-offset'], style=bgStyle)
-		.project-detail__inside.container
-			.project-detail__container
-				.project-detail__title
+	section(class=['detail-preview', 'header-offset'], style=bgStyle)
+		.detail-preview__inside.container
+			.detail-preview__container
+				.detail-preview__title
 					+main-title(sectionTitle, 'h1')
-				.project-detail__subtitle= subtitle
-			.project-detail__img-wrapper
+				.detail-preview__subtitle= subtitle
+			.detail-preview__img-wrapper
 				img(src=previewPicture, alt="")
 	.detail-content.container-short
 		+visual-editor({text: detailText})

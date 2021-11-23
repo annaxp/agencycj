@@ -1,7 +1,7 @@
 {
   id: 3,
   hasLink: true,
-  code: 'regbi',
+  code: 'regbi_club',
   name: 'РЕГБИ КЛУБ ТОРПЕДО ВЛАДИМИР',
   preview_picture: '#project#/regbi.png',
   background_color: '#10823c',

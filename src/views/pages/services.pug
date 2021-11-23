@@ -3,7 +3,7 @@ extends ~@components/page
 //- require mixins block
 include ~@components/header
 include ~@blocks/detailPage/service-detail
-include ~@blocks/detailPage/project-content
+include ~@components/detailPage/detail-content
 include ~@components/detailPage/next-elements
 
 block variables
@@ -23,25 +23,25 @@ block content
 		var langFile = data.other.index
 
 		var nextElements = (function(element) {
-		var prevElement = element[index - 1]
-		var nextElement = element[index + 1]
-		return {
-			prev: prevElement ? {
-				name: prevElement.name,
-				link: `/services/${prevElement.code}.html`,
-			} : undefined,
-			next: nextElement ? {
-				name: nextElement.name,
-				link: `/services/${nextElement.code}.html`,
-			} : undefined,
-		}
+			var prevElement = element[index - 1]
+			var nextElement = element[index + 1]
+			return {
+				prev: prevElement ? {
+					name: prevElement.name,
+					link: `/services/${prevElement.code}.html`,
+				} : undefined,
+				next: nextElement ? {
+					name: nextElement.name,
+					link: `/services/${nextElement.code}.html`,
+				} : undefined,
+			}
 		})(data.infoblocks.services)
 
 	body.body
 		+header({nav, button: langFile['feedback'], theme: ['header-wrapper--detail'], buttonClass:['button-light']})
 		+service-detail({...infoblock})
-		+project-content({detailContent, fileName: infoblock.fileName})
+		+detail-content({detailContent, fileName: infoblock.fileName})
 		if nextElements.prev || nextElements.next
-			+next-elements({...nextElements, prevText: langFile["prev_service"], nextText: langFile["next_service"]})
-		include ~@blocks/detailPage/project-form
+			+next-elements({...nextElements, prevText: langFile['prev_service'], nextText: langFile['next_service']})
+		include ~@blocks/detailPage/detail-form
 

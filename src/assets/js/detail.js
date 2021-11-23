@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (deviceType === 'desktop') {
     document.body.classList.add('desktop-app')
-    const form = document.querySelector('.projects-form')
+    const form = document.querySelector('.detail-form')
 
     document.querySelector('.header .call-button').onclick = (e) => {
       e.preventDefault()

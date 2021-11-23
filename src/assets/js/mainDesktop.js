@@ -76,7 +76,7 @@ export const mainDesktopApp = (blocks) => {
     props: {
       direction: 'vertical',
       slidesPerView: 1,
-      speed: 800,
+      speed: 900,
       slideClass: 'main',
       wrapperClass: 'screens-wrapper',
       allowTouchMove: false,

@@ -2,7 +2,6 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const autoprefixer = require('autoprefixer')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
@@ -54,7 +53,7 @@ const html404page = new HtmlWebpackPlugin({
   data,
 })
 
-const htmlProjectsPages = projects.map((categoryData, index) => {
+const htmlProjectPages = projects.map((categoryData, index) => {
   const section = 'projects'
   return new HtmlWebpackPlugin({
     ...htmlWebPackDefault,
@@ -66,7 +65,7 @@ const htmlProjectsPages = projects.map((categoryData, index) => {
   })
 })
 
-const htmlServicesPages = services.map((categoryData, index) => {
+const htmlServicePages = services.map((categoryData, index) => {
   const section = 'services'
   return new HtmlWebpackPlugin({
     ...htmlWebPackDefault,
@@ -78,7 +77,7 @@ const htmlServicesPages = services.map((categoryData, index) => {
   })
 })
 
-const htmlTagsPages = tags.map((categoryData, index) => {
+const htmlTagPages = tags.map((categoryData, index) => {
   const section = 'services'
   return new HtmlWebpackPlugin({
     ...htmlWebPackDefault,
@@ -94,17 +93,8 @@ const miniCssExtractPlugin = new MiniCssExtractPlugin({
   filename: `./assets/styles/${fileName('css')}`,
 })
 
-// const cleanPlugin = new CleanWebpackPlugin({
-//   ...(isDev
-//     ? { cleanOnceBeforeBuildPatterns: [`!${buildDir}/**`] }
-//     : { cleanOnceBeforeBuildPatterns: [`!${buildDir}/mail.php`] }),
-// })
-
-const cleanPlugin = new CleanWebpackPlugin({
-  ...(isDev ? { cleanOnceBeforeBuildPatterns: [`!${buildDir}/**`] } : {}),
-})
-
 module.exports = {
+  mode: process.env.NODE_ENV,
   context: path.resolve(__dirname, 'src'),
   entry: {
     common: './app/common.js',
@@ -112,7 +102,19 @@ module.exports = {
     detail: './app/detail.js',
     page404: './app/page404.js',
   },
-  mode: process.env.NODE_ENV,
+  output: {
+    filename: `./assets/js/${fileName('js')}`,
+    path: path.resolve(__dirname, buildDir),
+    clean: {
+      keep(asset) {
+        return (
+          asset.includes('mail.php') ||
+          asset.includes('upload/') ||
+          asset.includes('htaccess')
+        )
+      },
+    },
+  },
   resolve: {
     alias: {
       '@pages': path.resolve(__dirname, './src/views/pages'),
@@ -130,10 +132,6 @@ module.exports = {
       '@fonts': path.resolve(__dirname, './src/assets/fonts'),
       '@data': path.resolve(__dirname, './src/data'),
     },
-  },
-  output: {
-    filename: `./assets/js/${fileName('js')}`,
-    path: path.resolve(__dirname, buildDir),
   },
   optimization: {
     splitChunks: {
@@ -185,9 +183,9 @@ module.exports = {
     }),
     htmlIndex,
     html404page,
-    ...htmlProjectsPages,
-    ...htmlServicesPages,
-    ...htmlTagsPages,
+    ...htmlProjectPages,
+    ...htmlServicePages,
+    ...htmlTagPages,
     miniCssExtractPlugin,
     new CopyPlugin({
       patterns: [
@@ -195,10 +193,8 @@ module.exports = {
         { from: 'assets/videos', to: 'upload/videos' },
         { from: 'assets/styles/fonts.css', to: 'assets/styles/fonts.css' },
         { from: 'assets/fonts', to: 'assets/fonts' },
-        { from: 'mail.php', to: 'mail.php' },
       ],
     }),
-    // cleanPlugin,
   ],
   module: {
     rules: [
