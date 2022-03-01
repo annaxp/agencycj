@@ -2,7 +2,7 @@
   id: 1,
   hasLink: true,
   code: 'buro_dmitriya',
-  name: 'Бюро Дмитрия Якушева',
+  name: 'Бюро Дмитрия Якушева1',
   preview_picture: '#project#/buro.png',
   background_color: '#056f90',
   preview_text: 'Сайт калькулятор для строительного бюро',

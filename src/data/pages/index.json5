@@ -30,7 +30,7 @@
   ],
   blocks: {
     preview: {
-      title: 'Очень крутой слоган о том что делает',
+      title: 'Помогаем развивать бизнес в интернет пространстве',
       videos: [{ src: '/upload/videos/background.mp4', type: 'video/mp4' }],
       tags: [
         { name: 'SMM', link: '' },

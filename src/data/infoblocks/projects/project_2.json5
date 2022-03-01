@@ -2,7 +2,7 @@
   id: 2,
   hasLink: true,
   code: 'punkt_priema',
-  name: 'Пункт приема Донорской крови',
+  name: 'Пункт приема Донорской крови1',
   preview_picture: '#project#/punkt.png',
   background_color: '#fc4400',
   preview_text: 'Социальные сети и сайт для донорства',
