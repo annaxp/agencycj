@@ -1,8 +1,8 @@
 {
-  id: 1,
+  id: 4,
   hasLink: false,
-  code: 'ux_analitics1',
-  name: 'UX АНАЛИТИКА',
+  code: 'ux_analitic1',
+  name: 'UX/UI АНАЛИТИКА',
   detail_picture: '#tag#/detail.jpg',
   preview_text: 'Короткий поясняющий текст в две стороки',
   detail_text: 'Короткий поясняющий текст в две стороки',

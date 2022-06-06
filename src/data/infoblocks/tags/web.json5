@@ -1,8 +1,8 @@
 {
-  id: 0,
+  id: 2,
   hasLink: true,
   code: 'web_development1',
-  name: 'WEB РАЗРАБОТКА',
+  name: 'СОЗДАНИЕ САЙТОВ',
   detail_picture: '#tag#/detail.jpg',
   preview_text: 'Короткий поясняющий текст в две стороки',
   detail_text: 'Короткий поясняющий текст в две стороки',

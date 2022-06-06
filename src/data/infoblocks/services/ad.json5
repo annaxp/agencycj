@@ -1,8 +1,8 @@
 {
   id: 2,
   hasLink: true,
-  code: 'advert',
-  name: 'ВСЕ ВИДЫ РЕКЛАМЫ',
+  code: 'context',
+  name: 'КОНТЕКСТНАЯ РЕКЛАМА',
   icon_name: 'ad',
   preview_text: 'Короткий поясняющий текст в две стороки',
   detail_text: 'Короткий поясняющий текст в две стороки',

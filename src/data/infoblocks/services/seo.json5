@@ -1,9 +1,9 @@
 {
-  id: 3,
+  id: 1,
   hasLink: true,
-  code: 'design',
-  name: 'ДИЗАЙН',
-  icon_name: 'design',
+  code: 'seo',
+  name: 'SEO',
+  icon_name: 'seo',
   preview_text: 'Короткий поясняющий текст в две стороки',
   detail_text: 'Короткий поясняющий текст в две стороки',
   detail_picture: '#service#/detail.jpg',

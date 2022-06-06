@@ -1,21 +1,13 @@
 {
-  phone: '8 900 800 42 42',
-  phone_link: '+79008004242',
-  email: 'hello@agensyux.ru',
-  adress: 'г. Москва, Ленинский проспект д. 2 оф. 45',
-  adress_link: 'https://yandex.ru/maps/213/moscow/house/leninskiy_prospekt_2/Z04YcAZhSkwFQFtvfXtzeHlhbQ==/?ll=37.617515%2C55.727938&source=wizgeo&utm_medium=maps-desktop&utm_source=serp&z=15.84',
+  phone: '+7 995 960 50 70',
+  phone_link: '+7959605070',
+  email: 'info@agency-ux.ru',
+  adress: 'г. Владимр, ул.Мира, д.15б',
+  adress_link: 'https://yandex.ru/maps/192/vladimir/house/ulitsa_mira_15b/YEkYdQ9jQUwPQFtsfX1yeXxlZg==/?ll=40.383899%2C56.138062&utm_source=main_stripe_big&z=16.97',
   socials: [
-    {
-      icon: 'fb',
-      link: 'https://facebook.com',
-    },
     {
       icon: 'vk',
       link: 'https://vk.com',
-    },
-    {
-      icon: 'inst',
-      link: 'https://instagram.com',
     },
   ],
 }

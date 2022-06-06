@@ -1,6 +1,6 @@
 {
-  id: 4,
-  hasLink: false,
+  id: 1,
+  hasLink: true,
   code: 'smm1',
   name: 'SMM',
   detail_picture: '#tag#/detail.jpg',

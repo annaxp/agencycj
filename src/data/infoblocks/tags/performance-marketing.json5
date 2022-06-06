@@ -1,0 +1,10 @@
+{
+  id: 8,
+  hasLink: false,
+  code: 'performance-marketing',
+  name: 'PERFORMANCE-МАРКЕТИНГ',
+  detail_picture: '#tag#/detail.jpg',
+  preview_text: 'Короткий поясняющий текст в две стороки',
+  detail_text: 'Короткий поясняющий текст в две стороки',
+  detail_content: [],
+}

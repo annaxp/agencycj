@@ -1,8 +1,8 @@
 {
-  id: 0,
+  id: 3,
   hasLink: true,
   code: 'web_development',
-  name: 'WEB',
+  name: 'WEB-РАЗРАБОТКА',
   icon_name: 'web',
   preview_text: 'Короткий поясняющий текст в две стороки',
   detail_text: 'Короткий поясняющий текст в две стороки',

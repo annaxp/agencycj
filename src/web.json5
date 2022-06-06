@@ -1,8 +1,8 @@
 {
-  id: 5,
-  hasLink: false,
-  code: 'automation1',
-  name: 'АВТОМАТИЗАЦИЯ',
+  id: 0,
+  hasLink: true,
+  code: 'web_development1',
+  name: 'WEB РАЗРАБОТКА',
   detail_picture: '#tag#/detail.jpg',
   preview_text: 'Короткий поясняющий текст в две стороки',
   detail_text: 'Короткий поясняющий текст в две стороки',
